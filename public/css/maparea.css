@@ -1,0 +1,25 @@
+body{
+
+    background-size: cover;
+    color:black;
+}
+
+li{
+    cursor:pointer;
+}
+canvas{
+    pointer-events: none;       /* make the canvas transparent to the mouse - needed since canvas is position infront of image */
+    position: absolute;
+}
+
+.container{
+    display:flex;
+}
+.flex{
+    flex:1;
+    margin: 5%;
+}
+.selected{
+    background-color: red;
+}
+
