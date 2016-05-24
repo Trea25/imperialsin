@@ -8,6 +8,7 @@
     <script src='{{URL::asset('js/guillotine/jquery.mousewheel.min.js')}}'></script>
     <link href='{{URL::asset('css/guillotine/jquery.guillotine.css')}}' media='all' rel='stylesheet'>
     <script src='{{URL::asset('js/guillotine/jquery.guillotine_startup.js')}}'></script>
+    <script src="{{URL::asset('js/validacioform.js')}}" type="text/javascript"></script>
 
 
 @endsection
@@ -39,7 +40,8 @@
 
 
     <label>Titol</label><br>
-    <input type="text" class="form-control" name="ntitol" value="{{$noticia->ntitol}}"/><br>
+    <input onchange="valtitol(this.value)" type="text" class="form-control" name="ntitol" value="{{$noticia->ntitol}}"/><br>
+    <div hidden id="titol">aa</div>
 
     <label>Descripcio</label><br>
     <textarea id="textarea" class="form-control" name="ndesc" cols="80" rows="8">{{$noticia->ndesc}}</textarea>

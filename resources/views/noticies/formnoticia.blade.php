@@ -1,5 +1,9 @@
 @extends('layouts.app')
-
+@section('head')
+    <title>Afegir Noticia</title>
+    <script src="{{URL::asset('js/jquery-2.1.4.min.js')}}" type="text/javascript"></script>
+    <script src="{{URL::asset('js/validacioform.js')}}" type="text/javascript"></script>
+@endsection
 @section('content')
 
 
@@ -38,7 +42,8 @@
         <input type="hidden" id='angle' name="angle"/>
     </div>
 
-    <label>Titol de Noticia</label><input class="form-control" class="form-control" id="ntitol" name="ntitol" type="text"/>
+    <label>Titol de Noticia</label><input onchange="valtitol(this.value)" class="form-control" class="form-control" id="ntitol" name="ntitol" type="text"/>
+    <div hidden id="titol"></div>
     <label>Descripció</label>
     <textarea class="form-control" id="textarea" name="ndesc"></textarea>
     @if(Auth::id()==1)

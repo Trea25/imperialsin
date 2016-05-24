@@ -2,6 +2,7 @@
 @section('head')
     <title>Modificar Tipus</title>
     <script src="{{URL::asset('js/jquery-2.1.4.min.js')}}" type="text/javascript"></script>
+    <script src="{{URL::asset('js/validacioform.js')}}" type="text/javascript"></script>
 @endsection
 @section('content')
 
@@ -10,8 +11,8 @@
     {{ method_field('PUT') }}
 
         <label>Tipus</label><br>
-        <input class="form-control" type="text" name="tipus" value="{{$tipus_event->tipus}}"/><br>
-
+        <input onchange="valtipus(this.value)" class="form-control" type="text" name="tipus" value="{{$tipus_event->tipus}}"/><br>
+        <div hidden id="tipus"></div>
         <button class="btn btn-success">Guardar</button>
     </form>
 

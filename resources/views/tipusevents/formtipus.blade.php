@@ -8,7 +8,8 @@
     <form action="/tipusevent" method="POST">
         {{ csrf_field() }}
         <label>Nom del Event</label><br>
-        <input class="form-control" name="tipus" type="text"/><br>
+        <input onchange="valtipus(this.value)" class="form-control" name="tipus" type="text"/><br>
+        <div hidden id="tipus"></div>
         <button class="btn btn-success" type="submit">Envia</button>
     </form>
 @endsection

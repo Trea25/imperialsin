@@ -158,4 +158,19 @@ class CarrerController extends Controller
 
         }
     }
+
+    public function carrerfoto($id)
+    {
+        $this->middleware('auth');
+        //DB::connection()->enableQueryLog();
+        $carrer = DB::table('fotos')->where("carrer_id", "=", $id)->orderBy('created_at', "ASC")->select("fotos.id")->get();
+        //Log::info(DB::getQueryLog());
+
+        for($i=0;$i<12&&$i<sizeof($carrer);$i++){
+            $array[]=$carrer[$i]->id;
+        }
+
+        $array=json_encode($carrer);
+        return $array;
+    }
 }

@@ -39,6 +39,8 @@
 
 </div>
 <div id="result"></div>
+<div id="fotos"></div>
+
 
 <script src="{{URL::asset('js/jquery-ui-1.11.1.js')}}" type="text/javascript"></script>
 <script src="{{URL::asset('js/jquery-ui.multidatespicker.js')}}" type="text/javascript"></script>

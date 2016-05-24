@@ -2,13 +2,14 @@
 @section('head')
     <title>Afegir Event</title>
     <script src="{{URL::asset('js/jquery-2.1.4.min.js')}}" type="text/javascript"></script>
+    <script src="{{URL::asset('js/validacioform.js')}}" type="text/javascript"></script>
 @endsection
 @section('content')
 
     <form action="/event" method="POST">
         {{ csrf_field() }}
-        <label>Titol de Event</label><input class="form-control" class="form-control" id="etitol" name="etitol" type="text" />
-
+        <label>Titol de Event</label><input onchange="valtitol(this.value)" class="form-control" class="form-control" id="etitol" name="etitol" type="text" />
+        <div hidden id="titol"></div>
 
             <label>Tipus Event</label>
             <select class="form-control" name="tipus_id">
@@ -18,9 +19,11 @@
                 @endforeach
             </select>
         <label>Data (dd/mm/yyyy)</label>
-        <input class="form-control" type="date" name="data"/>
+        <input onchange="valdata(this.value)" class="form-control" type="date" name="data"/>
+        <div hidden id="data">aa</div>
         <label>Hora (hh:mm)</label>
-        <input class="form-control" type="text" name="hora"/>
+        <input onchange="valhora(this.value)" class="form-control" type="text" name="hora"/>
+        <div hidden id="hora">aa</div>
         @if(Auth::id()==1)
             <label>Carrer</label>
             <select class="form-control" name="id_carrer">

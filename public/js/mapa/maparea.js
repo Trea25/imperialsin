@@ -84,6 +84,7 @@ function toogleArea(item){
            result=resultat.data;
              string="<div><h3>"+result.cnom+"</h3><br /><h5>"+result.cany_inici+"</h5><br /><p>"+result.cdescripcio+"</p></div>";
              $("#result").html(string);
+             fotoscarrers(result.id);
          }
      });
  }
@@ -159,4 +160,45 @@ function search(){
         }});
 
 }
+
+ function fotoscarrers(id){
+     $.ajax({
+         url: "carrer/foto/"+id,
+         type: 'GET',
+         dataType: 'json',
+         success: function (result) {
+             string=" <div id='gallery'>" +
+                 "<div id='gallery-carousel' class='carousel slide' data-interval='false'>" +
+                 "<div class='container'>" +
+                 "<div class='row'>" +
+                 "<div class='col-sm-12'>" +
+                 "<h2>Fotos</h2>" +
+                 "<a class='gallery-control-left' href='#gallery-carousel' data-slide='prev'><i class='fa fa-angle-left'></i></a> " +
+                 "<a class='gallery-control-right' href='#gallery-carousel' data-slide='next'><i class='fa fa-angle-right'></i></a> " +
+                 "<div class='carousel-inner'> " +
+                 "<div class='item active'> " +
+                 "<ul>";
+             for(i=0;i<result.length;i++){
+                 if(i==4||i==8){
+                     string+="</ul></div><div class='item'><ul>";
+                 }
+                 string+="<li><img class='img-responsive' src='foto/"+result[i].id+"' alt=''></li>";
+             }
+
+             string+= "</ul> " +
+                 "</div> " +
+                 "</div> " +
+                 "</div>" +
+                 "</div>" +
+                 "</div>" +
+                 "<div class='light'>" +
+                 "<img class='img-responsive' src='images/light.png' alt=''>" +
+                 "</div>" +
+                 "</div>" +
+                 "</div>";
+             $("#fotos").html(string);
+
+         }
+     });
+ }
 

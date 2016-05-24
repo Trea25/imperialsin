@@ -2,6 +2,7 @@
 @section('head')
     <title>Modificar Event</title>
     <script src="{{URL::asset('js/jquery-2.1.4.min.js')}}" type="text/javascript"></script>
+    <script src="{{URL::asset('js/validacioform.js')}}" type="text/javascript"></script>
 @endsection
 @section('content')
 
@@ -10,7 +11,8 @@
         {{ method_field('PUT') }}
 
         <label>Titol</label><br>
-        <input class="form-control" type="text" name="etitol" value="{{$event->etitol}}"/><br>
+        <input onchange="valtitol(this.value)" class="form-control" type="text" name="etitol" value="{{$event->etitol}}"/><br>
+        <div hidden id="titol"></div>
 
         <label>Tipus Event</label><br>
         <select class="form-control" name="tipus_id">
@@ -24,11 +26,12 @@
         </select><br>
 
         <label>Dia (dd/mm/yyyy)</label><br>
-        <input class="form-control" type="text" name="data" value="{{$data}}"/><br>
+        <input onchange="valdata(this.value)" class="form-control" type="text" name="data" value="{{$data}}"/><br>
+        <div hidden id="data">aa</div>
 
         <label>Hora (hh:mm)</label><br>
-        <input class="form-control" type="text" name="hora" value="{{$hora}}"/><br>
-
+        <input onchange="valhora(this.value)" class="form-control" type="text" name="hora" value="{{$hora}}"/><br>
+        <div hidden id="hora">aa</div>
 
         <label>Carrer</label><br>
         <select class="form-control" name="carrer_id">

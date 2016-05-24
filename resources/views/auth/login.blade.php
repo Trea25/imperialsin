@@ -39,9 +39,11 @@
                             <button type="submit" class="btn btn-default">
                                 <i class="fa fa-btn fa-plus"></i>Login
                             </button>
+
                         </div>
                     </div>
                 </form>
+                <a href="/password/email"><button class="btn btn-default">He oblidat la contrasenya</button></a>
             </div>
         </div>
 
