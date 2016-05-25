@@ -33,7 +33,7 @@ class CarrerController extends Controller
         return $response;
     }
 
-    public function show($id)
+    public function show($lang,$id)
     {
         $carrer = Carrer::find($id);
         if (!$carrer) {
@@ -44,7 +44,7 @@ class CarrerController extends Controller
         return $response;
     }
 
-    public function edit($id)
+    public function edit($lang,$id)
     {
         $this->middleware('auth');
         $carrer = Carrer::find($id);

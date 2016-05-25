@@ -13,7 +13,7 @@ class CarrerEventController extends Controller
 {
 
 
-    public function index($idCarrer)
+    public function index($lang,$idCarrer)
     {
 
         $carrer=Carrer::find($idCarrer);
@@ -30,7 +30,7 @@ class CarrerEventController extends Controller
     }
 
 
-    public function create($idCarrer)
+    public function create($lang,$idCarrer)
     {
         $this->middleware('auth');
         // return formulari creacio event per al carrer amb id $idCarrer
@@ -45,7 +45,7 @@ class CarrerEventController extends Controller
     }
 
 
-    public function show($idCarrer,$idEvent)
+    public function show($lang,$idCarrer,$idEvent)
     {
         $event = Event::find($idEvent);
         if(!$event || $event->carrer_id != $idCarrer){

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('head')
-    <title>Buscador</title>
+    <title>{{ trans('messages.search') }}</title>
     <script src="{{URL::asset('js/jquery-2.1.4.min.js')}}" type="text/javascript"></script>
     <link href="{{URL::asset('css/mdp.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/prettify.css')}}" rel="stylesheet">
@@ -33,7 +33,7 @@
                 <div class="container">
                     <div class="flex">
                         <canvas id='Canvas'></canvas>
-                        <img src="./img/mapa.png" usemap="#imgmap" id="mapimg" >
+                        <img src="/img/mapa.png" usemap="#imgmap" id="mapimg" >
                         <map id="imgmap" name="imgmap">
                             <area shape="poly" id="4" alt="Roses" name="Roses"  href="#" title="Roses" coords="128,7,182,36,182,41,178,42,124,11,126,8" onclick="toogleArea(this)" />
                             <area shape="poly" id="10" alt="Papin" name="Papin"  href="#" title="Papin" coords="206,87,220,66,224,67,224,73,213,90,209,90" onclick="toogleArea(this)" />

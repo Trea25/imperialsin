@@ -292,3 +292,17 @@ body{
 
     }
 }
+
+/**
+* Letras
+**/
+titol{
+    font-size:2em;
+}
+date{
+    font-size: .75em;
+    font-style: italic;
+}
+desc{ 
+    font-size: 1em;
+}

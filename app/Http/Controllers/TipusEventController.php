@@ -22,7 +22,7 @@ class TipusEventController extends Controller
         return $response;
     }
 
-    public function show($id)
+    public function show($lang,$id)
     {
         $tipusevent = TipusEvent::find($id);
         if (!$tipusevent) {
@@ -33,7 +33,7 @@ class TipusEventController extends Controller
         return $response;
     }
 
-    public function update($id, Request $request)
+    public function update($lang,$id, Request $request)
     {
         $this->authorize('admin');
         $this->validate($request, [
@@ -95,7 +95,7 @@ class TipusEventController extends Controller
         ]);
     }
 
-    public function edit($id)
+    public function edit($lang,$id)
     {
         $this->middleware('auth');
         $tipusevent = TipusEvent::find($id);

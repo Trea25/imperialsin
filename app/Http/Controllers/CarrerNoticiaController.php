@@ -14,7 +14,7 @@ class CarrerNoticiaController extends Controller
 {
 
 
-    public function index($idCarrer){
+    public function index($lang,$idCarrer){
         $carrer = Carrer::find($idCarrer);
         if(!$carrer){
             $response= Response::json(array("errors" => array(['code'=>404,'message'=>"No se ha encontrado ninguna calle con ese código"])),404, Utils::$headers, JSON_UNESCAPED_UNICODE);
@@ -24,12 +24,12 @@ class CarrerNoticiaController extends Controller
         }
         return $response;
     }
-    public function create($idCarrer)
+    public function create($lang,$idCarrer)
     {
         $this->middleware('auth');
         //retornar formulari per crear una noticia per al carrer amb id = $idCarrer
     }
-    public function show($idCarrer,$idNoticia)
+    public function show($lang,$idCarrer,$idNoticia)
     {
         $noticia = Noticia::find($idNoticia);
         if(!$noticia || $noticia->carrer_id != $idCarrer){
