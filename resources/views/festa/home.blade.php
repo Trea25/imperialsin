@@ -29,7 +29,7 @@
                             <div class="row">
                                 <h3 class="header-noticia">{{$noticia->ntitol}}</h3>
                                 <p class="body-noticia -align-justify"
-                                   style="backgrond:#FFFFFF !important;">{!! $noticia->ndesc !!}}</p>
+                                   style="backgrond:#FFFFFF !important;">{!! $noticia->ndesc !!}...</p>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">

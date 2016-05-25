@@ -38,7 +38,7 @@
         <input type="hidden" id='angle' name="angle"/>
     </div>
     @if(Auth::id() == 1)
-        <label>Carrer</label>
+        <label>{{trans('messages.Street')}}</label>
         <select class="form-control" name="id_carrer">
             <option value="0" selected>Selecciona el carrer</option>
             @foreach($carrers as $carrer)
@@ -46,8 +46,8 @@
             @endforeach
         </select>
     @endif
-    <button type="submit" id="afegirnoticia" class="btn btn-success">Enviar</button>
-    <button href="/administracio" class="btn btn-danger">Tornar</button>
+    <button type="submit" id="afegirnoticia" class="btn btn-success">{{trans('messages.send')}}</button>
+    <button href="/administracio" class="btn btn-danger">{{trans('messages.back')}}</button>
     {!! Form::close() !!}
 
 @endsection

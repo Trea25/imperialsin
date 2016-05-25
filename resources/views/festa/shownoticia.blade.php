@@ -4,12 +4,15 @@
     <center>
 
     <div class="separador"></div>
-    <img src="/foto/{{$foto->id}}" />
-    
-        <h3>{{$noticia->ntitol}}</h3>
-        {{ $noticia->created_at }}
-        <br><br>
-        {{ $noticia->ndesc }}
+   @if ($noticia->foto_id != 0)
+        <img src="/foto/{{$noticia->foto_id}}" />
+        <br/>
+        @endif
+    <titol>{{$noticia->ntitol}}</titol>
+    <br />
+    <date>{{ trans('messages.posted_at') }} {{ $noticia->created_at }}</date>
+    <br><br>
+    <desc>{{ $noticia->ndesc }}<desc>
 
         <br><br /><br />
         <div class="fb-share-button" data-href="http://google.es" data-layout="button" data-mobile-iframe="true"></div>

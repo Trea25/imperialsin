@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('head')
-    <title>Modificar Noticia</title>
+    <title>{{trans('messages.news_edit')}}</title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, target-densitydpi=device-dpi'>
     <script src='http://code.jquery.com/jquery-1.11.0.min.js'></script>
     <script src='{{URL::asset('js/guillotine/jquery.guillotine.js')}}'></script>
@@ -39,15 +39,15 @@
     </div>
 
 
-    <label>Titol</label><br>
+    <label>{{trans('messages.title')}}</label><br>
     <input onchange="valtitol(this.value)" type="text" class="form-control" name="ntitol" value="{{$noticia->ntitol}}"/><br>
     <div hidden id="titol">aa</div>
 
-    <label>Descripcio</label><br>
+    <label>{{trans('messages.desc')}}</label><br>
     <textarea id="textarea" class="form-control" name="ndesc" cols="80" rows="8">{{$noticia->ndesc}}</textarea>
 
 
-    <label>Carrer</label><br>
+    <label>{{trans('messages.Street')}}</label><br>
     <select class="form-control" name="carrer_id">
         @foreach($carrers as $carrer)
             @if($carrer->id==$noticia->carrer_id)
@@ -58,13 +58,13 @@
         @endforeach
     </select><br>
 
-    <label>Aprovar <input name="nactiu" type="checkbox" @if ($noticia->nactiu) checked @endif/></label><br>
+    <label>{{trans('messages.ev_approve')}} <input name="nactiu" type="checkbox" @if ($noticia->nactiu) checked @endif/></label><br>
 
-    <button class="btn btn-success">Guardar</button>
+    <button class="btn btn-success">{{trans('messages.save')}}</button>
     </form>
     <form method="POST" action="/noticia/{{ $noticia->id }}">
         {{ csrf_field() }}
         {{ method_field('DELETE') }}
-        <button class="btn btn-danger">Eliminar</button>
+        <button class="btn btn-danger">{{trans('messages.delete')}}</button>
     </form>
 @endsection

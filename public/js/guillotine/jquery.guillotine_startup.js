@@ -13,7 +13,7 @@ window.onload = function () {
 
     picture.on('load', function() {
         if (picture.guillotine('instance')) picture.guillotine('remove');
-        picture.guillotine({width: 600, height: 400, eventOnChange: 'guillotinechange', init:{scale:1}});
+        picture.guillotine({width: 640, height: 480, eventOnChange: 'guillotinechange', init:{scale:1}});
         picture.guillotine('fit');
 // Display inital data
         var data = picture.guillotine('getData');

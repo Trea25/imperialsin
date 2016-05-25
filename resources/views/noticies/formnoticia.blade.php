@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('head')
-    <title>Afegir Noticia</title>
+    <title>{{trans('messages.Add_news')}}</title>
     <script src="{{URL::asset('js/jquery-2.1.4.min.js')}}" type="text/javascript"></script>
     <script src="{{URL::asset('js/validacioform.js')}}" type="text/javascript"></script>
 @endsection
@@ -42,26 +42,26 @@
         <input type="hidden" id='angle' name="angle"/>
     </div>
 
-    <label>Titol de Noticia</label><input onchange="valtitol(this.value)" class="form-control" class="form-control" id="ntitol" name="ntitol" type="text"/>
+    <label>{{trans('messages.not_title')}}</label><input onchange="valtitol(this.value)" class="form-control" class="form-control" id="ntitol" name="ntitol" type="text"/>
     <div hidden id="titol"></div>
-    <label>Descripció</label>
+    <label>{{trans('messages.not_desc')}}</label>
     <textarea class="form-control" id="textarea" name="ndesc"></textarea>
     @if(Auth::id()==1)
-        <label>Carrer</label>
+        <label>{{trans('messages.Street')}}</label>
         <select class="form-control" name="id_carrer">
-            <option value="0" selected>Selecciona el carrer</option>
+            <option value="0" selected>{{trans('messages.ev_select_street')}}</option>
             @foreach($carrers as $carrer)
                 <option value="{{$carrer->id}}">{{$carrer->cnom}}</option>
             @endforeach
         </select>
     @endif
     <br/>
-    <label>Publicar en : </label><br/>
+    <label>{{trans('messages.publish_to')}} : </label><br/>
     <!-- Faltará ocultar los checkbox con un style="display:none" -->
     <label><input type="checkbox" class="form-control" name="twitter" id="Twitter" ><img width="50" height="50" src="/img/Twitter-Logo-2.png"  onclick="select(this,'Twitter');"></img></label>
    <br /><br />
-    <button type="submit" id="afegirnoticia" class="btn btn-success">Enviar</button>
-    <button href="/administracio" class="btn btn-danger">Tornar</button>
+    <button type="submit" id="afegirnoticia" class="btn btn-success">{{trans('messages.send')}}</button>
+    <button href="/administracio" class="btn btn-danger">{{trans('messages.back')}}</button>
     {!! Form::close() !!}
 
     @endsection

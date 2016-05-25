@@ -24,8 +24,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
-        //
-
+        //define que un lang tine longitud de 2-3
+        $router->pattern('lang', '[a-zA-Z]{2,3}');
         parent::boot($router);
     }
 
