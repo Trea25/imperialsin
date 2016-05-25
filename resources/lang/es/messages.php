@@ -46,22 +46,42 @@ return [
     'save' => 'Guardar',
     'delete' => 'Eliminar',
     'title' => 'Título',
+    'desc' => 'Descripcion',
+    'name' => 'Nom',
+    'i_year' => 'Año inicial',
+    'fb' => 'Facebook',
+    'tw' => 'Twitter',
+    'ins' => 'Instagram',
     
     //Form Noticia
     'not_select_street' => 'Selecciona la calle',
     'not_title' => 'Titulo de la noticia',
     'not_desc' => 'Descripción de la noticia',
     'publish_to' => 'Publicar en',
-
+    
+    'news_list' => 'Listado de noticias',
+    'news_edit' => 'Modificar noticia',
+    
     //Form Event
     'ev_title' => 'Titulo del Evento',
+    'ev_name' => 'Nombre del Evento',
     'ev_type' => 'Tipo de Evento',
     'ev_select_type' => 'Selecciona el tipo',
     'ev_select_street' => 'Selecciona la calle',
     'ev_edit' => 'Modificar Evento',
     'ev_approve' => 'Aprovar',
+   
+    'ev_list' => 'Lista de Eventos',
+    
+    'edit_type' => 'Modificar tipos',
+    'add_type' => 'Añadir tipo',
+    'type' => 'Tipo',
+    'type_list' => 'Lista de tipos',
     
     //Search
     'search'=>'Buscador',
+    
+    //Carrers
+    'edit_street' => 'Modificar Calle',
 
 ];

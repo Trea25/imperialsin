@@ -46,6 +46,12 @@ return [
     'save' => 'Guardar',
     'delete' => 'Eliminar',
     'title' => 'Titol',
+    'desc' => 'Descripció',
+    'name' => 'Nom',
+    'i_year' => 'Any inicial',
+    'fb' => 'Facebook',
+    'tw' => 'Twitter',
+    'ins' => 'Instagram',
     
     
     //Form Noticia
@@ -53,6 +59,9 @@ return [
     'not_title' => 'Titol de la noticia',
     'not_desc' => 'Descripció de la noticia',
     'publish_to' => 'Publicar a',
+    
+    'news_list' => 'Llistat de Noticies',
+    'news_edit' => 'Modificar Noticia',
 
     //Form Event
     'ev_title' => 'Titol de l\'event',
@@ -62,6 +71,17 @@ return [
     'ev_edit' => 'Modificar Event',
     'ev_approve' => 'Aprovar',
 
+     'ev_list' => 'Llistat dd\' Events',
+    
+    'edit_type' => 'Modificar tipus',
+    'add_type' => 'Afegir tipus',
+    'type' => 'Tipus',
+    'type_list' => 'Llistat de tipus',
+     
     //Search
     'search'=>'Buscador',
+    
+    //Carrers
+    'edit_street' => 'Modificar Carrer',
+    
 ];

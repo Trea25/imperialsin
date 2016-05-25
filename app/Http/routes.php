@@ -77,19 +77,19 @@
     Route::get('tipusevent/{id}/edit', function () {
         return redirect('/'.App::getLocale().'/tipusevent/'.Route::input('id').'/edit');
     });
-    Route::get('carrer', function () {
+    Route::get('carrer/create', function () {
         return redirect('/'.App::getLocale().'/carrer/create');
     });
    Route::get('carrer/{id}/edit', function () {
         return redirect('/'.App::getLocale().'/carrer/'.Route::input('id').'/edit');
     });
-    Route::get('event', function () {
+    Route::get('event/create', function () {
         return redirect('/'.App::getLocale().'/event/create');
     });
      Route::get('event/{id}/edit', function () {
         return redirect('/'.App::getLocale().'/event/'.Route::input('id').'/edit');
     });
-    Route::get('noticia', function () {
+    Route::get('noticia/create', function () {
         return redirect('/'.App::getLocale().'/noticia/create');
     });
      Route::get('noticia/{id}/edit', function () {
@@ -154,10 +154,11 @@ Route::post('password/email', 'Auth\PasswordController@postEmail');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
 Route::post('/fotoCarrer', 'carrerController@afegirFoto');
 //===RESOURCES===//
-
-
-Route::resource('carrer', 'CarrerController');
-Route::resource('event', 'EventController');
-Route::resource('noticia', 'NoticiaController');
+Route::resource('carrer', 'CarrerController',
+    ['except' => ['create', 'edit']]);
+Route::resource('event', 'EventController',
+    ['except' => ['create', 'edit']]);
+Route::resource('noticia', 'NoticiaController',
+    ['except' => ['create', 'edit']]);
 Route::resource('carrer.noticia', 'CarrerNoticiaController');
 Route::resource('carrer.event', 'CarrerEventController');
