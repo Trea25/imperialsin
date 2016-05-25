@@ -12,7 +12,7 @@
         <h3>{{$noticia->ntitol}}</h3>
         {{ $noticia->created_at }}
         <br><br>
-        {{ $noticia->ndesc }}
+        {!! $noticia->ndesc !!}
 
         <br>
         <div class="fb-share-button" data-href="http://google.es" data-layout="button" data-mobile-iframe="true"></div>
