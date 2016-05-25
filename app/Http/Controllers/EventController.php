@@ -51,7 +51,7 @@ class EventController extends Controller
         ]);
     }
 
-    public function show($id)
+    public function show($lang,$id)
     {
         $event = Event::find($id);
         if(!$event){
@@ -130,7 +130,7 @@ class EventController extends Controller
         }
     }
 
-    public function edit($id)
+    public function edit($lang,$id)
     {
         $this->middleware('auth');
         $event = Event::find($id);

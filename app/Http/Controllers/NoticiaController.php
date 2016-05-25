@@ -82,7 +82,7 @@ class NoticiaController extends Controller
      * @param $id
      * @return mixed
      */
-    public function show($id)
+    public function show($lang,$id)
     {
 
         $noticia = Noticia::find($id);
@@ -216,7 +216,7 @@ class NoticiaController extends Controller
             $response = Response::json(array("errors" => array(['code' => 404, 'message' => "Ha ocurrido un error al intentar almacenar la noticia"])), 400, Utils::$headers, JSON_UNESCAPED_UNICODE);
             DB::rollBack();
         }
-
+/*
         if (isset($request->facebook)) {
             //==============Facebook===========
             // Directly from the IoC
@@ -233,7 +233,7 @@ class NoticiaController extends Controller
             $fb->post('/feed', $Data, session('fb_user')->token);
             Log::info('Publicado en Facebook.Borrando sesion');
             // $request->session()->forget('fb_user');
-        }
+        }*/
         //============Twitter===========
         if (isset($request->twitter)) {
             Log::info('Publicacio a Twitter');
@@ -250,7 +250,7 @@ class NoticiaController extends Controller
         avisant de que hi ha hagut un error i a on*/
         Log::info('noticia afegida correctament');
 
-        return redirect("/administracio");
+        return redirect("/".App::getLocale()."/administracio");
     }
 
 
@@ -272,7 +272,7 @@ class NoticiaController extends Controller
         return $response;
     }
 
-    public function edit($id)
+    public function edit($lang,$id)
     {
         $this->middleware('auth');
         $noticia = Noticia::find($id);
@@ -300,8 +300,8 @@ class NoticiaController extends Controller
         $noticies = DB::table('noticies')->orderBy('created_at', 'desc')->take(8)->get();
         foreach($noticies as $noticia){
             $ndesc = $noticia->ndesc;
-            if(strlen($ndesc)>400){
-                $ndesc = substr($ndesc,0,400);
+            if(strlen($ndesc)>250){
+                $ndesc = substr($ndesc,0,250);
                 $noticia->ndesc = $ndesc;
             }
         }
@@ -311,4 +311,10 @@ class NoticiaController extends Controller
         );
     }
 
+     public function showNoticia($lang,$id)
+    {
+        return view('festa.shownoticia',[
+                'noticia' => Noticia::find($id),
+  ]);   
+    }
 }

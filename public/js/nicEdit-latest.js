@@ -167,9 +167,9 @@ var bkLib = {
         this.domLoad.push(A);
         var picture = $('#thepicture');  // Must be already loaded or cached!
 
-        picture.on('load', function() {
+        picture.on('load', function () {
             if (picture.guillotine('instance')) picture.guillotine('remove');
-            picture.guillotine({width: 600, height: 400, eventOnChange: 'guillotinechange', init:{scale:1}});
+            picture.guillotine({width: 640, height: 480, eventOnChange: 'guillotinechange', init: {scale: 1}});
             picture.guillotine('fit');
 // Display inital data
             var data = picture.guillotine('getData');
@@ -207,21 +207,21 @@ var bkLib = {
 // Make sure the 'load' event is triggered at least once (for cached images)
         if (picture.prop('complete')) picture.trigger('load')
 
-        $("#inputImg").change(function(){
+        $("#inputImg").change(function () {
             carregarImatge(this);
         });
-        $("#thepicture").scroll(function(){
+        $("#thepicture").scroll(function () {
             console.log('scrolling');
         });
-        $( '#thepicture' ).bind( 'mousewheel DOMMouseScroll', function ( e ) {
+        $('#thepicture').bind('mousewheel DOMMouseScroll', function (e) {
             var e0 = e.originalEvent,
                 delta = e0.wheelDelta || -e0.detail;
 
             this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
             e.preventDefault();
         });
-        $('#thepicture').bind('mousewheel', function(e) {
-            if(e.originalEvent.wheelDelta / 120 > 0) {
+        $('#thepicture').bind('mousewheel', function (e) {
+            if (e.originalEvent.wheelDelta / 120 > 0) {
                 picture.guillotine('zoomIn');
             } else {
                 picture.guillotine('zoomOut');

@@ -9,8 +9,8 @@
 
 
     @foreach ($noticies as $noticia)
-        <h3>{{$noticia->ntitol}}</h3>
-        {{ $noticia->created_at }}
+        <titol>{{$noticia->ntitol}}</titol>
+         <date>{{ trans('messages.posted_at') }} {{ $noticia->created_at }}</date>
         <br><br>
         {!! $noticia->ndesc !!}
 

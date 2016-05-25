@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="{{URL::asset('css/reset.css')}}" rel="stylesheet" type="text/css">
+
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
     <link href="{{URL::asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{URL::asset('css/bootstrap.min.css')}}" rel="stylesheet">
@@ -17,13 +17,20 @@
 
 <div id='cssmenu'>
     <ul>
-        <li class='last'><a href='/carrerinfo'><span>Carrers</span></a></li>
-        <li><a href='/search'><span>Activitats i programa</span></a></li>
-        <li><a href='/noticies'><span>Noticies</span></a></li>
-        <li><a href='/'><span>Pàgina Principal</span></a></li>
-        <li class='admin'><a href='/administracio'>Administració</a></li>
+        @foreach (Config::get('languages') as $lang => $language)
+            @if ($lang != App::getLocale())
+           <a href="{!! str_replace('/'.App::getLocale(),'/'.$lang,URL::current()) !!}"><img width="40" src="{{URL::asset('img/'.$lang.'.png')}}"><span>  </span></img></a>
+            
+          @endif
+        @endforeach
+        <li class='last'><a href='/{{App::getlocale()}}/carrerinfo'><span>{{ trans('messages.Menu_streets') }}</span></a></li>
+        <li><a href='/{{App::getlocale()}}/search'><span>{{ trans('messages.Menu_prog') }}</span></a></li>
+        <li><a href='/{{App::getlocale()}}/noticies'><span>{{ trans('messages.Menu_news') }}</span></a></li>
+        <li><a href='/{{App::getlocale()}}/'><span>{{ trans('messages.Menu_home') }}</span></a></li>
+        <li class='admin'><a href='/{{App::getlocale()}}/administracio'>{{ trans('messages.Menu_admin') }}</a></li>
     </ul>
 </div>
+
 <div class="separador"></div>
 @include('errors.errors')
 @yield('content')
