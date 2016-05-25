@@ -300,8 +300,8 @@ class NoticiaController extends Controller
         $noticies = DB::table('noticies')->orderBy('created_at', 'desc')->take(8)->get();
         foreach($noticies as $noticia){
             $ndesc = $noticia->ndesc;
-            if(strlen($ndesc)>400){
-                $ndesc = substr($ndesc,0,400);
+            if(strlen($ndesc)>250){
+                $ndesc = substr($ndesc,0,250);
                 $noticia->ndesc = $ndesc;
             }
         }
