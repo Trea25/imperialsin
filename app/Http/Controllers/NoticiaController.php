@@ -154,7 +154,7 @@ class NoticiaController extends Controller
     public function store(Request $request)
     {
         $this->middleware('auth');
-
+        $carrer_id = "";
         $this->validate($request, [
             'ntitol' => 'required|max:50|min:2',
             'ndesc' => 'required|max:500|min:2'
@@ -184,7 +184,13 @@ class NoticiaController extends Controller
             Log::info('Cercant el identificador del usuari loguejat ' . Auth::id());
             $carrer = DB::table('carrers')->where('user_id', '=', Auth::id())->get();
             Log::info(DB::getQueryLog());
-            $noticia->carrer_id = $carrer[0]->id;
+            if(sizeof($carrer)>1){
+                $noticia->carrer_id = $carrer[0]->id;
+            }else{
+                Log::info($carrer);
+                $noticia->carrer_id = $carrer->id;
+            }
+
         } else {
             $noticia->carrer_id = $request->id_carrer;
         }
@@ -194,7 +200,7 @@ class NoticiaController extends Controller
             $foto = new Foto();
             $foto->fnom = $request->foto;
             $foto->fpic = $fotopic;
-            $foto->carrer_id = $carrer[0]->id;
+            $foto->carrer_id = $carrer;
         }
         Log::info("Començant la transaccio");
         try {
