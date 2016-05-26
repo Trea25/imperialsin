@@ -21,7 +21,7 @@ use Twitter;
 
 class NoticiaController extends Controller
 {
-
+    
 
     /**
      * Metode que ens retorna el formulari per a la creació d'una nova notícia
@@ -154,7 +154,7 @@ class NoticiaController extends Controller
     public function store(Request $request)
     {
         $this->middleware('auth');
-
+        session_start();
         $this->validate($request, [
             'ntitol' => 'required|max:50|min:2',
             'ndesc' => 'required|max:2000|min:2'
@@ -184,7 +184,7 @@ class NoticiaController extends Controller
             Log::info('Cercant el identificador del usuari loguejat ' . Auth::id());
             $carrer = DB::table('carrers')->where('user_id', '=', Auth::id())->get();
             Log::info(DB::getQueryLog());
-            $noticia->carrer_id = $carrer[0]->id;
+            //$noticia->carrer_id = $carrer[0]->id;
         } else {
             $noticia->carrer_id = $request->id_carrer;
         }
@@ -194,7 +194,7 @@ class NoticiaController extends Controller
             $foto = new Foto();
             $foto->fnom = $request->foto;
             $foto->fpic = $fotopic;
-            $foto->carrer_id = $carrer[0]->id;
+           // $foto->carrer_id = $carrer[0]->id;
         }
         Log::info("Començant la transaccio");
         try {
@@ -250,7 +250,7 @@ class NoticiaController extends Controller
         avisant de que hi ha hagut un error i a on*/
         Log::info('noticia afegida correctament');
 
-        return redirect("/".App::getLocale()."/administracio");
+        return redirect("/".session('lang')."/administracio");
     }
 
 

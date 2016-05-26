@@ -21,6 +21,7 @@ class Language
         // Si hemos pasado un lang correcto, intentamos cambiar el idioma
          if (array_key_exists(Route::input('lang'),Config::get('languages')) && (Route::input('lang') != '')){
              App::setLocale(Route::input('lang'));
+             Session::set('lang',App::getLocale());
              // Si el lang es incorrecto, ponemos el por defecto
             }else if(Route::input('lang') != ''){
                 $url = str_replace('/'.Route::input('lang').'/','/'.App::getLocale().'/',URL::current());

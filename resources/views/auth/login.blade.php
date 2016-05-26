@@ -43,7 +43,7 @@
                         </div>
                     </div>
                 </form>
-                <a href="/password/email"><button class="btn btn-default">He oblidat la contrasenya</button></a>
+                <a href="/password/email"><button class="btn btn-default">{{trans('passwords.pass_forgot')}}</button></a>
             </div>
         </div>
 
