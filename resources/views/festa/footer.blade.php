@@ -38,11 +38,11 @@
             <div class="row seccio-footer">
                 <h2>Contacta amb nosaltres</h2>
             </div>
-            <div class="row footer-element">
+            <div class="row text-center footer-element">
                 <a href="mailto:festamajorsants@gmail.com"><i class="fa fa-envelope fa-lg social-icon"></i>  FestaMajorSants@gmail.com</a>
             </div>
             <div class="row text-center footer-element">
-                Adreça: C\Tenor Massini 58 Baixos
+                <a href="https://www.google.es/maps/place/Carrer+del+Tenor+Masini,+58,+08028+Barcelona/@41.3776512,2.129568,17z/data=!3m1!4b1!4m5!3m4!1s0x12a498893e6880d9:0x67dc27929086484d!8m2!3d41.3776472!4d2.131762"><i class="fa fa-map-marker fa-lg social-icon"></i>C\Tenor Massini 58 Baixos</a>
             </div>
             <div class="row text-center footer-element">
                 <a href="tel:656-964-058"><i class="fa fa-phone fa-lg social-icon" ></i> 656-96-40-58</a>
