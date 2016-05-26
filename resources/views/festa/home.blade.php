@@ -17,8 +17,8 @@
         <div class="linea"></div>
         <div class="col-md-9 nopadding nomargin">
             @foreach ($noticies as $noticia)
-                <div class="col-md-6">
-                    <div class="row noticia">
+                <div class="col-md-6 parentDiv">
+                    <div class="row noticia ">
                         <div class="col-sm-5">
                             @if ($noticia->foto_id != null)
                                 <a href="/noticia/view/{{$noticia->id}}"><img class="img img-responsive"
@@ -31,9 +31,9 @@
                                 <p class="body-noticia -align-justify"
                                    style="backgrond:#FFFFFF !important;">{!! $noticia->ndesc !!}...</p>
                             </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <span class="leer-mas"><a href="/noticia/view/{{$noticia->id}}">boto!</a></span>
+                            <div class="row childDiv">
+                                <div class="col-xs-12 ">
+                                    <span class="leer-mas "><a href="/noticia/view/{{$noticia->id}}">boto!</a></span>
                                 </div>
                             </div>
                         </div>

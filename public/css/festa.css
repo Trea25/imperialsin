@@ -187,7 +187,7 @@ body {
     color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 1px;
-    background: #1D4563;
+    background: #CC4A00;
 }
 
 #cssmenu.small-screen #menu-button:after {
@@ -362,6 +362,18 @@ body {
     color:#FFFFFF;
     padding:2%;
 }
+@media (min-width:1600px){
+    .noticia{
+        min-height:220px !important;
+    }
+}
+
+@media (max-width:1600px) and (min-width:800px){
+    .noticia{
+        min-height:240px !important;
+    }
+}
+
 .leer-mas{
     padding:3%;
     float:right;
@@ -414,13 +426,9 @@ desc{
     font-size: 1em;
 }
 
-
-@media (max-width:1600px) and (min-width:800px){
-    .noticia{
-        min-height:240px !important;
-    }
-}
 .footer{
+    min-height: 300px;
+    padding:1%;
     background-color: rgba(48, 3, 0, 0.83);
 }
 
@@ -429,6 +437,14 @@ desc{
     text-align: center;
     margin-top:20px;
 }
+
+
+.footer-element{
+    margin-top:5px;
+    padding:3px;
+    color:white;
+}
+
 .social-icons{
     margin-top:14px;
     text-align:center;
@@ -438,6 +454,7 @@ desc{
     color:white;
 }
 .social-icon:hover{
+    cursor: pointer;
     color:#FFA500;
 }
 a:link {
@@ -456,7 +473,8 @@ a:visited {
 
 /* mouse over link */
 a:hover {
-    color: orange;
+    color: orange !important;
+    text-decoration: none;
 }
 
 /* selected link */
