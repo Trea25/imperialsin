@@ -28,20 +28,20 @@
                         </a>
                         <ul class="section">
                             <li>
-                                <a href="/noticia/create">
+                                <a href="noticia/create">
                                     <i class="icon-filetype icon-doctype icon-columns"></i>
                                     {{ trans('messages.Add_news') }}
                                     <i class="icon-chevron-sign-right"></i>
                                 </a></li>
                             <li>
-                                <a href="/llistanoticies">
+                                <a href="llistanoticies">
                                     <i class="icon-filetype icon-doctype icon-columns"></i>
                                     {{ trans('messages.Allnews') }}
                                     <i class="icon-chevron-sign-right"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="/llistanoticiespen">
+                                <a href="llistanoticiespen">
                                     <i class="icon-filetype icon-doctype icon-columns"></i>
                                      {{ trans('messages.pending_news') }}
                                     <i class="icon-chevron-sign-right"></i>
@@ -60,21 +60,21 @@
                         </a>
                         <ul class="section">
                             <li>
-                                <a href="/event/create">
+                                <a href="event/create">
                                     <i class="icon-filetype icon-doctype icon-columns"></i>
                                     {{ trans('messages.Add_event') }}
                                     <i class="icon-chevron-sign-right"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="/llistaevents">
+                                <a href="llistaevents">
                                     <i class="icon-filetype icon-doctype icon-columns"></i>
                                      {{ trans('messages.All_event') }}
                                     <i class="icon-chevron-sign-right"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="/llistaeventspen">
+                                <a href="llistaeventspen">
                                     <i class="icon-filetype icon-doctype icon-columns"></i>
                                     {{ trans('messages.pending_events') }}
                                     <i class="icon-chevron-sign-right"></i>
@@ -94,14 +94,14 @@
                         </a>
                         <ul class="section">
                             <li>
-                                <a href="/tipusevent/create">
+                                <a href="tipusevent/create">
                                     <i class="icon-filetype icon-doctype icon-columns"></i>
                                     {{ trans('messages.add_type') }}
                                     <i class="icon-chevron-sign-right"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="/llistatipus">
+                                <a href="llistatipus">
                                     <i class="icon-filetype icon-doctype icon-columns"></i>
                                     {{ trans('messages.all_types') }}
                                     <i class="icon-chevron-sign-right"></i>
@@ -120,7 +120,7 @@
                         </a>
                         <ul class="section">
                             <li>
-                                <a href="/llistacarrers">
+                                <a href="llistacarrers">
                                     <i class="icon-filetype icon-doctype icon-columns"></i>
                                     {{ trans('messages.edit_street') }}
                                     <i class="icon-chevron-sign-right"></i>

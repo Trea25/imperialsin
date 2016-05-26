@@ -53,9 +53,12 @@ body {
     position: fixed;
     z-index: 1;
 }
-
+@media (min-width:900px) {
+    #cssmenu > ul {
+        margin-left: 90px;
+    }
+}
 #cssmenu > ul {
-    margin-left: 90px;
     background: #CC4A00;
 }
 
@@ -184,7 +187,7 @@ body {
     color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 1px;
-    background: #1D4563;
+    background: #CC4A00;
 }
 
 #cssmenu.small-screen #menu-button:after {
@@ -359,6 +362,18 @@ body {
     color:#FFFFFF;
     padding:2%;
 }
+@media (min-width:1600px){
+    .noticia{
+        min-height:220px !important;
+    }
+}
+
+@media (max-width:1600px) and (min-width:800px){
+    .noticia{
+        min-height:240px !important;
+    }
+}
+
 .leer-mas{
     padding:3%;
     float:right;
@@ -413,7 +428,61 @@ desc{
     font-size: 1em;
 }
 
+.footer {
+    min-height: 300px;
+    padding: 1%;
+    background-color: rgba(48, 3, 0, 0.83);
+}
 .errorval{
     color: #a00500 !important;
 }
 
+.seccio-footer{
+    color:#FFFFFF;
+    text-align: center;
+    margin-top:20px;
+}
+
+
+.footer-element{
+    margin-top:5px;
+    padding:3px;
+    color:white;
+}
+
+.social-icons{
+    margin-top:14px;
+    text-align:center;
+}
+.social-icon{
+    padding:7px;
+    color:white;
+}
+.social-icon:hover{
+    cursor: pointer;
+    color:#FFA500;
+}
+a:link {
+    color:#FFFFFF !important;
+}
+
+/* unvisited link */
+a:link {
+    color: white;
+}
+
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: orange !important;
+    text-decoration: none;
+}
+
+/* selected link */
+a:active {
+    color: #dd5a00;
+}

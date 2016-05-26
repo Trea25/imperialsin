@@ -21,7 +21,7 @@ use Twitter;
 
 class NoticiaController extends Controller
 {
-
+    
 
     /**
      * Metode que ens retorna el formulari per a la creació d'una nova notícia
@@ -82,7 +82,7 @@ class NoticiaController extends Controller
      * @param $id
      * @return mixed
      */
-    public function show($lang,$id)
+    public function show($lang, $id)
     {
 
         $noticia = Noticia::find($id);
@@ -135,7 +135,7 @@ class NoticiaController extends Controller
             }
             Log::info('Actualitzant foto');
             DB::BeginTransaction();
-            if($fotopic!=null){
+            if ($fotopic != null) {
                 $foto->fpic = $fotopic;
                 $foto->save();
             }
@@ -154,14 +154,14 @@ class NoticiaController extends Controller
     public function store(Request $request)
     {
         $this->middleware('auth');
-
+        $carrer_id = "";
+        $carrer = "";
         $this->validate($request, [
             'ntitol' => 'required|max:50|min:2',
             'ndesc' => 'required|max:2000|min:2'
         ]);
 
         $msg = $request->ntitol;
-        //Falta autentificar l'usuari i control d'errors del formulari (validate i auth)
 
         DB::connection()->enableQueryLog();
         $foto = "";
@@ -171,7 +171,6 @@ class NoticiaController extends Controller
         $noticia = new Noticia();
         Log::info($noticia->id);
         $noticia->user_id = Auth::id();
-        // S'hauria de decidir si al introduir una noticia volen que es publiqui automaticament o es fa mitjançant un checkbox que seria mes llogic (Vols que es publiqui automaticament?)
         if (Auth::id() == 1) {
             $noticia->nactiu = true;
         } else {
@@ -180,11 +179,11 @@ class NoticiaController extends Controller
 
         $noticia->ntitol = $msg;
         $noticia->ndesc = $request->ndesc;
+
         if ($request->id_carrer == 0) {
             Log::info('Cercant el identificador del usuari loguejat ' . Auth::id());
-            $carrer = DB::table('carrers')->where('user_id', '=', Auth::id())->get();
-            Log::info(DB::getQueryLog());
-            $noticia->carrer_id = $carrer[0]->id;
+            $carrer_id = Auth::id();
+            $noticia->carrer_id = $carrer_id;
         } else {
             $noticia->carrer_id = $request->id_carrer;
         }
@@ -194,7 +193,7 @@ class NoticiaController extends Controller
             $foto = new Foto();
             $foto->fnom = $request->foto;
             $foto->fpic = $fotopic;
-            $foto->carrer_id = $carrer[0]->id;
+            $foto->carrer_id = $carrer_id;
         }
         Log::info("Començant la transaccio");
         try {
@@ -216,24 +215,24 @@ class NoticiaController extends Controller
             $response = Response::json(array("errors" => array(['code' => 404, 'message' => "Ha ocurrido un error al intentar almacenar la noticia"])), 400, Utils::$headers, JSON_UNESCAPED_UNICODE);
             DB::rollBack();
         }
-/*
-        if (isset($request->facebook)) {
-            //==============Facebook===========
-            // Directly from the IoC
-            $fb = App::make('SammyK\LaravelFacebookSdk\LaravelFacebookSdk');
-            Log::info('Publicacio a Facebook');
-            if (!$request->session()->has('fb_user')) { // Get FB Credentials
-                Log::info('Redireccionant al login de FB');
-                return redirect("/redirect");
-            }
-            $Data = [
-                'message' => $msg,
-                'link' => 'http://www.google.es',
-            ];
-            $fb->post('/feed', $Data, session('fb_user')->token);
-            Log::info('Publicado en Facebook.Borrando sesion');
-            // $request->session()->forget('fb_user');
-        }*/
+        /*
+                if (isset($request->facebook)) {
+                    //==============Facebook===========
+                    // Directly from the IoC
+                    $fb = App::make('SammyK\LaravelFacebookSdk\LaravelFacebookSdk');
+                    Log::info('Publicacio a Facebook');
+                    if (!$request->session()->has('fb_user')) { // Get FB Credentials
+                        Log::info('Redireccionant al login de FB');
+                        return redirect("/redirect");
+                    }
+                    $Data = [
+                        'message' => $msg,
+                        'link' => 'http://www.google.es',
+                    ];
+                    $fb->post('/feed', $Data, session('fb_user')->token);
+                    Log::info('Publicado en Facebook.Borrando sesion');
+                    // $request->session()->forget('fb_user');
+                }*/
         //============Twitter===========
         if (isset($request->twitter)) {
             Log::info('Publicacio a Twitter');
@@ -250,7 +249,7 @@ class NoticiaController extends Controller
         avisant de que hi ha hagut un error i a on*/
         Log::info('noticia afegida correctament');
 
-        return redirect("/".App::getLocale()."/administracio");
+        return redirect("/".session('lang')."/administracio");
     }
 
 
@@ -272,7 +271,7 @@ class NoticiaController extends Controller
         return $response;
     }
 
-    public function edit($lang,$id)
+    public function edit($lang, $id)
     {
         $this->middleware('auth');
         $noticia = Noticia::find($id);
@@ -296,25 +295,27 @@ class NoticiaController extends Controller
         ]);
 
     }
-    public function home(){
+
+    public function home()
+    {
         $noticies = DB::table('noticies')->orderBy('created_at', 'desc')->take(8)->get();
-        foreach($noticies as $noticia){
+        foreach ($noticies as $noticia) {
             $ndesc = $noticia->ndesc;
-            if(strlen($ndesc)>250){
-                $ndesc = substr($ndesc,0,250);
+            if (strlen($ndesc) > 250) {
+                $ndesc = substr($ndesc, 0, 250);
                 $noticia->ndesc = $ndesc;
             }
         }
         return view('festa.home', [
                 'noticies' => $noticies
-        ]
+            ]
         );
     }
 
-     public function showNoticia($lang,$id)
+    public function showNoticia($lang, $id)
     {
-        return view('festa.shownoticia',[
-                'noticia' => Noticia::find($id),
-  ]);   
+        return view('festa.shownoticia', [
+            'noticia' => Noticia::find($id),
+        ]);
     }
 }

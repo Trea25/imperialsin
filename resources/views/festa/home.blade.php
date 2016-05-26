@@ -26,7 +26,7 @@
                             @endif
                         </div>
                         <div class="col-sm-7">
-                            <div class="row">
+                            <div class="row" style="min-height:25%">
                                 <h3 class="header-noticia">{{$noticia->ntitol}}</h3>
                                 <p class="body-noticia -align-justify"
                                    style="backgrond:#FFFFFF !important;">{!! $noticia->ndesc !!}...</p>
