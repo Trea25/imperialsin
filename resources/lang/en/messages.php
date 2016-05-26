@@ -83,5 +83,15 @@ return [
     
     //Carrers
     'edit_street' => 'Edit Street',
+
+    //Validacions
+    'valtitol'=>'The title must be between 3 and 255 characters',
+    'valdata'=>'The date must be in the format dd/mm/yyyy',
+    'valhora'=>'The time must be in the format hh:mm',
+    'valnom'=>'The name must be between 3 and 255 characters',
+    'valany'=>'The year must be 4 characters',
+    'valface'=>'Facebook must have less than 255 characters',
+    'valtwitter'=>'Twitter must have less than 255 characters',
+    'valins'=>'Instagram must have less than 255 characters'
     
 ];

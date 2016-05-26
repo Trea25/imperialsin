@@ -397,7 +397,7 @@ body {
     border:3px solid #C5611E;
 }
 
-}
+
 
 /**
 * Letras
@@ -413,4 +413,7 @@ desc{
     font-size: 1em;
 }
 
+.errorval{
+    color: #a00500 !important;
 }
+

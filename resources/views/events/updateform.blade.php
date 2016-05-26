@@ -12,7 +12,7 @@
 
         <label>{{trans('messages.title')}}</label><br>
         <input onchange="valtitol(this.value)" class="form-control" type="text" name="etitol" value="{{$event->etitol}}"/><br>
-        <div hidden id="titol"></div>
+        <div hidden class="errorval" id="titol">{{trans("messages.valtitol")}}</div>
 
         <label>{{trans('messages.ev_type')}}</label><br>
         <select class="form-control" name="tipus_id">
@@ -27,11 +27,11 @@
 
         <label>{{trans('messages.day')}}  (dd/mm/yyyy)</label><br>
         <input onchange="valdata(this.value)" class="form-control" type="text" name="data" value="{{$data}}"/><br>
-        <div hidden id="data">aa</div>
+        <div class="errorval" hidden id="data">{{trans("messages.valdata")}}</div>
 
        <label>{{trans('messages.time')}}  (hh:mm)</label><br>
         <input onchange="valhora(this.value)" class="form-control" type="text" name="hora" value="{{$hora}}"/><br>
-        <div hidden id="hora">aa</div>
+        <div class="errorval" hidden id="hora">{{trans("messages.valhora")}}</div>
 
          <label>{{trans('messages.Street')}}</label><br>
         <select class="form-control" name="carrer_id">

@@ -84,4 +84,14 @@ return [
     //Carrers
     'edit_street' => 'Modificar Calle',
 
+    //Validacions
+    'valtitol'=>'El título ha de tener entre 3 y 255 caracteres',
+    'valdata'=>'La fecha tiene que estar en formato dd/mm/yyyy',
+    'valhora'=>'La hora tiene que estar en formato hh:mm',
+    'valnom'=>'El nombre tiene que tener entre 3 y 255 caracteres',
+    'valany'=>'El año tiene que tener 4 carácteres',
+    'valface'=>'El facebook tiene que tener menos 255 caracteres',
+    'valtwitter'=>'El twitter tiene que tener menos 255 caracteres',
+    'valins'=>'El instagram tiene que tener menos 255 caracteres'
+
 ];
