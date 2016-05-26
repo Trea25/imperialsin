@@ -12,7 +12,7 @@
         <titol>{{$noticia->ntitol}}</titol>
          <date>{{ trans('messages.posted_at') }} {{ $noticia->created_at }}</date>
         <br><br>
-        {{ $noticia->ndesc }}
+        {!! $noticia->ndesc !!}
 
         <br>
         <div class="fb-share-button" data-href="http://google.es" data-layout="button" data-mobile-iframe="true"></div>

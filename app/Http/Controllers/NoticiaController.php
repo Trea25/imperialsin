@@ -104,7 +104,7 @@ class NoticiaController extends Controller
         $this->authorize('admin');
         $this->validate($request, [
             'ntitol' => 'required|max:50|min:2',
-            'ndesc' => 'required|max:500|min:2',
+            'ndesc' => 'required|max:2000|min:2',
             'carrer_id' => 'required|numeric',
         ]);
 
@@ -158,7 +158,7 @@ class NoticiaController extends Controller
         $carrer = "";
         $this->validate($request, [
             'ntitol' => 'required|max:50|min:2',
-            'ndesc' => 'required|max:500|min:2'
+            'ndesc' => 'required|max:2000|min:2'
         ]);
 
         $msg = $request->ntitol;

@@ -58,7 +58,7 @@ class CarrerController extends Controller
         $this->authorize('admin');
         $this->validate($request, [
             'cnom' => 'required|max:50|min:2',
-            'cdescripcio' => 'required|max:500|min:2',
+            'cdescripcio' => 'required|max:2000|min:2',
             'cany_inici' => 'required|max:5000|min:1500|numeric',
             'cfacebook' => 'max:100|min:2',
             'ctwitter' => 'max:100|min:2',

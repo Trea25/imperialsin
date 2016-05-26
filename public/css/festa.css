@@ -406,7 +406,7 @@ body {
     }
 }
 .twitter-container{
-    background-color: #ffef8c;
+    background-color: rgba(243, 152, 47, 0.99);
     border-radius:5px;
     margin-top:8px;
     border:3px solid #C5611E;
