@@ -3,17 +3,20 @@
 @section('content')
 
     <div class="container">
+        <div style="text-align: center" class="row">
+            <titol>{{$noticia->ntitol}}</titol>
+            <br />
+            <date>{{ trans('messages.posted_at') }} {{ $noticia->created_at }}</date>
+        </div>
         <div class="row">
-            <div class="col-md-4">
+            <div style="margin-top:4%" class="col-md-4">
            @if ($noticia->foto_id != 0)
                 <img class="img img-responsive" src="/foto/{{$noticia->foto_id}}" />
             @endif
             </div>
             <div class="col-sm-8">
 
-            <titol>{{$noticia->ntitol}}</titol>
-            <br />
-            <date>{{ trans('messages.posted_at') }} {{ $noticia->created_at }}</date>
+
             <br><br>
             <desc>{{ $noticia->ndesc }}<desc>
 
