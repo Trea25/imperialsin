@@ -15,5 +15,10 @@
         <div hidden id="tipus"></div>
         <button class="btn btn-success">{{trans('messages.save')}}</button>
     </form>
+    <form method="POST" action="/tipusevent/{{ $tipus_event->id }}">
+        {{ csrf_field() }}
+        {{ method_field('DELETE') }}
+        <button class="btn btn-danger">{{trans('messages.delete')}}</button>
+    </form>
 
     @endsection

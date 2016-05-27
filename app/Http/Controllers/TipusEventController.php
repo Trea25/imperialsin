@@ -33,7 +33,7 @@ class TipusEventController extends Controller
         return $response;
     }
 
-    public function update($lang,$id, Request $request)
+    public function update($id, Request $request)
     {
         $this->authorize('admin');
         $this->validate($request, [
@@ -48,7 +48,7 @@ class TipusEventController extends Controller
             $tipusevent->save();
             $response = Response::json(array("status" => "ok", "data" => "Tipo de evento actualizado correctamente"), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }
-        return $response;
+        return redirect("/".session('lang')."/administracio");
     }
 
     public function store(Request $request)
@@ -61,25 +61,23 @@ class TipusEventController extends Controller
         $event = new TipusEvent();
         try {
             $event->tipus = $request->tipus;
+            $event->actiu = true;
             $event->save();
             $response = Response::json(array("status" => "ok", "data" => "Tipo de evento añadido con exito"), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
         } catch (PDOException $ex) {
             $response = Response::json(array("errors" => array(['code'=>404,'message'=>"Ha habido un problema al insertar el tipo de evento"])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }
-        return $response;
+        return redirect("/".session('lang')."/administracio");
 
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
         $this->authorize('admin');
         $event = TipusEvent::find($id);
-        if (!$event) {
-            $response = Response::json(array("errors" => array(['code'=>404,'message'=>"No se ha encontrado ningun tipo de evento con ese código"])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
-        } else {
-            $event->delete();
-            $response = Response::json(array("status" => "ok", "data" => "Tipo de evento eliminado con éxito"), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
-        }
+        $event->actiu = false;
+        $event->save();
+        return redirect("/".session('lang')."/administracio");
     }
 
     public function create(Request $request)
@@ -91,7 +89,7 @@ class TipusEventController extends Controller
 
     public function llista(){
         return view ('tipusevents.llista_tipus', [
-            'tipus_events' => DB::table('tipus_events')->orderBy('created_at','desc')->paginate(15)
+            'tipus_events' => DB::table('tipus_events')->where('actiu','=',true)->orderBy('created_at','desc')->paginate(15)
         ]);
     }
 

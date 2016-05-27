@@ -89,7 +89,7 @@ class CarrerController extends Controller
 
             $response = Response::json(array("status" => "ok", "data" => "Calle modificada con éxito"), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }
-        return $response;
+        return redirect("/".session('lang')."/administracio");
     }
 
     public function create()
