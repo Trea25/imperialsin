@@ -1,27 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
-    <center>
 
-    <div class="separador"></div>
-   @if ($noticia->foto_id != 0)
-        <img src="/foto/{{$noticia->foto_id}}" />
-        <br/>
-        @endif
-    <titol>{{$noticia->ntitol}}</titol>
-    <br />
-    <date>{{ trans('messages.posted_at') }} {{ $noticia->created_at }}</date>
-    <br><br>
-    <desc>{{ $noticia->ndesc }}<desc>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+           @if ($noticia->foto_id != 0)
+                <img src="/foto/{{$noticia->foto_id}}" />
+            @endif
+            </div>
+            <div class="col-sm-8">
 
-        <br><br /><br />
-        <div class="fb-share-button" data-href="http://google.es" data-layout="button" data-mobile-iframe="true"></div>
-      
-       <a href="https://twitter.com/share" class="twitter-share-button">Compartir</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-       
+            <titol>{{$noticia->ntitol}}</titol>
+            <br />
+            <date>{{ trans('messages.posted_at') }} {{ $noticia->created_at }}</date>
+            <br><br>
+            <desc>{{ $noticia->ndesc }}<desc>
 
-       <br>
-    </center>
+                <br><br /><br />
+                <div class="fb-share-button" data-href="http://google.es" data-layout="button" data-mobile-iframe="true"></div>
+
+               <a href="https://twitter.com/share" class="twitter-share-button">Compartir</a>
+            </div>
+        </div>
+    </div>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 @endsection

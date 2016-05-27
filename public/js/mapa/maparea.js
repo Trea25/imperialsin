@@ -82,11 +82,31 @@ function toogleArea(item){
          dataType: 'json',
          success: function (resultat) {
            result=resultat.data;
-             string="<div><h3>"+result.cnom+"</h3><br /><h5>"+result.cany_inici+"</h5><br /><p>"+result.cdescripcio+"</p></div>";
+             string="<div><h3>"+result.cnom+"</h3><h5>"+result.cany_inici+"</h5><div class='row social-icons'>";
+             if(result.cfacebook!=""){
+                 string+="<span class='social-icon' onclick='OpenInNewTab(\""+result.cfacebook+"\")'>" +
+                 "<i class='fa fa-facebook fa-2x'></i></span>";
+             }
+             if(result.ctwitter!=""){
+                 string+="<span class='social-icon' onclick='OpenInNewTab(\""+result.ctwitter+"\")'>" +
+                     "<i class='fa fa-twitter fa-2x'></i></span>";
+             }
+             if(result.cinstagram!=""){
+                 string+="<span class='social-icon' onclick='OpenInNewTab(\""+result.cinstagram+"\")'>" +
+                     "<i class='fa fa-instagram fa-2x'></i></span>";
+             }
+             string+=""
+
+             string+="<p>"+result.cdescripcio+"</p></div>";
              $("#result").html(string);
              fotoscarrers(result.id);
          }
      });
+ }
+
+ function OpenInNewTab(url) {
+     var win = window.open(url, '_blank');
+     win.focus();
  }
 
 function search(){
