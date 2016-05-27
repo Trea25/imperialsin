@@ -28,7 +28,7 @@
                 <li class="accordion-group">
                     <div class="accordion-heading">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#leftMenu" href="#Menu_news">
-                            {{ trans('messages.Menu_news') }} <span class="caret"></span>
+                            <i class="fa fa-newspaper-o" aria-hidden="true"></i>  {{ trans('messages.Menu_news') }} <span class="caret"></span>
                         </a>
                     </div>
                     <div id="Menu_news" class="accordion-body collapse" style="height: 0px; ">
@@ -45,13 +45,15 @@
                 <li class="accordion-group">
                     <div class="accordion-heading">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#leftMenu" href="#Menu_event">
-                           {{ trans('messages.events') }}  <span class="caret"></span>
+                          <i class="fa fa-calendar-o" aria-hidden="true"></i> {{ trans('messages.events') }}  <span class="caret"></span>
                         </a>
                     </div>
                     <div id="Menu_event" class="accordion-body collapse" style="height: 0px; ">
                         <div class="accordion-inner">
                             <ul>
-                                <li> <a href="/event/create"> {{ trans('messages.Add_event') }}</a></li>
+                                <li> <a href="/event/create">
+                                       
+                                        {{ trans('messages.Add_event') }}</a></li>
                                 <li> <a href="/llistaevents"> {{ trans('messages.All_event') }}</a></li>
                                 <li> <a href="/llistaeventspen">{{ trans('messages.pending_events') }}</a></li>
                             </ul>
@@ -78,7 +80,7 @@
                 <li class="accordion-group">
                     <div class="accordion-heading">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#leftMenu" href="#Menu_other">
-                             {{ trans('messages.other') }}<span class="caret"></span>
+                            <i class="fa fa-cog" aria-hidden="true"></i> {{ trans('messages.other') }}<span class="caret"></span>
                         </a>
                     </div>
                     <div id="Menu_other" class="accordion-body collapse" style="height: 0px; ">
