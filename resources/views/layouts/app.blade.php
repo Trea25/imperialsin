@@ -85,7 +85,7 @@
                         <div class="accordion-inner">
                             <ul>
                                 <li> <a href="/llistacarrers"> {{ trans('messages.edit_street') }}</a></li>
-                                <li> <a href="#######"> {{ trans('messages.add_pic') }}</a></li>
+                                <li> <a href="/afegirFoto"> {{ trans('messages.add_pic') }}</a></li>
                             </ul>
                         </div>
                     </div>

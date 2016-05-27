@@ -32,6 +32,7 @@ return [
     'add_type' => 'Add Event type',
     'all_types' => 'View All Event types',
     'edit_street' => 'Edit Street',
+    'add_pic' => 'Add Picture',
     
     //COMMON
     'send' => 'Send',
