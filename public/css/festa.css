@@ -411,6 +411,8 @@ body {
     border:3px solid #C5611E;
 }
 
+
+
 /**
 * Letras
 **/
@@ -425,10 +427,13 @@ desc{
     font-size: 1em;
 }
 
-.footer{
+.footer {
     min-height: 300px;
-    padding:1%;
+    padding: 1%;
     background-color: rgba(48, 3, 0, 0.83);
+}
+.errorval{
+    color: #a00500 !important;
 }
 
 .seccio-footer{

@@ -9,7 +9,7 @@
     <form action="/event" method="POST">
         {{ csrf_field() }}
         <label>{{trans('messages.ev_title')}}</label><input onchange="valtitol(this.value)" class="form-control" class="form-control" id="etitol" name="etitol" type="text" />
-        <div hidden id="titol"></div>
+        <div hidden class="errorval" id="titol">{{trans("messages.valtitol")}}</div>
 
             <label>{{trans('messages.ev_type')}}</label>
             <select class="form-control" name="tipus_id">
@@ -19,11 +19,11 @@
                 @endforeach
             </select>
         <label>{{trans('messages.date')}} (dd/mm/yyyy)</label>
-        <input onchange="valdata(this.value)" class="form-control" type="date" name="data"/>
-        <div hidden id="data">aa</div>
+        <input onchange="valdata(this.value)" class="form-control" type="text" name="data"/>
+        <div class="errorval" hidden id="data">{{trans("messages.valdata")}}</div>
         <label>{{trans('messages.time')}} (hh:mm)</label>
         <input onchange="valhora(this.value)" class="form-control" type="text" name="hora"/>
-        <div hidden id="hora">aa</div>
+        <div class="errorval" hidden id="hora">{{trans("messages.valhora")}}</div>
         @if(Auth::id()==1)
             <label>Carrer</label>
             <select class="form-control" name="id_carrer">

@@ -41,7 +41,7 @@
 
     <label>{{trans('messages.title')}}</label><br>
     <input onchange="valtitol(this.value)" type="text" class="form-control" name="ntitol" value="{{$noticia->ntitol}}"/><br>
-    <div hidden id="titol">aa</div>
+    <div class="errorval" hidden id="titol">{{trans("messages.valtitol")}}</div>
 
     <label>{{trans('messages.desc')}}</label><br>
     <textarea id="textarea" class="form-control" name="ndesc" cols="80" rows="8">{{$noticia->ndesc}}</textarea>

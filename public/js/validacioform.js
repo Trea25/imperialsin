@@ -13,7 +13,7 @@ function valtipus(val){
 }
 
 function valcnom(val){
-    if(val.length<3||val.length>30){
+    if(val.length<3||val.length>255){
         $('#cnom').show();
     } else{
         $('#cnom').hide();
