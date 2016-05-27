@@ -83,6 +83,7 @@ class EventController extends Controller
         $event->tipus_id = $request->tipus_id;
         $event->save();
 
+        return redirect("/".session('lang')."/administracio");
     }
 
     public function store(Request $request)
@@ -115,7 +116,7 @@ class EventController extends Controller
         $event->edata_inici = Utils::date_formater($request->data, $request->hora);
 
         $event->save();
-        return redirect("/administracio");
+         return redirect("/".session('lang')."/administracio");
     }
 
     public function destroy($id)

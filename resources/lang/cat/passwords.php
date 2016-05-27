@@ -13,6 +13,7 @@ return [
     |
     */
 
+    'pass_forgot' => 'He oblidat la contrasenya',
     'password' => 'La contraseña debe tener al meno 6 caracteres, y deben coincidir.',
     'reset' => '¡Tu contraseña ha sido reseteada!',
     'sent' => '¡Se le ha enviado u e-mail para recuperar su contraseña!',

@@ -43,7 +43,7 @@
     </div>
 
     <label>{{trans('messages.not_title')}}</label><input onchange="valtitol(this.value)" class="form-control" class="form-control" id="ntitol" name="ntitol" type="text"/>
-    <div hidden id="titol"></div>
+    <div class="errorval" hidden id="titol">{{trans("messages.valtitol")}}</div>
     <label>{{trans('messages.not_desc')}}</label>
     <textarea class="form-control" id="textarea" name="ndesc"></textarea>
     @if(Auth::id()==1)

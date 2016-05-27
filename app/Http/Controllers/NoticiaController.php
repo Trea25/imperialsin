@@ -21,7 +21,7 @@ use Twitter;
 
 class NoticiaController extends Controller
 {
-
+    
 
     /**
      * Metode que ens retorna el formulari per a la creació d'una nova notícia
@@ -143,7 +143,7 @@ class NoticiaController extends Controller
             DB::Commit();
             $response = Response::json(array("status" => "ok", "data" => "La noticia con id: " . $request->id . " se ha modificado correctamente"), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }
-        return $response;
+        return redirect("/".session('lang')."/administracio");
     }
 
     /**
@@ -248,8 +248,8 @@ class NoticiaController extends Controller
         /*retornar vista amb  el resultat millor -> $response() a la vista fer un if(isset($response)) i avisar si ha anat be, si ha anat malament es podria redirigir al formulari
         avisant de que hi ha hagut un error i a on*/
         Log::info('noticia afegida correctament');
-        Log::info(App::getLocale());
-        return redirect("/" . App::getLocale() . "/administracio");
+
+        return redirect("/".session('lang')."/administracio");
     }
 
 

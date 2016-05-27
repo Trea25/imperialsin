@@ -32,6 +32,7 @@ return [
     'add_type' => 'Afegir tipus d\'Event',
     'all_types' => 'Tots els tipus d\'Event',
     'edit_street' => 'Modificar Carrer',
+    'add_pic' => 'Afegir Foto',
     
     //COMMON
     'send' => 'Enviar',
@@ -83,5 +84,15 @@ return [
     
     //Carrers
     'edit_street' => 'Modificar Carrer',
+
+    //Validacions
+    'valtitol'=>'El títol ha de tenir entre 3 i 255 caràcters',
+    'valdata'=>'La data ha d\'estar en format dd/mm/yyyy',
+    'valhora'=>'L\'hora ha d\'estar en format hh:mm',
+    'valnom'=>'El nom ha de tenir entre 3 i 255 caràcters',
+    'valany'=>'L\'any ha de tenir 4 caràcters',
+    'valface'=>'El facebook ha de tenir menys de 255 caràcters',
+    'valtwitter'=>'El twitter ha de tenir menys de 255 caràcters',
+    'valins'=>'El instagram ha de tenir menys de 255 caràcters'
     
 ];
