@@ -32,6 +32,7 @@ return [
     'add_type' => 'Afegir tipus d\'Event',
     'all_types' => 'Tots els tipus d\'Event',
     'edit_street' => 'Modificar Carrer',
+    'add_pic' => 'Afegir Foto',
     
     //COMMON
     'send' => 'Enviar',

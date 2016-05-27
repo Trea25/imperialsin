@@ -32,6 +32,7 @@ return [
     'add_type' => 'Añadir Tipo de Evento',
     'all_types' => 'Todos los tipos de Evento',
     'edit_street' => 'Modificar Calle',
+    'add_pic' => 'Añadir Foto',
     
     //COMMON
     'send' => 'Enviar',
