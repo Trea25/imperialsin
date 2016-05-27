@@ -12,10 +12,10 @@
 @section('content')
 
 
-<div class="container">
+
     <div class="flex">
-        <canvas id='Canvas'></canvas>
-        <img src="/img/mapa.png" usemap="#imgmap" id="mapimg" >
+       <!-- <canvas id='Canvas'></canvas>-->
+        <img src="/img/mapa.png" usemap="#imgmap" id="mapimg" class="img img-responsive">
         <map id="imgmap" name="imgmap">
             <area shape="poly" id="4" alt="Roses" name="Roses"  href="#" title="Roses" coords="128,7,182,36,182,41,178,42,124,11,126,8" onclick="showcarrer(this)" />
             <area shape="poly" id="10" alt="Papin" name="Papin"  href="#" title="Papin" coords="206,87,220,66,224,67,224,73,213,90,209,90" onclick="showcarrer(this)" />
@@ -37,7 +37,7 @@
         </map>
     </div>
 
-</div>
+
 <div id="result"></div>
 <div id="fotos"></div>
 
