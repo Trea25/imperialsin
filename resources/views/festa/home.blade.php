@@ -27,13 +27,13 @@
                         </div>
                         <div class="col-sm-7">
                             <div class="row" style="min-height:25%">
-                                <h3 class="header-noticia">{{$noticia->ntitol}}</h3>
-                                <p class="body-noticia -align-justify"
+                                <h3 class="header-noticia text-marro">{{$noticia->ntitol}}</h3>
+                                <p class="body-noticia -align-justify text-marro"
                                    style="backgrond:#FFFFFF !important;">{!! $noticia->ndesc !!}...</p>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <span class="leer-mas"><a href="/noticia/view/{{$noticia->id}}">Boto!</a></span>
+                                    <span class="leer-mas pull-right"><a href="/noticia/view/{{$noticia->id}}">Boto!</a></span>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
     //$(".twitter-timeline").contents().find(".Icon--twitter").removeClass("Icon--twitter");
     
      // FMSants retweeted
-    $(".twitter-timeline").contents().find(".timeline-Tweet-retweetCredit").css("color","#fff");
+    $(".twitter-timeline").contents().find(".timeline-Tweet-retweetCredit").css("color","white");
     // Autor
     $(".twitter-timeline").contents().find(".TweetAuthor").css("color","blue !important");
         //Autor : screenName @Comercial000

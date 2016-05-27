@@ -6,14 +6,14 @@
             win.focus();
         }
     </script>
-    <div class="row footer text-right">
+    <div class="row footer text-right ">
         <div class="col-md-3">
         </div>
         <div class="col-md-3">
             <div class="row seccio-footer">
-                <h2>
+                <p>
                     Segueix-nos a les xarxes socials
-                </h2>
+                </p>
             </div>
             <div class="row social-icons">
                 <span class="social-icon"
@@ -36,7 +36,7 @@
 
         <div class="col-md-3">
             <div class="row seccio-footer">
-                <h2>Contacta amb nosaltres</h2>
+                <p>Contacta amb nosaltres</p>
             </div>
             <div class="row text-center footer-element">
                 <a href="mailto:festamajorsants@gmail.com"><i class="fa fa-envelope fa-lg social-icon"></i>  FestaMajorSants@gmail.com</a>

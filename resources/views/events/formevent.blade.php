@@ -20,7 +20,7 @@
             </select>
         <label>{{trans('messages.date')}} (dd/mm/yyyy)</label>
         <input onchange="valdata(this.value)" class="form-control" type="date" name="data"/>
-        <div hidden id="data">aa</div>
+        <div hidden id="data" class="error">aa</div>
         <label>{{trans('messages.time')}} (hh:mm)</label>
         <input onchange="valhora(this.value)" class="form-control" type="text" name="hora"/>
         <div hidden id="hora">aa</div>
