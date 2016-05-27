@@ -143,7 +143,7 @@ class NoticiaController extends Controller
             DB::Commit();
             $response = Response::json(array("status" => "ok", "data" => "La noticia con id: " . $request->id . " se ha modificado correctamente"), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }
-        return $response;
+        return redirect("/".session('lang')."/administracio");
     }
 
     /**
@@ -268,7 +268,8 @@ class NoticiaController extends Controller
             $noticia->delete();
             $response = Response::json(array("status" => "ok", "data" => "La notícia se ha eliminado correctamente", 200, Utils::$headers, JSON_UNESCAPED_UNICODE));
         }
-        return $response;
+
+        return redirect("/" . App::getLocale() . "/administracio");
     }
 
     public function edit($lang, $id)

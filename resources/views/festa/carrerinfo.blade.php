@@ -12,8 +12,9 @@
 @section('content')
 
 
-
-    <div class="flex">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5">
        <!-- <canvas id='Canvas'></canvas>-->
         <img src="/img/mapa.png" usemap="#imgmap" id="mapimg" class="img img-responsive">
         <map id="imgmap" name="imgmap">
@@ -35,10 +36,14 @@
             <area shape="poly" id="9" alt="Guadiana" name="Guadiana" href="#"  title="Guadiana" coords="225,368,260,320,265,321,264,327,230,372,225,373" onclick="showcarrer(this)"/>
             <area shape="poly" id="7" alt="Plaça de la farga"  href="#" name="Placa_farga" title="Placa_farga" coords="143,362,111,432,114,435,118,434,149,366,147,362" onclick="showcarrer(this)"/>
         </map>
+        </div>
+        <div class="col-md-7">
+            <div id="result"></div>
+        </div>
     </div>
 
 
-<div id="result"></div>
+
 <div id="fotos"></div>
 
 

@@ -6,7 +6,7 @@
 @section('content')
     <table>
     @foreach($events as $event)
-            <tr><td>{{$event->etitol}}</td><td><a href="/{{App:getLocale()}}/event/{{$event->id}}/edit"><button class="btn btn-warning">{{trans(messages.edit)}}</button></a></td></tr>
+            <tr><td>{{$event->etitol}}</td><td><a href="/{{App::getLocale()}}/event/{{$event->id}}/edit"><button class="btn btn-warning">{{trans('messages.edit')}}</button></a></td></tr>
     @endforeach
     </table>
 @endsection

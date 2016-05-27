@@ -164,3 +164,5 @@ Route::resource('tipusevent', 'TipusEventController',
     ['except' => ['create', 'edit']]);
 Route::resource('carrer.noticia', 'CarrerNoticiaController');
 Route::resource('carrer.event', 'CarrerEventController');
+Route::resource('tipusevent', 'TipusEventController',
+    ['except' => ['create', 'edit']]);

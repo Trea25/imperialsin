@@ -83,6 +83,7 @@ class EventController extends Controller
         $event->tipus_id = $request->tipus_id;
         $event->save();
 
+        return redirect("/".session('lang')."/administracio");
     }
 
     public function store(Request $request)

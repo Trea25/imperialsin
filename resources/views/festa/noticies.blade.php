@@ -6,19 +6,31 @@
 @endsection
 
 @section('content')
-
+<div class="container">
 
     @foreach ($noticies as $noticia)
-        <titol>{{$noticia->ntitol}}</titol>
-         <date>{{ trans('messages.posted_at') }} {{ $noticia->created_at }}</date>
-        <br><br>
-        {!! $noticia->ndesc !!}
+        <div class="row" style="text-align:center">
+            <titol>{{$noticia->ntitol}}</titol><br>
+            <date>{{ trans('messages.posted_at') }} {{ $noticia->created_at }}</date>
+        </div>
+    <br>
+        <div class="row">
+            <div  class="col-sm-4">
+            <img class="img img-responsive" src="/foto/{{$noticia->foto_id}}">
+                </div>
+            <div class="col-sm-8">
 
-        <br>
-        <div class="fb-share-button" data-href="http://google.es" data-layout="button" data-mobile-iframe="true"></div>
-        <br>
+
+            {!! $noticia->ndesc !!}
+
+            <br>
+            <div class="fb-share-button" data-href="http://google.es" data-layout="button" data-mobile-iframe="true"></div>
+            </div>
+        </div>
+        <br><br>
     @endforeach
 
     {{$noticies->render()}}
 
+</div>
 @endsection
