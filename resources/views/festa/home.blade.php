@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="linea"></div>
-        <div class="col-md-9 nopadding nomargin">
+        <div class="col-md-9">
             @foreach ($noticies as $noticia)
                 <div class="col-md-6" >
                     <div class="row noticia">

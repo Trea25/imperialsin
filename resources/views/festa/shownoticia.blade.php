@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('head')
+<script src="{{URL::asset('js/jquery-2.1.4.min.js')}}" type="text/javascript"></script>
+@endsection
 @section('content')
 
     <div class="container">
@@ -21,9 +24,10 @@
             <desc>{{ $noticia->ndesc }}<desc>
 
                 <br><br /><br />
-                <div class="fb-share-button" data-href="http://google.es" data-layout="button" data-mobile-iframe="true"></div>
-
-               <a href="https://twitter.com/share" class="twitter-share-button">Compartir</a>
+                <div>
+                <div class="fb-share-button" data-href="{{App::make('url')->to('/'.App::getLocale().'/noticia/view/'.$noticia->id)}}" data-layout="button" data-mobile-iframe="true"></div>
+                <div><a href="https://twitter.com/share?text={{$noticia->ntitol}}&url={{App::make('url')->to('/'.App::getLocale().'/noticia/view/'.$noticia->id)}}" class="twitter-share-button">Compartir en Twitter</a></div>
+                </div>
             </div>
         </div>
     </div>
