@@ -123,8 +123,10 @@
         <li><a href='/{{App::getlocale()}}/search'><span>{{ trans('messages.Menu_prog') }}</span></a></li>
         <li><a href='/{{App::getlocale()}}/noticies'><span>{{ trans('messages.Menu_news') }}</span></a></li>
         <li><a href='/{{App::getlocale()}}/'><span>{{ trans('messages.Menu_home') }}</span></a></li>
+         @if (Auth::id() != null)
         <a href="/{{App::getLocale()}}/logout"><span><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i></span></a>   
-    </ul>
+        @endif
+  </ul>
 </div>
 <div class="separador"></div>
 
