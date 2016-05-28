@@ -97,8 +97,9 @@ function getHora(string){
 }
 function getDia(string){
     data = new Date(string);
-    console.log(data.toLocaleDateString());
-    return data.toLocaleDateString();
+    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    data = data.toLocaleDateString('ca-ES', options);
+    return data.charAt(0).toUpperCase() + data.slice(1);
 }
 
 
@@ -130,12 +131,14 @@ function search() {
         type: 'GET',
         dataType: 'json',
         success: function (resultat) {
+
             result = resultat.data;
-            string = '<div class="row"><div class="col-md-4 col-sm-5"><div class="tabs-left"><ul class="nav nav-tabs">';
+            string = '<div class="row"><div class="col-md-12"><div class="tabs-left"><ul class="nav nav-tabs">';
             nomcarrer = "";
             dataevent = "";
             console.log(result);
             first = true;
+            firstevent = true;
             contador = 0;
             for (i in result) {
                 if (result[i].nom_carrer != nomcarrer) {
@@ -157,6 +160,7 @@ function search() {
                 if (result[i].nom_carrer != nomcarrer) {
                     contador++;
                     if(nomcarrer!="" &&!first){
+                        string += "<hr />";
                         string += "</div>";
                     }
                     nomcarrer = result[i].nom_carrer;
@@ -174,12 +178,20 @@ function search() {
 
                 }
                 if (dataevent != getDia(result[i].edata_inici)) {
+                    string += "<hr />";
+                    if(firstevent){
+                        firstevent = false;
+                    }else{
+                        string+="</ul>";
+
+                    }
                     dataevent = getDia(result[i].edata_inici);
-                    string += "<p>" + getDia(result[i].edata_inici) + "</p>";
+                    string += "<p class='data-event'>" + getDia(result[i].edata_inici) + "</p><ul>";
                 }
-                string += "<p>" +getHora(result[i].edata_inici)+" - "+  result[i].etitol + "</p>";
+                string += "<li class='event text-marro'><span class='hora-event class='text-marro''> - " +getHora(result[i].edata_inici)+"</span> - <span class='titol-event text-marro'>"+  result[i].etitol + "</span></li>";
             }
-            string += "</div></div></div></div></div>";
+
+            string += "<hr></div></div></div></div></div>";
             $("#result").html(string);
                        function init() {
                 setHeight();
@@ -188,14 +200,14 @@ function search() {
             function setHeight() {
                 var $tabPane = $('.tab-pane'),
                     tabsHeight = $('.nav-tabs').height();
-
+                if(tabsHeight<500)tabsHeight=500;
                 $tabPane.css({
                     height: tabsHeight
                 });
             }
 
             $(init);
-
+            $("#result").show();
         }
 
     });

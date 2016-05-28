@@ -134,7 +134,7 @@
         </div>
     </div>
     <div class="linea"></div>
-    <div id="result"></div>
+    <div id="result" class="pestanyes"></div>
 
     <script src="{{URL::asset('js/mapa/image.js')}}" type="text/javascript"></script>
     <script src="{{URL::asset('js/mapa/maparea.js')}}" type="text/javascript"></script>
