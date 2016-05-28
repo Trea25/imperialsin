@@ -30,7 +30,7 @@ return [
     'pending_events' => 'Pendint Events',
     'event_type' => 'Event Types',
     'add_type' => 'Add Event type',
-    'all_types' => 'View All Event types',
+    'all_types' => 'View All Types',
     'edit_street' => 'Edit Street',
     'add_pic' => 'Add Picture',
     
