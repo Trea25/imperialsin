@@ -75,14 +75,28 @@ function toogleArea(item) {
 }
 
 function showcarrer(item) {
-
+    $('.unselect').mapster('set',false,'key');
     $.ajax({
         url: "carrer/" + item.id,
         type: 'GET',
         dataType: 'json',
         success: function (resultat) {
-            result = resultat.data;
-            string = "<div><h3>" + result.cnom + "</h3><br /><h5>" + result.cany_inici + "</h5><br /><p>" + result.cdescripcio + "</p></div>";
+            result=resultat.data;
+            string="<div><titol>"+result.cnom+"</titol><h5>"+result.cany_inici+"</h5><div class='row social-icons'>";
+            if(result.cfacebook!=""){
+                string+="<span class='social-icon' onclick='OpenInNewTab(\""+result.cfacebook+"\")'>" +
+                    "<i class='fa fa-facebook fa-2x'></i></span>";
+            }
+            if(result.ctwitter!=""){
+                string+="<span class='social-icon' onclick='OpenInNewTab(\""+result.ctwitter+"\")'>" +
+                    "<i class='fa fa-twitter fa-2x'></i></span>";
+            }
+            if(result.cinstagram!=""){
+                string+="<span class='social-icon' onclick='OpenInNewTab(\""+result.cinstagram+"\")'>" +
+                    "<i class='fa fa-instagram fa-2x'></i></span>";
+            }
+
+            string+="</div><p>"+result.cdescripcio+"</p></div>";
             $("#result").html(string);
             fotoscarrers(result.id);
         }
@@ -225,7 +239,7 @@ function fotoscarrers(id) {
                 if (i == 4 || i == 8) {
                     string += "</ul></div><div class='item'><ul>";
                 }
-                string += "<li><img class='img-responsive' src='foto/" + result[i].id + "' alt=''></li>";
+                string += "<li><img class='img-responsive' src='/foto/" + result[i] + "' alt=''></li>";
             }
 
             string += "</ul> " +
