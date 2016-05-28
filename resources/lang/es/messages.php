@@ -30,7 +30,7 @@ return [
     'pending_events' => 'Eventos pendientes',
     'event_type' => 'Tipos de Evento',
     'add_type' => 'Añadir Tipo de Evento',
-    'all_types' => 'Todos los tipos de Evento',
+    'all_types' => 'Todos los tipos',
     'edit_street' => 'Modificar Calle',
     'add_pic' => 'Añadir Foto',
     

@@ -23,21 +23,25 @@
         <div id="sidebar-wrapper" >
             <ul class="sidebar-nav accordion" id="leftMenu">
                 <li class="sidebar-brand">    
-                     <a href='#' class="menu-toggle">   {{ trans('messages.Menu_admin') }}  </a>
+                     <a href='#' class="menu-toggle"> <i class="fa fa-laptop" aria-hidden="true"></i> 
+                     {{ trans('messages.Menu_admin') }} 
+                     <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                     </a>
                 </li>
                 <!-- Noticies -->
                 <li class="accordion-group">
                     <div class="accordion-heading">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#leftMenu" href="#Menu_news">
-                            {{ trans('messages.Menu_news') }} <span class="caret"></span>
+                            <i class="fa fa-newspaper-o" aria-hidden="true"></i>  {{ trans('messages.Menu_news') }} <span class="caret"></span>
                         </a>
                     </div>
                     <div id="Menu_news" class="accordion-body collapse" style="height: 0px; ">
                         <div class="accordion-inner">
                             <ul>
-                                <li> <a href="/noticia/create"> {{ trans('messages.Add_news') }}</a></li>
-                                <li> <a href="/llistanoticies"> {{ trans('messages.Allnews') }}</a></li>
-                                <li> <a href="/llistanoticiespen">{{ trans('messages.pending_news') }}</a></li>
+                                <li> <a href="/noticia/create"> <i class="fa fa-plus" aria-hidden="true"></i> {{ trans('messages.Add_news') }}</a></li>
+                                <li> <a href="/llistanoticies"> <i class="fa fa-list" aria-hidden="true"></i> {{ trans('messages.Allnews') }}</a></li>
+                                <li> <a href="/llistanoticiespen"> <i class="fa fa-question "></i> {{ trans('messages.pending_news') }}</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -46,15 +50,15 @@
                 <li class="accordion-group">
                     <div class="accordion-heading">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#leftMenu" href="#Menu_event">
-                           {{ trans('messages.events') }}  <span class="caret"></span>
+                          <i class="fa fa-calendar" aria-hidden="true"></i> {{ trans('messages.events') }}  <span class="caret"></span>
                         </a>
                     </div>
                     <div id="Menu_event" class="accordion-body collapse" style="height: 0px; ">
                         <div class="accordion-inner">
                             <ul>
-                                <li> <a href="/event/create"> {{ trans('messages.Add_event') }}</a></li>
-                                <li> <a href="/llistaevents"> {{ trans('messages.All_event') }}</a></li>
-                                <li> <a href="/llistaeventspen">{{ trans('messages.pending_events') }}</a></li>
+                                <li> <a href="/event/create"> <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>  {{ trans('messages.Add_event') }}</a></li>
+                                <li> <a href="/llistaevents"> <i class="fa fa-list" aria-hidden="true"></i> {{ trans('messages.All_event') }}</a></li>
+                                <li> <a href="/llistaeventspen"> <i class="fa fa-check-square-o "></i> {{ trans('messages.pending_events') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -63,14 +67,14 @@
                 <li class="accordion-group">
                     <div class="accordion-heading">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#leftMenu" href="#Menu_types">
-                             {{ trans('messages.event_type') }}<span class="caret"></span>
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{ trans('messages.event_type') }}<span class="caret"></span>
                         </a>
                     </div>
                     <div id="Menu_types" class="accordion-body collapse" style="height: 0px; ">
                         <div class="accordion-inner">
                             <ul>
-                                <li> <a href="/tipusevent/create"> {{ trans('messages.add_type') }}</a></li>
-                                <li> <a href="/llistatipus"> {{ trans('messages.all_types') }}</a></li>
+                                <li> <a href="/tipusevent/create"> <i class="fa fa-plus-square-o" aria-hidden="true"></i> {{ trans('messages.add_type') }}</a></li>
+                                <li> <a href="/llistatipus"> <i class="fa fa-list" aria-hidden="true"></i> {{ trans('messages.all_types') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -79,27 +83,23 @@
                 <li class="accordion-group">
                     <div class="accordion-heading">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#leftMenu" href="#Menu_other">
-                             {{ trans('messages.other') }}<span class="caret"></span>
+                            <i class="fa fa-cog" aria-hidden="true"></i> {{ trans('messages.other') }}<span class="caret"></span>
                         </a>
                     </div>
                     <div id="Menu_other" class="accordion-body collapse" style="height: 0px; ">
                         <div class="accordion-inner">
                             <ul>
-                                <li> <a href="/llistacarrers"> {{ trans('messages.edit_street') }}</a></li>
-                                <li> <a href="/afegirFoto"> {{ trans('messages.add_pic') }}</a></li>
+                                <li> <a href="/llistacarrers"><i class="fa fa-map" aria-hidden="true"></i> {{ trans('messages.edit_street') }}</a></li>
+                                <li> <a href="/afegirFoto"> <i class="fa fa-picture-o" aria-hidden="true"></i> {{ trans('messages.add_pic') }}</a></li>
                             </ul>
                         </div>
                     </div>
                 </li>
             </ul>
+            <div class="separador"></div>
+            <div><a href="/{{App::getLocale()}}/logout"><span><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> </span></a></div>
         </div>
-        
-        
-        
-        
-        
-        
-        
+   
   <!-- sidebar end -->
          @else
 <div>
@@ -114,6 +114,7 @@
 
             @endif
         @endforeach
+       
          @if (Auth::id() != null)
             <li class='admin'><a href='#' class="menu-toggle">{{ trans('messages.Menu_admin') }}</a></li>
         @endif
@@ -122,8 +123,10 @@
         <li><a href='/{{App::getlocale()}}/search'><span>{{ trans('messages.Menu_prog') }}</span></a></li>
         <li><a href='/{{App::getlocale()}}/noticies'><span>{{ trans('messages.Menu_news') }}</span></a></li>
         <li><a href='/{{App::getlocale()}}/'><span>{{ trans('messages.Menu_home') }}</span></a></li>
-       
-    </ul>
+         @if (Auth::id() != null)
+        <a href="/{{App::getLocale()}}/logout"><span><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i></span></a>   
+        @endif
+  </ul>
 </div>
 <div class="separador"></div>
 
@@ -159,8 +162,16 @@
     @endif
     </script>
 @yield('mytree')
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.6";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
-    <script src="{{URL::asset('js/script.js')}}"></script>
+<script src="{{URL::asset('js/script.js')}}"></script>
 
 </body>
 </html>
