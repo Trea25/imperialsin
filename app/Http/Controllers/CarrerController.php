@@ -157,6 +157,7 @@ class CarrerController extends Controller
             }
 
         }
+        return redirect("/".session('lang')."/administracio");
     }
 
     public function carrerfoto($lang,$id)
