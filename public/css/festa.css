@@ -1,5 +1,5 @@
 body{
-    font-size:16pt;
+    font-size:14pt !important;
 }
 hr{
     color:brown!important;
@@ -558,4 +558,25 @@ a:active {
 }
 .hora-event{
     font-style:italic;
+}
+@media (max-width:760px){
+    .idiomes{
+        margin-left:10px;
+    }
+}
+@media (min-width:760px){
+    .idiomes{
+        float:right;
+    }
+}
+.idiomes{
+    padding-top: .3%;
+    padding-right:.3%;
+}
+.lang{
+
+    margin-left:5px;
+}
+.lang:hover{
+    opacity:0.8;
 }

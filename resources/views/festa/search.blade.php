@@ -15,6 +15,7 @@
     <link href="{{URL::asset('css/maparea.css')}}" rel="stylesheet">
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script>
+        moment.locale('es');
         var app = angular.module('myApp', ['multipleDatePicker']);
         app.controller('myCtrl', function ($scope) {
             $scope.checkSelection = function (event, date) {
@@ -31,6 +32,7 @@
                     $("#altField").val(" ");
                 }
                 console.log(date);
+                console.log(moment.locale());
             }
         });
     </script>
@@ -61,11 +63,11 @@
                           coords="1261,224,1194,374,1187,375,1180,371,1178,365,1178,359,1243,213,1249,210,1253,209,1258,212,1263,217,1263,217"
                           onclick="toogleArea(this)"/>
                     <area shape="poly" id="2" alt="Alcolea  de Dalt" href="#" name="Alcolea_Dalt"
-                          title="Alcolea_Dalt"
+                          title="Alcolea  de Dalt"
                           coords="1067,327,971,477,961,484,953,481,950,476,951,467,1021,360,1049,315,1052,312,1057,310,1061,311,1065,312,1069,319"
                           onclick="toogleArea(this)"/>
                     <area shape="poly" id="11" alt="Sta. Cecilia" href="#" name="Sta_Cecilia"
-                          title="Sta_Cecilia"
+                          title="Sta. Cecilia"
                           coords="1016,447,1058,459,1062,464,1064,470,1061,476,1055,480,1034,474,989,461,988,451,992,443,998,441,1014,446"
                           onclick="toogleArea(this)"/>
                     <area shape="poly" id="13" alt="Robrenyo" href="#" name="Robrenyo" title="Robrenyo"
@@ -74,14 +76,14 @@
                     <area shape="poly" id="5" alt="Canalejas" href="#" name="Canalejas" title="Canalejas"
                           coords="360,561,444,616,448,621,449,628,444,634,441,635,433,635,349,581,344,577,343,571,344,564,353,561"
                           onclick="toogleArea(this)"/>
-                    <area shape="poly" id="3" alt="Alcolea de Baix" href="#" name="Alcolea" title="Alcolea"
+                    <area shape="poly" id="3" alt="Alcolea de Baix" href="#" name="Alcolea" title="Alcolea de Baix"
                           coords="921,559,854,665,850,668,844,668,839,664,836,656,903,547,906,544,914,543,919,545,922,549,923,553"
                           onclick="toogleArea(this)"/>
                     <area shape="poly" id="15" alt="Valladolid" href="#" name="Valladolid" title="Valladolid"
                           coords="939,543,1065,592,1070,596,1071,602,1069,607,1065,610,1059,611,949,568,927,558,924,555,923,549,926,542,933,540,937,541"
                           onclick="toogleArea(this)"/>
                     <area shape="poly" id="17" alt="Vallespir de Baix" href="#" name="Vallespir_Baix"
-                          title="Vallespir_Baix"
+                          title="Vallespir de Baix"
                           coords="1128,525,1071,657,1068,662,1062,663,1056,661,1052,656,1052,649,1109,515,1113,511,1116,510,1121,511,1127,513,1129,519,1128,520"
                           onclick="toogleArea(this)"/>
                     <area shape="poly" id="6" alt="Finlandia" href="#" name="Finlandia" title="Finlandia"
@@ -91,7 +93,7 @@
                           coords="252,909,411,881,417,883,421,887,424,894,421,900,415,903,260,930,253,929,248,924,247,917,248,912"
                           onclick="toogleArea(this)"/>
                     <area shape="poly" id="14" alt="Rossend Arus" href="#" name="Rossend_Arus"
-                          title="Rossend_Arus"
+                          title="Rossend Arus"
                           coords="654,907,623,949,618,953,613,953,609,951,606,947,604,940,637,895,642,894,646,894,651,896,653,901"
                           onclick="toogleArea(this)"/>
                     <area shape="poly" id="18" alt="Masnou" name="Masnou" href="#" title="Masnou"
@@ -101,14 +103,14 @@
                           coords="869,929,777,1025,772,1028,765,1025,761,1022,761,1013,852,916,857,914,864,914,868,916,870,923,870,923"
                           onclick="toogleArea(this)"/>
                     <area shape="poly" id="7" alt="Plaça de la farga" href="#" name="Placa_farga"
-                          title="Placa_farga"
+                          title="Plaça de la farga"
                           coords="582,1010,507,1146,502,1151,496,1152,493,1150,487,1146,486,1140,553,1018,564,997,572,994,577,995,583,1000,584,1005"
                           onclick="toogleArea(this)"/>
                 </map>
             </div>
             <div class="col-sm-6">
                 <div class="buscador">
-                    <div ng-app="myApp" ng-controller="myCtrl" id="calendari">
+                    <div ng-app="myApp" ng-controller="myCtrl" id="calendari" >
                         <multiple-date-picker day-click="checkSelection"></multiple-date-picker>
                     </div>
                     <input type="hidden" id="altField"/>
@@ -135,7 +137,9 @@
     </div>
     <div class="linea"></div>
     <div id="result" class="pestanyes"></div>
+    <div class="col-md-12">
 
+    </div>
     <script src="{{URL::asset('js/mapa/image.js')}}" type="text/javascript"></script>
     <script src="{{URL::asset('js/mapa/maparea.js')}}" type="text/javascript"></script>
 

@@ -208,6 +208,9 @@ function search() {
 
             $(init);
             $("#result").show();
+        },
+        error:function (){
+
         }
 
     });
