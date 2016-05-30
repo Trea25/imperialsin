@@ -53,7 +53,7 @@ return [
     'fb' => 'Facebook',
     'tw' => 'Twitter',
     'ins' => 'Instagram',
-      
+     'moar' => 'Read More',
     //Form Noticia
     'not_select_street' => 'Select street',
     'not_title' => 'News Title',

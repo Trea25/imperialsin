@@ -15,7 +15,7 @@ return [
 
     'Menu_admin' => 'Administració',
     'Menu_home' => 'Pàgina Principal',
-    'Menu_news' => 'Notices',
+    'Menu_news' => 'Noticies',
     'Menu_prog' => 'Activitats i programa',
     'Menu_streets' => 'Carrers',
     'events' => 'Events',
@@ -53,6 +53,7 @@ return [
     'fb' => 'Facebook',
     'tw' => 'Twitter',
     'ins' => 'Instagram',
+    'moar' => 'Llegir més',
     
     
     //Form Noticia

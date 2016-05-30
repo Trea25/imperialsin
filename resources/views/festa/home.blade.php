@@ -33,7 +33,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <span class="leer-mas pull-right"><a href="/noticia/view/{{$noticia->id}}">Boto!</a></span>
+                                    <span class="leer-mas pull-right"><a href="/noticia/view/{{$noticia->id}}">{{trans('messages.moar')}}</a></span>
                                 </div>
                             </div>
                         </div>
