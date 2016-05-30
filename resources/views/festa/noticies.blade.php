@@ -9,8 +9,9 @@
 <div class="container">
 
     @foreach ($noticies as $noticia)
-        <div class="row" style="text-align:center">
-            <titol>{{$noticia->ntitol}}</titol><br>
+    <div class="noticia">
+        <div class="row " style="text-align:center">
+            <titol class="text-marro">{{$noticia->ntitol}}</titol><br>
             <date>{{ trans('messages.posted_at') }} {{ $noticia->created_at }}</date>
         </div>
     <br>
@@ -18,18 +19,20 @@
             <div  class="col-sm-4">
             <img class="img img-responsive" src="/foto/{{$noticia->foto_id}}">
                 </div>
-            <div class="col-sm-8">
+            <div class="col-sm-8 body-noticia -align-justify text-marro">
 
-
+            
             {!! $noticia->ndesc !!}
-
-            <br><div>
+            ....
+            <br>
+              <span class="leer-mas pull-right"><a href="/noticia/view/{{$noticia->id}}">{{trans('messages.moar')}}</a></span>
+             <div>
             <div class="fb-share-button" data-href="{{App::make('url')->to('/'.App::getLocale().'/noticia/view/'.$noticia->id)}}?p[title]=$noticia->ntitol" data-layout="button" data-mobile-iframe="true"></div>
             <div><a href="https://twitter.com/share?text={{$noticia->ntitol}}&url={{App::make('url')->to('/'.App::getLocale().'/noticia/view/'.$noticia->id)}}" class="twitter-share-button">Compartir en Twitter</a></div>
             </div>
             </div>
         </div>
-        <br><br>
+        </div><br>
     @endforeach
 
     {{$noticies->render()}}

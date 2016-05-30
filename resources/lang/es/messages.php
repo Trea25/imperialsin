@@ -53,6 +53,7 @@ return [
     'fb' => 'Facebook',
     'tw' => 'Twitter',
     'ins' => 'Instagram',
+    'moar' => 'Leer más',
     
     //Form Noticia
     'not_select_street' => 'Selecciona la calle',

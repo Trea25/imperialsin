@@ -9,7 +9,8 @@
     <table>
         @foreach($noticies as $noticia)
             <tr><td>{{$noticia->ntitol}}</td><td><a href="noticia/{{$noticia->id}}/edit"><button class="btn btn-warning">{{trans('messages.edit')}}</button></a></td></tr>
-        @endforeach
+           
+       @endforeach
     </table>
 
     {{$noticies->render()}}
