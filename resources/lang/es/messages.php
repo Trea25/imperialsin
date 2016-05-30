@@ -54,6 +54,8 @@ return [
     'tw' => 'Twitter',
     'ins' => 'Instagram',
     'moar' => 'Leer más',
+	'insert_ok' => 'Se ha insertado correctamente',
+	'insert_fail' => 'Ha ocurrido un error',
     
     //Form Noticia
     'not_select_street' => 'Selecciona la calle',
@@ -63,6 +65,8 @@ return [
     
     'news_list' => 'Listado de noticias',
     'news_edit' => 'Modificar noticia',
+	
+	'not_notfound' => 'No se ha encontrado esa noticia',
     
     //Form Event
     'ev_title' => 'Titulo del Evento',

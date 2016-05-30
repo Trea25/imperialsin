@@ -88,9 +88,11 @@ class NoticiaController extends Controller
         $noticia = Noticia::find($id);
         if (!$noticia) {
             $response = Response::json(array("errors" => array(['code' => 404, 'message' => "No se ha encontrado ninguna notícia con ese código"])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
-        } else {
+			$msg = 'messages.not_notfound';
+		} else {
             $response = Response::json(array("status" => "ok", "data" => $noticia), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
-        }
+			$msg = 'messages.insert_ok';
+	   }
         return $response;
     }
 
@@ -117,8 +119,9 @@ class NoticiaController extends Controller
             $nactiu = true;
         };
         if (!$noticia) {
-            $response = Response::json(array("errors" => array(['code' => 404, 'message' => "No se ha encontrado ninguna notícia con ese código"])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
-        } else {
+            $response = Response::json(array("errors" => array(['code' => 404, 'message' => Lang::get('codes.not_404')])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
+        
+		} else {
             $noticia->nactiu = $nactiu;
             $noticia->ntitol = $request->ntitol;
             $noticia->ndesc = $request->ndesc;
@@ -141,9 +144,9 @@ class NoticiaController extends Controller
             }
             $noticia->save();
             DB::Commit();
-            $response = Response::json(array("status" => "ok", "data" => "La noticia con id: " . $request->id . " se ha modificado correctamente"), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $response = Response::json(array("status" => "ok", "data" => Lang::get('codes.not_200',['id' => $noticia->id])), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }
-        return redirect("/".session('lang')."/administracio");
+        return redirect("/".session('lang')."/llistanoticies");
     }
 
     /**
@@ -207,12 +210,12 @@ class NoticiaController extends Controller
             }
             $noticia->save();
             DB::commit();
-            $response = Response::json(array("status" => "ok", "data" => "Noticia almacenada correctamente"), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $response = Response::json(array("status" => "ok", "data" => Lang::get('codes.not_ok')), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
             Log::info("Noticia afegida correctament");
         } catch (PDOException $ex) {
             //en cas d'error fem rollback i preparem la resposta amb l'error
             Log::error("Hi ha hagut un error al intentar afegir la noticia");
-            $response = Response::json(array("errors" => array(['code' => 404, 'message' => "Ha ocurrido un error al intentar almacenar la noticia"])), 400, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $response = Response::json(array("errors" => array(['code' => 404, 'message' => Lang::get('codes.not_error')])), 400, Utils::$headers, JSON_UNESCAPED_UNICODE);
             DB::rollBack();
         }
         /*
@@ -262,13 +265,13 @@ class NoticiaController extends Controller
         $this->authorize('admin');
         $noticia = Noticia::find($id);
         if (!$noticia) {
-            $response = Response::json(array("errors" => array(['code' => 404, 'message' => "No se ha encontrado ninguna notícia con ese código"])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $response = Response::json(array("errors" => array(['code' => 404, 'message' => Lang::get('codes.not_404')])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
         } else {
             $noticia->delete();
-            $response = Response::json(array("status" => "ok", "data" => "La notícia se ha eliminado correctamente", 200, Utils::$headers, JSON_UNESCAPED_UNICODE));
+            $response = Response::json(array("status" => "ok", "data" => Lang::get('codes.not_delete'), 200, Utils::$headers, JSON_UNESCAPED_UNICODE));
         }
 
-        return redirect("/" . App::getLocale() . "/administracio");
+        return redirect("/" . App::getLocale() . "/");
     }
 
     public function edit($lang, $id)

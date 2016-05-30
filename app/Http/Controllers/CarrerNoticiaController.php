@@ -17,7 +17,7 @@ class CarrerNoticiaController extends Controller
     public function index($lang,$idCarrer){
         $carrer = Carrer::find($idCarrer);
         if(!$carrer){
-            $response= Response::json(array("errors" => array(['code'=>404,'message'=>"No se ha encontrado ninguna calle con ese código"])),404, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $response= Response::json(array("errors" => array(['code'=>404,'message'=>Lang::get('codes.ca_404')])),404, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }else{
             $noticies = $carrer->noticia()->get();
             $response = Response::json(array("status"=>"ok","data"=>$noticies),200,Utils::$headers,JSON_UNESCAPED_UNICODE);
@@ -33,7 +33,7 @@ class CarrerNoticiaController extends Controller
     {
         $noticia = Noticia::find($idNoticia);
         if(!$noticia || $noticia->carrer_id != $idCarrer){
-            $response = Response::json(array("errors" => array(['code'=>404,'message'=>"No se ha encontrado ninguna noticia para esa calle con dicho código"])),404, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $response = Response::json(array("errors" => array(['code'=>404,'message'=>Lang::get('codes.not_404')])),404, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }else{
             $response = Response::json(array("status"=>"ok","data"=>$noticia));
         }

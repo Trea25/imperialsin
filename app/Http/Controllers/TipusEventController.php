@@ -9,6 +9,8 @@ use DB;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
+use Session;
+
 class TipusEventController extends Controller
 {
     public function index()
@@ -48,7 +50,7 @@ class TipusEventController extends Controller
             $tipusevent->save();
             $response = Response::json(array("status" => "ok", "data" => "Tipo de evento actualizado correctamente"), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }
-        return redirect("/".session('lang')."/administracio");
+        return redirect()->back();
     }
 
     public function store(Request $request)
@@ -64,11 +66,13 @@ class TipusEventController extends Controller
             $event->actiu = true;
             $event->save();
             $response = Response::json(array("status" => "ok", "data" => "Tipo de evento añadido con exito"), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
-        } catch (PDOException $ex) {
+			$msg = 'messages.insert_ok';
+		} catch (PDOException $ex) {
             $response = Response::json(array("errors" => array(['code'=>404,'message'=>"Ha habido un problema al insertar el tipo de evento"])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
-        }
-        return redirect("/".session('lang')."/administracio");
-
+			$msg = 'messages.insert_fail';
+		}
+		Session::flash('response',$msg);
+        return redirect()->back();
     }
 
     public function destroy($id)
@@ -77,7 +81,7 @@ class TipusEventController extends Controller
         $event = TipusEvent::find($id);
         $event->actiu = false;
         $event->save();
-        return redirect("/".session('lang')."/administracio");
+        return redirect("/".session('lang')."/llistatipus");
     }
 
     public function create(Request $request)

@@ -26,7 +26,7 @@ class CarrerController extends Controller
     {
         $carrers = Carrer::All();
         if (!$carrers) {
-            $response = Response::json(array("errors" => array(['code' => 404, 'message' => "No se ha encontrado ninguna calle"])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $response = Response::json(array("errors" => array(['code' => 404, 'message' => Lang::get('codes.ca_404')])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
         } else {
             $response = Response::json(array("status" => "ok", "data" => $carrers), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }
@@ -37,7 +37,7 @@ class CarrerController extends Controller
     {
         $carrer = Carrer::find($id);
         if (!$carrer) {
-            $response = Response::json(array("errors" => array(['code' => 404, 'message' => "No se ha encontrado ninguna calle con ese código"])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $response = Response::json(array("errors" => array(['code' => 404, 'message' => Lang::get('codes.ca_404')])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
         } else {
             $response = Response::json(array("status" => "ok", "data" => $carrer), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }
@@ -68,7 +68,7 @@ class CarrerController extends Controller
         $carrer = Carrer::find($id);
         $foto = "";
         if (!$carrer) {
-            $response = Response::json(array("errors" => array(['code' => 404, 'message' => "No se ha encontrado ninguna calle con ese código"])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $response = Response::json(array("errors" => array(['code' => 404, 'message' => Lang::get('codes.ca_404')])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
         } else {
             $carrer->cnom = $request->cnom;
             $carrer->cdescripcio = $request->cdescripcio;
@@ -87,9 +87,9 @@ class CarrerController extends Controller
                 DB::rollBack();
             }
 
-            $response = Response::json(array("status" => "ok", "data" => "Calle modificada con éxito"), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $response = Response::json(array("status" => "ok", "data" => Lang::get('codes.ca_200')), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }
-        return redirect("/".session('lang')."/administracio");
+        return redirect("/".session('lang')."/llistacarrers");
     }
 
     public function create()
@@ -108,10 +108,10 @@ class CarrerController extends Controller
         $this->authorize('admin');
         $carrer = Carrer::find($id);
         if (!$carrer) {
-            $response = Response::json(array("errors" => "No se ha encontrado ninguna calle con ese código"), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $response = Response::json(array("errors" => Lang::get('codes.ca_404')), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
         } else {
             $carrer->delete();
-            $response = Response::json(array("status" => "ok", "data" => "Calle eliminada con éxito"), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $response = Response::json(array("status" => "ok", "data" => Lang::get('codes.ca_delete')), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }
         return $response;
     }
@@ -147,17 +147,17 @@ class CarrerController extends Controller
             }
             try {
                 $foto->save();
-                $response = Response::json(array("status" => "ok", "data" => "Fotografia añadida correctamente"), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
+                $response = Response::json(array("status" => "ok", "data" => Lang::get('codes.pic_200')), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
                 Log::info("Noticia afegida correctament");
             } catch (PDOException $ex) {
                 //en cas d'error fem rollback i preparem la resposta amb l'error
                 Log::error("Hi ha hagut un error al intentar afegir la foto");
-                $response = Response::json(array("errors" => array(['code' => 404, 'message' => "Ha ocurrido un error al intentar almacenar la fotografia"])), 400, Utils::$headers, JSON_UNESCAPED_UNICODE);
+                $response = Response::json(array("errors" => array(['code' => 404, 'message' => Lang::get('codes.pic_error')])), 400, Utils::$headers, JSON_UNESCAPED_UNICODE);
                 DB::rollBack();
             }
 
         }
-        return redirect("/".session('lang')."/administracio");
+        return redirect("/".session('lang')."/afegirFoto");
     }
 
     public function carrerfoto($lang,$id)

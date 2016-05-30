@@ -20,7 +20,7 @@ class CarrerEventController extends Controller
 
         if (! $idCarrer)
         {
-          $response = Response::json(array("errors"=> array(['code'=>404,'message'=>"No se ha encontrado ninguna calle con ese código"])),404,Utils::$headers, JSON_UNESCAPED_UNICODE);
+          $response = Response::json(array("errors"=> array(['code'=>404,'message'=>Lang::get('codes.ca_404')])),404,Utils::$headers, JSON_UNESCAPED_UNICODE);
         }else{
             $events = $carrer->event()->get();
             $response = Response::json(array("status"=>"ok", "data"=>$events),200,Utils::$headers, JSON_UNESCAPED_UNICODE);
@@ -49,7 +49,7 @@ class CarrerEventController extends Controller
     {
         $event = Event::find($idEvent);
         if(!$event || $event->carrer_id != $idCarrer){
-            $response = Response::json(array("errors" => array(['code'=>404,'message'=>"No se ha encontrado ningun evento con ese código para la calle seleccionada"])),404, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $response = Response::json(array("errors" => array(['code'=>404,'message'=>Lang::get('codes.ev_404')])),404, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }else{
             $response = Response::json(array("status"=>"ok", "data"=>$event),200,Utils::$headers,JSON_UNESCAPED_UNICODE);
         }
