@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
 use Image;
+use Lang;
 
 class CarrerController extends Controller
 {
@@ -69,7 +70,8 @@ class CarrerController extends Controller
         $foto = "";
         if (!$carrer) {
             $response = Response::json(array("errors" => array(['code' => 404, 'message' => Lang::get('codes.ca_404')])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
-        } else {
+			$msg = 'messages.update_fail';
+		} else {
             $carrer->cnom = $request->cnom;
             $carrer->cdescripcio = $request->cdescripcio;
             $carrer->cany_inici = $request->cany_inici;
@@ -88,7 +90,9 @@ class CarrerController extends Controller
             }
 
             $response = Response::json(array("status" => "ok", "data" => Lang::get('codes.ca_200')), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
-        }
+			$msg = 'codes.ca_200';
+		}
+		Session::flash('response',$msg);
         return redirect("/".session('lang')."/llistacarrers");
     }
 
@@ -109,10 +113,13 @@ class CarrerController extends Controller
         $carrer = Carrer::find($id);
         if (!$carrer) {
             $response = Response::json(array("errors" => Lang::get('codes.ca_404')), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
+			$msg = 'codes.delete_fail';
         } else {
             $carrer->delete();
             $response = Response::json(array("status" => "ok", "data" => Lang::get('codes.ca_delete')), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
+			$msg = 'codes.ca_delete';
         }
+		Session::flash('response',$msg);
         return $response;
     }
 
@@ -147,16 +154,19 @@ class CarrerController extends Controller
             }
             try {
                 $foto->save();
+				$msg = 'codes.pic_200';
                 $response = Response::json(array("status" => "ok", "data" => Lang::get('codes.pic_200')), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
                 Log::info("Noticia afegida correctament");
             } catch (PDOException $ex) {
                 //en cas d'error fem rollback i preparem la resposta amb l'error
                 Log::error("Hi ha hagut un error al intentar afegir la foto");
+				$msg = 'codes.pic_error';
                 $response = Response::json(array("errors" => array(['code' => 404, 'message' => Lang::get('codes.pic_error')])), 400, Utils::$headers, JSON_UNESCAPED_UNICODE);
                 DB::rollBack();
             }
 
         }
+		Session::flash('response',$msg);
         return redirect("/".session('lang')."/afegirFoto");
     }
 

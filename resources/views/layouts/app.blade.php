@@ -122,9 +122,9 @@
         </div>
 
         <!-- sidebar end -->
-        @else
-            <div>
-                @endif
+@else
+<div>
+@endif
                 <div id='cssmenu'>
                     <ul>
                         @if (Auth::id() != null)
@@ -160,17 +160,17 @@
 
                 @if (Auth::id() != null)
                     <div id="page-content-wrapper">
+				@endif
                         <div class="container-fluid">
-                            @endif
-                            <div class="row">
+							<div class="row">
                                 @include('errors.errors')
 								@if (Session::has('response'))
 								<div class="alert alert-info">{{trans(Session::get('response'))}}</div>
 								@endif
                                 @yield('content')
-                            </div>
-                            @if (Auth::id() != null)
-                        </div>
+                            </div>   
+						</div>
+						 @if (Auth::id() != null)
                     </div> <!-- /#page-content-wrapper -->
                 @endif
 

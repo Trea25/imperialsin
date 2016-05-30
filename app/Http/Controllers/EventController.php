@@ -85,7 +85,8 @@ class EventController extends Controller
         $event->etitol = $request->etitol;
         $event->tipus_id = $request->tipus_id;
         $event->save();
-
+		$msg = 'codes.ev_update';
+		Session::flash('response',$msg);
         return redirect("/" . session('lang') . "/llistaevents");
     }
 
@@ -119,6 +120,8 @@ class EventController extends Controller
         $event->edata_inici = Utils::date_formater($request->data, $request->hora);
 
         $event->save();
+		$msg = 'codes.ev_200';
+		Session::flash('response',$msg);
         return redirect("/" . session('lang') . "/llistaevents");
     }
 

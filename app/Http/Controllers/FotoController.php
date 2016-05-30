@@ -10,6 +10,7 @@ use App\Foto;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Response;
 use App\Utils;
+use Lang;
 
 class FotoController extends Controller
 {

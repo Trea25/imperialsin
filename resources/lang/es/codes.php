@@ -10,6 +10,8 @@ return [
     |
     */
 
+	//Common
+	'delete_fail' => 'Ha ocurrido un error al elimimar',
     // Noticies
     'not_404' => 'No se ha encontrado ninguna notícia con ese código',
     'not_200' => 'La noticia :id se ha modificado correctamente',
@@ -20,6 +22,8 @@ return [
 	//Events
 	'ev_404' => 'No se han encontrado eventos',
 	'ev_delete' => 'Evento eliminado correctamente',
+	'ev_update' => 'Se ha actualizado el evento correctamente',
+	'ev_200' => 'Evento almacenado correctamente',
 	
 	//Carrer
 	'ca_404' => 'No se ha encontrado ninguna calle con ese código',

@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Session;
+use Lang;
 
 class TipusEventController extends Controller
 {

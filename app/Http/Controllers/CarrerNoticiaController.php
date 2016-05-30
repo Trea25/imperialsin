@@ -7,7 +7,7 @@ use App\Carrer;
 use Illuminate\Support\Facades\Response;
 use App\Utils;
 use App\Noticia;
-
+use Lang;
 
 
 class CarrerNoticiaController extends Controller
