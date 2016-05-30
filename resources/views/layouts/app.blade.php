@@ -3,7 +3,7 @@
 <head>
 
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-    <link href="{{URL::asset('css/reset.css')}}" rel="stylesheet">
+
     <link href="{{URL::asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{URL::asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/festa.css')}}" rel="stylesheet">
@@ -11,7 +11,7 @@
     <link href="{{URL::asset('css/simple-sidebar.css')}}" rel="stylesheet">
     <!-- icono -->
     <link href="{{URL::asset('img/logo.png')}}" rel="shortcut icon" type="image/x-icon"/>
-
+    <link href="{{URL::asset('css/reset.css')}}" rel="stylesheet">
     @yield('head')
 </head>
 
@@ -120,8 +120,6 @@
                 </li>
             </ul>
             <div class="separador"></div>
-            <div><a href="/{{App::getLocale()}}/logout"><span><i class="fa fa-sign-out fa-lg"
-                                                                 aria-hidden="true"></i> </span></a></div>
         </div>
 
         <!-- sidebar end -->
@@ -148,15 +146,15 @@
 
                                 @foreach (Config::get('languages') as $lang => $language)
                                     @if ($lang != App::getLocale())
-                                        <span class="lang">
-                                        <a href="{!! str_replace('/'.App::getLocale(),'/'.$lang,URL::current()) !!}"><img
-                                                    width="40"
-                                                    src="{{URL::asset('img/'.$lang.'.png')}}"><span>  </span></img>
-                                        </a>
-                                            </span>
+                                        <span class="lang" style="width:40px;">
+                                        <a href="{!! str_replace('/'.App::getLocale(),'/'.$lang,URL::current()) !!}"><img  style=" max-width:40px" src="{{URL::asset('img/'.$lang.'.png')}}" />
+                                        </a></span>
                                     @endif
                                 @endforeach
-
+                                @if(Auth::id()!=null)
+                                    <a href="/{{App::getLocale()}}/logout"><span class="lang"><i class="fa fa-sign-out fa-3x"></i> </span></a>
+                                @endif
+                        </span>
                     </ul>
                 </div>
                 <div class="separador"></div>

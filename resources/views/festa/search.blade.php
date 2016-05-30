@@ -13,7 +13,7 @@
     <script src="{{URL::asset('js/calendari/multipleDatePicker.min.js')}}" type="text/javascript"></script>
     <link href="{{URL::asset('css/calendari/multiple-date-picker.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/maparea.css')}}" rel="stylesheet">
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
     <script>
         moment.locale('es');
         var app = angular.module('myApp', ['multipleDatePicker']);
