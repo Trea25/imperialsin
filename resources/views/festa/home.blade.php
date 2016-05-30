@@ -2,7 +2,7 @@
 
 @section('head')
     <title>Festa Major de Sants</title>
-    <link href="{{URL::asset('css/reset.css')}}" rel="stylesheet" type="text/css">
+
     <script src="{{URL::asset('js/jquery-2.1.4.min.js')}}" type="text/javascript"></script>
     <link href="{{URL::asset('css/twitter.css')}}" rel="stylesheet" type="text/css">
 @endsection

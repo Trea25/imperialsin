@@ -66,6 +66,7 @@ return [
 
     //Form Event
     'ev_title' => 'Titol de l\'event',
+    'ev_name' => 'Nom de l\'event',
     'ev_type' => 'Tipus d\'event ',
     'ev_select_type' => 'Selecciona el tipus',
     'ev_select_street' => 'Selecciona el carrer',

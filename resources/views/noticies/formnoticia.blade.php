@@ -16,7 +16,6 @@
     <script src='{{URL::asset('js/guillotine/jquery.guillotine_startup.js')}}'></script>
 
     <div class="separador"></div>
-
     {!! Form::open(array('url' => 'noticia', 'files' => true)) !!}
     {{Form::token()}}
     <div id="theparent" style="width: 30%;">

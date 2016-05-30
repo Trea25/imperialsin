@@ -5,20 +5,33 @@
     <script src="{{URL::asset('js/validacioform.js')}}" type="text/javascript"></script>
 @endsection
 @section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+        <fieldset class="scheduler-border">
+            <legend class="scheduler-border">Afegir Tipus</legend>
+            <form method="POST" action="/tipusevent/{{ $tipus_event->id }}">
+                {{ csrf_field() }}
+                {{ method_field('PUT') }}
 
-    <form method="POST" action="/tipusevent/{{ $tipus_event->id }}">
-    {{ csrf_field() }}
-    {{ method_field('PUT') }}
+                <label>{{trans('messages.type')}}</label><br><br>
+                <input onchange="valtipus(this.value)" class="form-control" type="text" name="tipus"
+                       value="{{$tipus_event->tipus}}"/><br>
+                <div hidden id="tipus"></div>
+                <div class="form-group">
+                    <button class="botoform btn btn-success pull-left">{{trans('messages.save')}}</button>
+            </form>
 
-        <label>{{trans('messages.type')}}</label><br>
-        <input onchange="valtipus(this.value)" class="form-control" type="text" name="tipus" value="{{$tipus_event->tipus}}"/><br>
-        <div hidden id="tipus"></div>
-        <button class="btn btn-success">{{trans('messages.save')}}</button>
-    </form>
-    <form method="POST" action="/tipusevent/{{ $tipus_event->id }}">
-        {{ csrf_field() }}
-        {{ method_field('DELETE') }}
-        <button class="btn btn-danger">{{trans('messages.delete')}}</button>
-    </form>
+            <form method="POST" action="/tipusevent/{{ $tipus_event->id }}">
+                {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+                <button class="btn btn-danger pull-left">{{trans('messages.delete')}}</button>
 
-    @endsection
+            </form>
+    </fieldset>
+                </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+@endsection
