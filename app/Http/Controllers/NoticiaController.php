@@ -241,8 +241,7 @@ class NoticiaController extends Controller
         if (isset($request->twitter)) {
             Log::info('Publicacio a Twitter');
             Twitter::postTweet([
-                'status' => $msg . ' http://google.es'
-                //'status' => 'dasdasdasdasdsa'
+                'status' => $msg .App::make('url')->to('/'.App::getLocale().'/noticia/view/'.$noticia->id)
             ]);
             Log::info('Twitter done');
 
@@ -253,7 +252,7 @@ class NoticiaController extends Controller
         avisant de que hi ha hagut un error i a on*/
         Log::info('noticia afegida correctament');
 
-        return redirect("/".session('lang')."/administracio");
+        return redirect("/".session('lang')."/");
     }
 
 
@@ -295,8 +294,17 @@ class NoticiaController extends Controller
     public function noticies()
     {
 
+        $noticies = DB::table('noticies')->orderBy('created_at', 'desc')->paginate(10);
+        foreach ($noticies as $noticia){
+             $ndesc = $noticia->ndesc;
+            if (strlen($ndesc) > 750) {
+                $ndesc = substr($ndesc, 0, 250);
+                $noticia->ndesc = $ndesc;
+            }
+        
+        }
         return view('festa.noticies', [
-            'noticies' => DB::table('noticies')->orderBy('created_at', 'desc')->paginate(10)
+            'noticies' => $noticies
         ]);
 
     }
