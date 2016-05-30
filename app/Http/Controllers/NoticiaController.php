@@ -156,6 +156,7 @@ class NoticiaController extends Controller
      */
     public function store(Request $request)
     {
+        DB::connection()->enableQueryLog();
         $this->middleware('auth');
         $carrer_id = "";
         $carrer = "";
@@ -188,7 +189,8 @@ class NoticiaController extends Controller
             $carrer_id = Auth::id();
             $noticia->carrer_id = $carrer_id;
         } else {
-            $noticia->carrer_id = $request->id_carrer;
+            $carrer_id = $noticia->carrer_id = $request->input('id_carrer');
+
         }
         $fotopic = Utils::editImage($request, null);
         if ($fotopic != null) {
@@ -201,6 +203,7 @@ class NoticiaController extends Controller
         Log::info("Començant la transaccio");
         try {
             DB::beginTransaction();
+
             if ($guardarfoto) {
                 $foto->save();
             }
@@ -310,7 +313,7 @@ class NoticiaController extends Controller
 
     public function home()
     {
-        $noticies = DB::table('noticies')->orderBy('created_at', 'desc')->take(8)->get();
+        $noticies = DB::table('noticies')->where('nactiu', '=', true)->orderBy('created_at', 'desc')->take(8)->get();
         foreach ($noticies as $noticia) {
             $ndesc = $noticia->ndesc;
             if (strlen($ndesc) > 250) {

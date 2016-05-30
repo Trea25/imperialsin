@@ -1,6 +1,6 @@
 $listacarrers = $('#listacarrers');
 $(document).ready(function () {
-
+    $("#altField").val("");
     var resizeTime = 0;     // total duration of the resize effect, 0 is instant
     var resizeDelay = 10;    // time to wait before checking the window size again
     // the shorter the time, the more reactive it will be.
@@ -110,7 +110,17 @@ function getHora(string){
     return string[1];
 }
 function getDia(string){
-    data = new Date(string);
+    data = "";
+    if(navigator.userAgent.indexOf("Firefox") != -1 ){
+        string = string.split(" ");
+        console.log("string 1:" + string[1]);
+        tmpdata = string[0].split("-");
+        data = new Date(tmpdata[0], tmpdata[1]-1, tmpdata[2]);
+
+    }else{
+        data = new Date(string);
+    }
+
     var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     data = data.toLocaleDateString('ca-ES', options);
     return data.charAt(0).toUpperCase() + data.slice(1);
@@ -172,6 +182,7 @@ function search() {
             first = true;
             for (i in result) {
                 if (result[i].nom_carrer != nomcarrer) {
+                    dataevent = "";
                     contador++;
                     if(nomcarrer!="" &&!first){
                         string += "<hr />";
@@ -200,7 +211,7 @@ function search() {
 
                     }
                     dataevent = getDia(result[i].edata_inici);
-                    string += "<p class='data-event'>" + getDia(result[i].edata_inici) + "</p><ul>";
+                    string += "<p class='data-event'>" + getDia(result[i].edata_inici) + "</p><br /><ul>";
                 }
                 string += "<li class='event text-marro'><span class='hora-event class='text-marro''> - " +getHora(result[i].edata_inici)+"</span> - <span class='titol-event text-marro'>"+  result[i].etitol + "</span></li>";
             }
@@ -254,7 +265,7 @@ function fotoscarrers(id) {
                 if (i == 4 || i == 8) {
                     string += "</ul></div><div class='item'><ul>";
                 }
-                string += "<li><img class='img-responsive' src='/foto/" + result[i] + "' alt=''></li>";
+                string += "<li><img class='img img-responsive' src='/foto/" + result[i] + "' alt=''></li>";
             }
 
             string += "</ul> " +
@@ -263,9 +274,7 @@ function fotoscarrers(id) {
                 "</div>" +
                 "</div>" +
                 "</div>" +
-                "<div class='light'>" +
-                "<img class='img-responsive' src='images/light.png' alt=''>" +
-                "</div>" +
+               
                 "</div>" +
                 "</div>";
             $("#fotos").html(string);

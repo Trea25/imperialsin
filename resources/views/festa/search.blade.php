@@ -25,7 +25,7 @@
                     hiddenfield = hiddenfield + date + ", ";
                     $("#altField").val(hiddenfield);
                 } else {
-                    hiddenfield = hiddenfield.replace(date + ",", "");
+                    hiddenfield = hiddenfield.replace(date + ", ", "");
                     $("#altField").val(hiddenfield);
                 }
                 if ($("#altField").val().trim() == "undefined") {
