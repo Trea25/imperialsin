@@ -379,6 +379,7 @@ body {
     color: #FFFFFF;
     padding: 2%;
     font-size: 14pt !important;
+    min-height:150px;
 }
 
 @media (min-width: 1700px) {
