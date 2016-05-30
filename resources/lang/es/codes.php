@@ -15,6 +15,7 @@ return [
     // Noticies
     'not_404' => 'No se ha encontrado ninguna notícia con ese código',
     'not_200' => 'La noticia :id se ha modificado correctamente',
+	'not_update' => 'La noticia se ha modificado correctamente',
 	'not_ok' => 'Noticia almacenada correctamente',
 	'not_error' => 'Ha ocurrido un error al intentar almacenar la noticia',
 	'not_delete' => 'la noticia se ha eliminado correctamente',

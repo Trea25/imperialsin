@@ -10,6 +10,7 @@ use App\Carrer;
 use Illuminate\Support\Facades\Response;
 use App\Event;
 use Lang;
+use Session;
 
 class CarrerEventController extends Controller
 {

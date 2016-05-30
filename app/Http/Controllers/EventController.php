@@ -12,6 +12,7 @@ use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Log;
+use Session;
 
 class EventController extends Controller
 {

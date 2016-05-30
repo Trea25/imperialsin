@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
 use Image;
 use Lang;
+use Session;
 
 class CarrerController extends Controller
 {

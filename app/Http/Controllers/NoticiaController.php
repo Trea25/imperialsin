@@ -19,6 +19,7 @@ use Log;
 use Socialite;
 use Twitter;
 use Lang;
+use Session;
 
 class NoticiaController extends Controller
 {
@@ -143,7 +144,7 @@ class NoticiaController extends Controller
             }
             $noticia->save();
             DB::Commit();
-			$msg = 'codes.not_200';
+			$msg = 'codes.not_update';
             $response = Response::json(array("status" => "ok", "data" => Lang::get('codes.not_200',['id' => $noticia->id])), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }
 		Session::flash('response',$msg);
