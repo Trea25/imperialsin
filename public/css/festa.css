@@ -365,7 +365,12 @@ body {
     border: 3px solid #c54700;
 
 }
-
+.body-noticia {
+    color: #FFFFFF;
+    padding: 2%;
+    font-size: 14pt !important;
+    min-height:150px;
+}
 .header-noticia {
     color: #FFFFFF;
     text-transform: uppercase;
@@ -376,6 +381,7 @@ body {
     font-weight:bold !important;
 
 }
+<<<<<<< HEAD
 
 .body-noticia {
     color: #FFFFFF;
@@ -396,6 +402,8 @@ body {
     }
 }
 
+=======
+>>>>>>> 77cf1618b9b980d1ccfdc707ecc9a876e41f8184
 .leer-mas {
     padding: 3%;
 
@@ -408,7 +416,29 @@ body {
     min-width: 100px;
     text-align: center;
 }
+.leer-mas-b {
+    padding: 10px;
 
+    float: right;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    background: #CC4A00;
+    border: 2px solid #762d00;
+    border-radius: 3px;
+    min-width: 100px;
+    text-align: center;
+}
+.leer-mas-b:hover{
+    background: #fc5c00;
+}
+.leer-mas-b a{
+    color: white !important;
+    text-decoration: none;
+}
+.leer-mas-b a:hover {
+    color: white !important;
+    text-decoration: none;
+}
 .leer-mas:hover {
     background: #fc5c00;
 }

@@ -38,13 +38,13 @@
                     <div id="Menu_news" class="accordion-body collapse" style="height: 0px; ">
                         <div class="accordion-inner">
                             <ul>
-                                <li><a href="/noticia/create"> <i class="fa fa-plus"
+                                <li><a href="/{{App::getLocale()}}/noticia/create"> <i class="fa fa-plus"
                                                                   aria-hidden="true"></i> {{ trans('messages.Add_news') }}
                                     </a></li>
-                                <li><a href="/llistanoticies"> <i class="fa fa-list"
+                                <li><a href="/{{App::getLocale()}}/llistanoticies"> <i class="fa fa-list"
                                                                   aria-hidden="true"></i> {{ trans('messages.Allnews') }}
                                     </a></li>
-                                <li><a href="/llistanoticiespen"> <i
+                                <li><a href="/{{App::getLocale()}}/llistanoticiespen"> <i
                                                 class="fa fa-question "></i> {{ trans('messages.pending_news') }}</a>
                                 </li>
                             </ul>
@@ -62,13 +62,13 @@
                     <div id="Menu_event" class="accordion-body collapse" style="height: 0px; ">
                         <div class="accordion-inner">
                             <ul>
-                                <li><a href="/event/create"> <i class="fa fa-calendar-plus-o"
+                                <li><a href="/{{App::getLocale()}}/event/create"> <i class="fa fa-calendar-plus-o"
                                                                 aria-hidden="true"></i> {{ trans('messages.Add_event') }}
                                     </a></li>
-                                <li><a href="/llistaevents"> <i class="fa fa-list"
+                                <li><a href="/{{App::getLocale()}}/llistaevents"> <i class="fa fa-list"
                                                                 aria-hidden="true"></i> {{ trans('messages.All_event') }}
                                     </a></li>
-                                <li><a href="/llistaeventspen"> <i
+                                <li><a href="/{{App::getLocale()}}/llistaeventspen"> <i
                                                 class="fa fa-check-square-o "></i> {{ trans('messages.pending_events') }}
                                     </a></li>
                             </ul>
@@ -86,10 +86,10 @@
                     <div id="Menu_types" class="accordion-body collapse" style="height: 0px; ">
                         <div class="accordion-inner">
                             <ul>
-                                <li><a href="/tipusevent/create"> <i class="fa fa-plus-square-o"
+                                <li><a href="/{{App::getLocale()}}/tipusevent/create"> <i class="fa fa-plus-square-o"
                                                                      aria-hidden="true"></i> {{ trans('messages.add_type') }}
                                     </a></li>
-                                <li><a href="/llistatipus"> <i class="fa fa-list"
+                                <li><a href="/{{App::getLocale()}}/llistatipus"> <i class="fa fa-list"
                                                                aria-hidden="true"></i> {{ trans('messages.all_types') }}
                                     </a></li>
                             </ul>
@@ -107,10 +107,10 @@
                     <div id="Menu_other" class="accordion-body collapse" style="height: 0px; ">
                         <div class="accordion-inner">
                             <ul>
-                                <li><a href="/llistacarrers"><i class="fa fa-map"
+                                <li><a href="/{{App::getLocale()}}/llistacarrers"><i class="fa fa-map"
                                                                 aria-hidden="true"></i> {{ trans('messages.edit_street') }}
                                     </a></li>
-                                <li><a href="/afegirFoto"> <i class="fa fa-picture-o"
+                                <li><a href="/{{App::getLocale()}}/afegirFoto"> <i class="fa fa-picture-o"
                                                               aria-hidden="true"></i> {{ trans('messages.add_pic') }}
                                     </a></li>
                             </ul>
@@ -122,9 +122,9 @@
         </div>
 
         <!-- sidebar end -->
-        @else
-            <div>
-                @endif
+@else
+<div>
+@endif
                 <div id='cssmenu'>
                     <ul>
                         @if (Auth::id() != null)
@@ -160,12 +160,12 @@
 
                 @if (Auth::id() != null)
                     <div id="page-content-wrapper">
-                        <div class="container-fluid">
+
                             @endif
-                            <div class="row">
+
                                 @include('errors.errors')
-                                @yield('content')
-                            </div>
+                                    @yield('content')
+
                             @if (Auth::id() != null)
                         </div>
                     </div> <!-- /#page-content-wrapper -->

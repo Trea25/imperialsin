@@ -54,7 +54,10 @@ return [
     'fb' => 'Facebook',
     'tw' => 'Twitter',
     'ins' => 'Instagram',
-     'moar' => 'Read More',
+    'moar' => 'Read More',
+    'insert_ok' => 'Insert correctly',
+	'insert_fail' => 'An error has ocurred',
+	 
     //Form Noticia
     'not_select_street' => 'Select street',
     'not_title' => 'News Title',

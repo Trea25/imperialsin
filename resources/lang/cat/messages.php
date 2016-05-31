@@ -47,6 +47,7 @@ return [
     'edit' => 'Editar',
     'save' => 'Guardar',
     'delete' => 'Eliminar',
+    
     'title' => 'Títol',
     'desc' => 'Descripció',
     'name' => 'Nom',
@@ -55,10 +56,12 @@ return [
     'tw' => 'Twitter',
     'ins' => 'Instagram',
     'moar' => 'Llegir més',
-    
+	'insert_ok' => 'S\'ha afegit correctament',
+	'insert_fail' => 'Hi ha hagut un error.',
     
     //Form Noticia
     'not_select_street' => 'Selecciona el carrer',
+
     'not_title' => 'Títol de la noticia',
     'not_desc' => 'Descripció de la noticia',
     'publish_to' => 'Publicar a',
@@ -67,13 +70,16 @@ return [
     'news_edit' => 'Modificar Noticia',
 
     //Form Event
+
     'ev_title' => 'Títol de l\'event',
     'ev_name' => 'Nom de l\'event',
+	'ev_name' => 'Nom de l\'event',
     'ev_type' => 'Tipus d\'event ',
     'ev_select_type' => 'Selecciona el tipus',
     'ev_select_street' => 'Selecciona el carrer',
     'ev_edit' => 'Modificar Event',
     'ev_approve' => 'Aprovar',
+
 
      'ev_list' => 'Llistat d\' Events',
     
