@@ -160,12 +160,12 @@
 
                 @if (Auth::id() != null)
                     <div id="page-content-wrapper">
-                        <div class="container-fluid">
+
                             @endif
-                            <div class="row">
+
                                 @include('errors.errors')
-                                @yield('content')
-                            </div>
+                                    @yield('content')
+
                             @if (Auth::id() != null)
                         </div>
                     </div> <!-- /#page-content-wrapper -->

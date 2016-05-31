@@ -15,7 +15,7 @@
     <link href="{{URL::asset('css/maparea.css')}}" rel="stylesheet">
 
     <script>
-        moment.locale('es');
+        moment.locale('ca');
         var app = angular.module('myApp', ['multipleDatePicker']);
         app.controller('myCtrl', function ($scope) {
             $scope.checkSelection = function (event, date) {
@@ -113,7 +113,7 @@
                     <div ng-app="myApp" ng-controller="myCtrl" id="calendari" >
                         <multiple-date-picker day-click="checkSelection"></multiple-date-picker>
                     </div>
-                    <input type="hidden" id="altField"/>
+                    <input type="hiddend" id="altField"/>
                     <div>
                         <div class="form-group">
                             <div class="linea"></div>
