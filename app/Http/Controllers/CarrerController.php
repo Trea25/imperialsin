@@ -175,7 +175,7 @@ class CarrerController extends Controller
     {
         $this->middleware('auth');
         //DB::connection()->enableQueryLog();
-        $carrer = DB::table('fotos')->where("carrer_id", "=", $id)->orderBy('created_at', "DESC")->select("fotos.id")->get();
+        $carrer = DB::table('fotos')->where("carrer_id", "=", $id)->orderBy('created_at', "DESC")->select("fotos.id")->take(12)->get();
         //Log::info(DB::getQueryLog());
 
         for($i=0;$i<12&&$i<sizeof($carrer);$i++){

@@ -3,10 +3,9 @@
 @section('head')
     <title>Carrers</title>
     <script src="{{URL::asset('js/jquery-2.1.4.min.js')}}" type="text/javascript"></script>
-    <link href="{{URL::asset('css/mdp.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('css/prettify.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/maparea.css')}}" rel="stylesheet">
-
+    <script src="{{URL::asset('js/galeria/jquery.bxslider.min.js')}}" type="text/javascript"></script>
+    <link href="{{URL::asset('js/galeria/jquery.bxslider.css')}}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -92,13 +91,12 @@
                 <div id="result"></div>
             </div>
         </div>
-
+        <div class="separador"></div>
 
         <div id="fotos"></div>
 
 
         <script src="{{URL::asset('js/jquery-ui-1.11.1.js')}}" type="text/javascript"></script>
-        <script src="{{URL::asset('js/jquery-ui.multidatespicker.js')}}" type="text/javascript"></script>
         <script src="{{URL::asset('js/prettify.js')}}" type="text/javascript"></script>
         <script src="{{URL::asset('js/lang-css.js')}}" type="text/javascript"></script>
         <script src="{{URL::asset('js/mapa/image.js')}}" type="text/javascript"></script>

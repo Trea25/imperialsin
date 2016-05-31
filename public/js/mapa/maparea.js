@@ -82,21 +82,27 @@ function showcarrer(item) {
         dataType: 'json',
         success: function (resultat) {
             result=resultat.data;
-            string="<div><titol>"+result.cnom+"</titol><h5>"+result.cany_inici+"</h5><div class='row social-icons'>";
+            var social = false;
+            string="<div class='noticia'><div class='body-noticia'><titol class='text-marro'>"+result.cnom+"</titol><br /><br /><span class='linea'></span><h5 class='text-marro'>Fent festa des de "+result.cany_inici+"</h5><div class='text-left row social-icons'>";
             if(result.cfacebook!=""){
-                string+="<span class='social-icon' onclick='OpenInNewTab(\""+result.cfacebook+"\")'>" +
+                string+="<span class='social-icon-b' onclick='OpenInNewTab(\""+result.cfacebook+"\")'>" +
                     "<i class='fa fa-facebook fa-2x'></i></span>";
+                social = true;
             }
             if(result.ctwitter!=""){
-                string+="<span class='social-icon' onclick='OpenInNewTab(\""+result.ctwitter+"\")'>" +
+                string+="<span class='social-icon-b' onclick='OpenInNewTab(\""+result.ctwitter+"\")'>" +
                     "<i class='fa fa-twitter fa-2x'></i></span>";
+                social = true;
             }
             if(result.cinstagram!=""){
-                string+="<span class='social-icon' onclick='OpenInNewTab(\""+result.cinstagram+"\")'>" +
+                string+="<span class='social-icon-b' onclick='OpenInNewTab(\""+result.cinstagram+"\")'>" +
                     "<i class='fa fa-instagram fa-2x'></i></span>";
+                social = true;
             }
-
-            string+="</div><p>"+result.cdescripcio+"</p></div>";
+            if (social){
+                string += "<br /><br />";
+            }
+            string+="</div><div id='info-carrer'><p class='text-marro'>"+result.cdescripcio+"</p></div></div></div>";
             $("#result").html(string);
             fotoscarrers(result.id);
         }
@@ -216,7 +222,7 @@ function search() {
                 string += "<li class='event text-marro'><span class='hora-event class='text-marro''> - " +getHora(result[i].edata_inici)+"</span> - <span class='titol-event text-marro'>"+  result[i].etitol + "</span></li>";
             }
 
-            string += "<hr></div></div></div></div></div>";
+            string += "<br /><hr></div></div></div></div></div><br />";
             $("#result").html(string);
                        function init() {
                 setHeight();
@@ -250,34 +256,19 @@ function fotoscarrers(id) {
         type: 'GET',
         dataType: 'json',
         success: function (result) {
-            string = " <div id='gallery'>" +
-                "<div id='gallery-carousel' class='carousel slide' data-interval='false'>" +
-                "<div class='container'>" +
-                "<div class='row'>" +
-                "<div class='col-sm-12'>" +
-                "<h2>Fotos</h2>" +
-                "<a class='gallery-control-left' href='#gallery-carousel' data-slide='prev'><i class='fa fa-angle-left'></i></a> " +
-                "<a class='gallery-control-right' href='#gallery-carousel' data-slide='next'><i class='fa fa-angle-right'></i></a> " +
-                "<div class='carousel-inner'> " +
-                "<div class='item active'> " +
-                "<ul>";
+            string = "<div class='row'><div class='col-md-12'><div class='slider'>";
             for (i = 0; i < result.length; i++) {
-                if (i == 4 || i == 8) {
-                    string += "</ul></div><div class='item'><ul>";
-                }
-                string += "<li><img class='img img-responsive' src='/foto/" + result[i] + "' alt=''></li>";
+                string += "<div class='slide'><img class='img img-responsive' src='/foto/" + result[i] + "'></div>";
             }
+            string+="</div></div></div>";
+            $("#info-carrer").append(string);
 
-            string += "</ul> " +
-                "</div> " +
-                "</div> " +
-                "</div>" +
-                "</div>" +
-                "</div>" +
-               
-                "</div>" +
-                "</div>";
-            $("#fotos").html(string);
+            $('.slider').bxSlider({
+                slideWidth: 300,
+                minSlides: 2,
+                maxSlides: 3,
+                slideMargin: 10
+            });
 
         }
     });

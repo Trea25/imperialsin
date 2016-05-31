@@ -27,20 +27,19 @@
                         <span class="leer-mas-b pull-right"><a
                                     href="/noticia/view/{{$noticia->id}}">{{trans('messages.moar')}}</a></span>
 
-                   <div class="row">
-                    <div class="col-xs-2 col-sm-1" style="min-width:100px !important;"> <span style="height:25px" class="fb-share-button"
+                    <div class="col-xs-2 col-sm-1"> <span style="height:25px" class="fb-share-button"
                                                  data-href="{{App::make('url')->to('/'.App::getLocale().'/noticia/view/'.$noticia->id)}}?p[title]=$noticia->ntitol"
                                                  data-layout="button" data-mobile-iframe="true">
 
                         </span>
                     </div>
-                    <div class="col-xs-2 col-sm-pull-1" style="min-width:90px !important;">
+
+                    <div class="col-xs-2 col-sm-1">
                             <span><a style="height:25px"
                                      href="https://twitter.com/share?text={{$noticia->ntitol}}&url={{App::make('url')->to('/'.App::getLocale().'/noticia/view/'.$noticia->id)}}"
                                      class="twitter-share-button"></a>
                         </span>
                     </div>
-                   </div>
                 </div>
             </div>
 
