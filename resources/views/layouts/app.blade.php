@@ -145,13 +145,13 @@
 
                                 @foreach (Config::get('languages') as $lang => $language)
                                     @if ($lang != App::getLocale())
-                                        <span class="lang" style="width:40px;">
-                                        <a href="{!! str_replace('/'.App::getLocale(),'/'.$lang,URL::current()) !!}"><img  style=" max-width:40px" src="{{URL::asset('img/'.$lang.'.png')}}" />
+                                        <span class="lang" style="width:30px;">
+                                        <a href="{!! str_replace('/'.App::getLocale(),'/'.$lang,URL::current()) !!}"><img  style=" max-width:30px" src="{{URL::asset('img/'.$lang.'.png')}}" />
                                         </a></span>
                                     @endif
                                 @endforeach
                                 @if(Auth::id()!=null)
-                                    <a href="/{{App::getLocale()}}/logout"><span class="lang"><i class="fa fa-sign-out fa-3x"></i> </span></a>
+                                    <a href="/{{App::getLocale()}}/logout"><span class="lang"><i class="fa fa-sign-out fa-2x"></i> </span></a>
                                 @endif
                         </span>
                     </ul>

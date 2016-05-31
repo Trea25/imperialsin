@@ -98,11 +98,11 @@
                     <div ng-app="myApp" ng-controller="myCtrl" id="calendari" >
                         <multiple-date-picker day-click="checkSelection"></multiple-date-picker>
                     </div>
-                    <input type="hiddend" id="altField"/>
+                    <input hidden type="hiddend" id="altField"/><br>
                     <div>
                         <div class="form-group">
                             <div class="linea"></div>
-                            <label for="events" class="text-marro">Tipus d'event</label>
+                            <label for="events" class="text-marro">{{trans('messages.ev_type')}}</label><br><br>
                             <select class="form-control" name="events" id="events">
                                 <option value="0">Tots</option>
                                 @foreach($tipusevents as $event)
