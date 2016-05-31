@@ -21,6 +21,7 @@ return [
     'Menu_streets' => 'Streets',
     'events' => 'Events',
     'other' => 'Other',
+    'calendarlang'=>'en',
     
     'Add_news' => 'Add News',
     'Allnews' => 'All News',
@@ -87,6 +88,7 @@ return [
     
     //Carrers
     'edit_street' => 'Edit Street',
+    'list_street' => 'Street List',
 
     //Validacions
     'valtitol'=>'The title must be between 3 and 255 characters',

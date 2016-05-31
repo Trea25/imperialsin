@@ -20,6 +20,7 @@ return [
     'Menu_streets' => 'Carrers',
     'events' => 'Events',
     'other' => 'Altres',
+    'calendarlang'=>'ca',
       
     'Add_news' => 'Afegir Noticia',
     'Allnews' => 'Totes les Noticies',
@@ -46,7 +47,8 @@ return [
     'edit' => 'Editar',
     'save' => 'Guardar',
     'delete' => 'Eliminar',
-    'title' => 'Titol',
+    
+    'title' => 'Títol',
     'desc' => 'Descripció',
     'name' => 'Nom',
     'i_year' => 'Any inicial',
@@ -59,7 +61,8 @@ return [
     
     //Form Noticia
     'not_select_street' => 'Selecciona el carrer',
-    'not_title' => 'Titol de la noticia',
+
+    'not_title' => 'Títol de la noticia',
     'not_desc' => 'Descripció de la noticia',
     'publish_to' => 'Publicar a',
     
@@ -67,7 +70,9 @@ return [
     'news_edit' => 'Modificar Noticia',
 
     //Form Event
-    'ev_title' => 'Titol de l\'event',
+
+    'ev_title' => 'Títol de l\'event',
+    'ev_name' => 'Nom de l\'event',
 	'ev_name' => 'Nom de l\'event',
     'ev_type' => 'Tipus d\'event ',
     'ev_select_type' => 'Selecciona el tipus',
@@ -75,7 +80,8 @@ return [
     'ev_edit' => 'Modificar Event',
     'ev_approve' => 'Aprovar',
 
-     'ev_list' => 'Llistat dd\' Events',
+
+     'ev_list' => 'Llistat d\' Events',
     
     'edit_type' => 'Modificar tipus',
     'add_type' => 'Afegir tipus',
@@ -87,6 +93,7 @@ return [
     
     //Carrers
     'edit_street' => 'Modificar Carrer',
+    'list_street' => 'Llista de Carrers',
 
     //Validacions
     'valtitol'=>'El títol ha de tenir entre 3 i 255 caràcters',
