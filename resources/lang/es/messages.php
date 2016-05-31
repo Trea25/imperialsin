@@ -21,6 +21,7 @@ return [
     'Menu_streets' => 'Calles',
     'events' => 'Eventos',
     'other' => 'Otros',
+    'calendarlang'=>'es',
     
     'Add_news' => 'Añadir Noticia',
     'Allnews' => 'Todas las Noticias',
@@ -89,6 +90,7 @@ return [
     
     //Carrers
     'edit_street' => 'Modificar Calle',
+    'list_street' => 'Lista de Calles',
 
     //Validacions
     'valtitol'=>'El título ha de tener entre 3 y 255 caracteres',

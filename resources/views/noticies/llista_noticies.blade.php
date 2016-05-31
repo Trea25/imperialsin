@@ -6,12 +6,27 @@
 @endsection
 
 @section('content')
-    <table>
-        @foreach($noticies as $noticia)
-            <tr><td>{{$noticia->ntitol}}</td><td><a href="noticia/{{$noticia->id}}/edit"><button class="btn btn-warning">{{trans('messages.edit')}}</button></a></td></tr>
-           
-       @endforeach
-    </table>
+    <div class="container">
+        <div class="linea"></div>
+        <div class="linea"></div>
+        <div class="linea"></div>
+        <div class="linea"></div>
+
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <table class="table table-striped"><thead><tr><th>{{trans('messages.title')}}</th><th>{{trans('messages.date')}}</th><th>{{trans('messages.Street')}}</th><th>{{trans('messages.edit')}}</th></tr></thead>
+
+                    @foreach($noticies as $noticia)
+                        <tr><td>{{$noticia->ntitol}}</td><td>{{$noticia->created_at}}</td><td>{{$noticia->cnom}}</td><td><a href="noticia/{{$noticia->id}}/edit"><button class="btn btn-primary"><i class="fa fa-edit fa-lg"/></button></a></td></tr>
+
+                   @endforeach
+                </table>
+            </div>
+
+        </div>
+    </div>
 
     {{$noticies->render()}}
 @endsection

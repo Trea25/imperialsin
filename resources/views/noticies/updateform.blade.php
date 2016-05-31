@@ -13,58 +13,83 @@
 
 @endsection
 @section('content')
-    {!! Form::open(array('url' => '/noticia/'.$noticia->id, 'files' => true)) !!}
-    {{Form::token()}}
-    {{ method_field('PUT') }}
-    <div id="theparent" style="width: 30%;">
-        <img style="width:100%" id="thepicture" src='/foto/{{$noticia->foto_id}}'/>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <fieldset class="scheduler-border">
+                    <legend class="scheduler-border">{{trans('messages.Add_news')}}</legend>
+                        {!! Form::open(array('url' => '/noticia/'.$noticia->id, 'files' => true)) !!}
+                            {{Form::token()}}
+                            {{ method_field('PUT') }}
+                            <div id="theparent" style="width: 30%;">
+                                <img style="width:100%" id="thepicture" src='/foto/{{$noticia->foto_id}}'/>
+                            </div><br>
+                            <div id='controls'>
+                                <button id='rotate_left' type='button' class="btn btn-primary" title='Rotate left'> <i class="fa fa-rotate-left fa-lg"></i> </button>
+                                <button id='zoom_out' type='button' class="btn btn-primary" title='Zoom out'> <i class="fa fa-minus fa-lg"></i></button>
+                                <button id='fit' type='button' class="btn btn-primary" title='Fit image'><i class="fa fa-arrows fa-lg"></i></button>
+                                <button id='zoom_in' type='button' class="btn btn-primary" title='Zoom in'> <i class="fa fa-plus fa-lg"></i></button>
+                                <button id='rotate_right' type='button' class="btn btn-primary" title='Rotate right'> <i class="fa fa-rotate-right fa-lg"></i> </button>
+                            </div><br>
+
+
+                                <input type="file" name="foto" id="inputImg">
+
+
+
+                            <div id='data'>
+
+                                <input hidden type="text" id='x' name="x"/>
+                                <input hidden type="text" id='y' name="y"/>
+                                <input hidden type="text" id='w' name="w"/>
+                                <input hidden type="text" id='h' name="h"/>
+                                <input hidden type="text" id='scale' name="scale"/>
+                                <input type="hidden" id='angle' name="angle"/>
+                            </div>
+
+                            <label>{{trans('messages.title')}}</label><br><br>
+                            <input onchange="valtitol(this.value)" type="text" class="form-control" name="ntitol" value="{{$noticia->ntitol}}"/><br>
+                            <div class="errorval" hidden id="titol">{{trans("messages.valtitol")}}</div><br>
+
+                            <label>{{trans('messages.desc')}}</label><br><br>
+                            <textarea id="textarea" class="form-control" name="ndesc" cols="80" rows="8">{{$noticia->ndesc}}</textarea><br><br>
+
+
+                            <label>{{trans('messages.Street')}}</label><br><br>
+                            <select class="form-control" name="carrer_id">
+                                @foreach($carrers as $carrer)
+                                    @if($carrer->id==$noticia->carrer_id)
+                                        <option selected value="{{$carrer->id}}">{{$carrer->cnom}}</option>
+                                    @else
+                                        <option value="{{$carrer->id}}">{{$carrer->cnom}}</option>
+                                    @endif
+                                @endforeach
+                            </select><br><br>
+
+                            <label>{{trans('messages.ev_approve')}} <input name="nactiu" type="checkbox" @if ($noticia->nactiu) checked @endif/></label><br>
+                            <br><br>
+                            <button class="pull-left botoform btn btn-success">{{trans('messages.save')}}</button>
+                            </form>
+                            <form method="POST" action="/noticia/{{ $noticia->id }}">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <button class="pull-left btn btn-danger">{{trans('messages.delete')}}</button>
+                            </form>
+                    {!! Form::close() !!}
+                </fieldset>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
     </div>
-    <div id='controls'>
-        <button id='rotate_left' type='button' title='Rotate left'> &lt; </button>
-        <button id='zoom_out' type='button' title='Zoom out'> -</button>
-        <button id='fit' type='button' title='Fit image'> [ ]</button>
-        <button id='zoom_in' type='button' title='Zoom in'> +</button>
-        <button id='rotate_right' type='button' title='Rotate right'> &gt; </button>
-    </div>
-    <input type="file" name="foto" id="inputImg">
 
-    <div id='data'>
-
-        <input type="text" id='x' name="x"/>
-        <input type="text" id='y' name="y"/>
-        <input type="text" id='w' name="w"/>
-        <input type="text" id='h' name="h"/>
-        <input type="text" id='scale' name="scale"/>
-        <input type="hidden" id='angle' name="angle"/>
-    </div>
-
-
-    <label>{{trans('messages.title')}}</label><br>
-    <input onchange="valtitol(this.value)" type="text" class="form-control" name="ntitol" value="{{$noticia->ntitol}}"/><br>
-    <div class="errorval" hidden id="titol">{{trans("messages.valtitol")}}</div>
-
-    <label>{{trans('messages.desc')}}</label><br>
-    <textarea id="textarea" class="form-control" name="ndesc" cols="80" rows="8">{{$noticia->ndesc}}</textarea>
-
-
-    <label>{{trans('messages.Street')}}</label><br>
-    <select class="form-control" name="carrer_id">
-        @foreach($carrers as $carrer)
-            @if($carrer->id==$noticia->carrer_id)
-                <option selected value="{{$carrer->id}}">{{$carrer->cnom}}</option>
-            @else
-                <option value="{{$carrer->id}}">{{$carrer->cnom}}</option>
-            @endif
-        @endforeach
-    </select><br>
-
-    <label>{{trans('messages.ev_approve')}} <input name="nactiu" type="checkbox" @if ($noticia->nactiu) checked @endif/></label><br>
-
-    <button class="btn btn-success">{{trans('messages.save')}}</button>
-    </form>
-    <form method="POST" action="/noticia/{{ $noticia->id }}">
-        {{ csrf_field() }}
-        {{ method_field('DELETE') }}
-        <button class="btn btn-danger">{{trans('messages.delete')}}</button>
-    </form>
+    <script>
+        $(window).resize( function() {
+            reLoadEditor();
+        } );
+        function reLoadEditor() {
+            editor.removeInstance('textarea');
+            editor = new nicEditor({buttonList: ['fontSize', 'bold', 'italic', 'underline', 'left', 'center', 'right', 'justify', 'ol', 'ul', 'subscript', 'superscript', 'strikethrough', 'indent', 'outdent', 'hr', 'forecolor', 'bgcolor', 'link', 'unlink', 'fontSize', 'fontFamily', 'fontFormat']}).panelInstance('textarea');
+        };
+    </script>
 @endsection

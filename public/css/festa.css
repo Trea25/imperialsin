@@ -381,6 +381,29 @@ body {
     font-weight:bold !important;
 
 }
+<<<<<<< HEAD
+
+.body-noticia {
+    color: #FFFFFF;
+    padding: 2%;
+    font-size: 14pt !important;
+    min-height:150px;
+}
+
+@media (min-width: 1700px) {
+    .noticia {
+        min-height: 220px !important;
+    }
+}
+
+@media (max-width: 1700px) and (min-width: 800px) {
+    .noticia {
+        min-height: 320px !important;
+    }
+}
+
+=======
+>>>>>>> 77cf1618b9b980d1ccfdc707ecc9a876e41f8184
 .leer-mas {
     padding: 3%;
 
@@ -591,3 +614,50 @@ a:active {
 .lang:hover{
     opacity:0.8;
 }
+
+fieldset.scheduler-border {
+    border: solid 3px #C54700 !important;
+    border-radius: 5px;
+    padding: 30px 30px 30px 30px;
+    border-bottom: none;
+
+    background-color: #F3982F;
+}
+
+legend.scheduler-border {
+    border-top: solid 3px #C54700 !important;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    padding:8px;
+    background-color: #F3982F;
+    width: auto !important;
+    position: relative;
+}
+
+legend.scheduler-border:after {
+    content: '';
+    position: absolute;
+    border-left: solid 3px #C54700 !important;
+    left: 0;
+    top: 0px;
+    height: 50%;
+
+}
+
+legend.scheduler-border:after {
+    content: '';
+    position: absolute;
+    border-right: solid 3px #C54700 !important;
+    right: 0;
+    top: 0px;
+    height: 50%;
+
+}
+.botoform{
+    margin-right: 2%;
+}
+
+
+

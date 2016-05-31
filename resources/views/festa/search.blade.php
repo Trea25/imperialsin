@@ -14,28 +14,13 @@
     <link href="{{URL::asset('css/calendari/multiple-date-picker.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/maparea.css')}}" rel="stylesheet">
 
-    <script>
-        moment.locale('ca');
-        var app = angular.module('myApp', ['multipleDatePicker']);
-        app.controller('myCtrl', function ($scope) {
-            $scope.checkSelection = function (event, date) {
-                date = date.date.format("YYYY-MM-DD");
-                var hiddenfield = $("#altField").val();
-                if (hiddenfield.indexOf(date) == -1) {
-                    hiddenfield = hiddenfield + date + ", ";
-                    $("#altField").val(hiddenfield);
-                } else {
-                    hiddenfield = hiddenfield.replace(date + ", ", "");
-                    $("#altField").val(hiddenfield);
-                }
-                if ($("#altField").val().trim() == "undefined") {
-                    $("#altField").val(" ");
-                }
-                console.log(date);
-                console.log(moment.locale());
-            }
-        });
-    </script>
+<script>
+    moment.locale('{{trans('messages.calendarlang')}}');
+
+   // moment.locale("ca");
+</script>
+    <script src="{{URL::asset('js/calendari/calendaristartup.js')}}" type="text/javascript"></script>
+
 
 @endsection
 
