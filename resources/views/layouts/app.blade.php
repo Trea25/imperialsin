@@ -35,21 +35,25 @@
                                     class="caret"></span>
                         </a>
                     </div>
+                  
                     <div id="Menu_news" class="accordion-body collapse" style="height: 0px; ">
                         <div class="accordion-inner">
                             <ul>
                                 <li><a href="/{{App::getLocale()}}/noticia/create"> <i class="fa fa-plus"
                                                                   aria-hidden="true"></i> {{ trans('messages.Add_news') }}
                                     </a></li>
+                                @if (Auth::id() == 1)
                                 <li><a href="/{{App::getLocale()}}/llistanoticies"> <i class="fa fa-list"
                                                                   aria-hidden="true"></i> {{ trans('messages.Allnews') }}
                                     </a></li>
                                 <li><a href="/{{App::getLocale()}}/llistanoticiespen"> <i
                                                 class="fa fa-question "></i> {{ trans('messages.pending_news') }}</a>
                                 </li>
+                                @endif
                             </ul>
                         </div>
                     </div>
+                    
                 </li>
                 <!-- Events -->
                 <li class="accordion-group">
@@ -65,17 +69,20 @@
                                 <li><a href="/{{App::getLocale()}}/event/create"> <i class="fa fa-calendar-plus-o"
                                                                 aria-hidden="true"></i> {{ trans('messages.Add_event') }}
                                     </a></li>
+                                @if (Auth::id() != 1)
                                 <li><a href="/{{App::getLocale()}}/llistaevents"> <i class="fa fa-list"
                                                                 aria-hidden="true"></i> {{ trans('messages.All_event') }}
                                     </a></li>
                                 <li><a href="/{{App::getLocale()}}/llistaeventspen"> <i
                                                 class="fa fa-check-square-o "></i> {{ trans('messages.pending_events') }}
                                     </a></li>
+                                @endif
                             </ul>
                         </div>
                     </div>
                 </li>
                 <!-- Tipus -->
+                 @if (Auth::id() == 1)
                 <li class="accordion-group">
                     <div class="accordion-heading">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#leftMenu" href="#Menu_types">
@@ -96,6 +103,7 @@
                         </div>
                     </div>
                 </li>
+                @endif
                 <!-- Other -->
                 <li class="accordion-group">
                     <div class="accordion-heading">
@@ -107,9 +115,11 @@
                     <div id="Menu_other" class="accordion-body collapse" style="height: 0px; ">
                         <div class="accordion-inner">
                             <ul>
+                             @if (Auth::id() == 1)
                                 <li><a href="/{{App::getLocale()}}/llistacarrers"><i class="fa fa-map"
                                                                 aria-hidden="true"></i> {{ trans('messages.edit_street') }}
                                     </a></li>
+                            @endif
                                 <li><a href="/{{App::getLocale()}}/afegirFoto"> <i class="fa fa-picture-o"
                                                               aria-hidden="true"></i> {{ trans('messages.add_pic') }}
                                     </a></li>
@@ -167,8 +177,8 @@
                                     @yield('content')
 
                             @if (Auth::id() != null)
-                        </div>
-                    </div> <!-- /#page-content-wrapper -->
+                    </div>
+                   
                 @endif
 
                 @include('festa.footer')
