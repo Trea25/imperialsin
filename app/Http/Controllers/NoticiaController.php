@@ -306,8 +306,8 @@ class NoticiaController extends Controller
         foreach ($noticies as $noticia){
              $ndesc = $noticia->ndesc;
             if (strlen($ndesc) > 750) {
-                $ndesc = substr($ndesc, 0, 250);
-                $noticia->ndesc = $ndesc;
+                $ndesc = substr($ndesc, 0, 747);
+                $noticia->ndesc = $ndesc."...";
             }
         
         }
@@ -323,8 +323,8 @@ class NoticiaController extends Controller
         foreach ($noticies as $noticia) {
             $ndesc = $noticia->ndesc;
             if (strlen($ndesc) > 250) {
-                $ndesc = substr($ndesc, 0, 250);
-                $noticia->ndesc = $ndesc;
+                $ndesc = substr($ndesc, 0, 247);
+                $noticia->ndesc = $ndesc."...";
             }
         }
         return view('festa.home', [

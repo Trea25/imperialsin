@@ -22,7 +22,7 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav accordion" id="leftMenu">
                 <li class="sidebar-brand">
-                    <a href='#' class="menu-toggle"> <i class="fa fa-laptop" aria-hidden="true"></i>
+                    <a href='#' class="menu-toggle"> <i class="fa fa-cogs" aria-hidden="true"></i>
                         {{ trans('messages.Menu_admin') }}
                         <i class="fa fa-arrow-right" aria-hidden="true"></i>
                     </a>
@@ -136,9 +136,12 @@
 <div>
 @endif
                 <div id='cssmenu'>
+                
                     <ul>
+                    <img src="#" />
                         @if (Auth::id() != null)
-                            <li class='admin'><a href='#' class="menu-toggle">{{ trans('messages.Menu_admin') }}</a>
+                            <li class='admin'><a href='#' class="menu-toggle"><i class="fa fa-cogs" aria-hidden="true"></i>
+                                            {{ trans('messages.Menu_admin') }}</a>
                             </li>
                         @endif
                         <li><a href='/{{App::getlocale()}}/'><span>{{trans('messages.Menu_home')}}</span></a>

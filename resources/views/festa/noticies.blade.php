@@ -21,7 +21,7 @@
                     <date class="text-marro">{{ trans('messages.posted_at') }} {{ $noticia->created_at }}</date>
                 </div>
                 <div class="col-sm-8 body-noticia text-left -align-justify text-marro">
-                    {!! $noticia->ndesc !!}...
+                    {!! $noticia->ndesc !!}
                 </div>
                 <div class="row">
                         <span class="leer-mas-b pull-right"><a

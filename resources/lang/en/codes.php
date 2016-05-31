@@ -12,6 +12,7 @@ return [
 
 	//Common
 	'delete_fail' => 'An Error has ocurred',
+    'delete_ok' => 'Deleted successfully',
     // Noticies
     'not_404' => 'No news found with that code',
     'not_200' => 'New :id updated successfully',
