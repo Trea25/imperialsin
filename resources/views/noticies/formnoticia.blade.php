@@ -15,7 +15,9 @@
     <link href='{{URL::asset('css/guillotine/jquery.guillotine.css')}}' media='all' rel='stylesheet'>
     <script src='{{URL::asset('js/guillotine/jquery.guillotine_startup.js')}}'></script>
 
-    <div class="separador"></div>
+    <div class="linea"></div>
+    <div class="linea"></div>
+    <div class="linea"></div>
 
         <div class="container">
             <div class="row">
@@ -28,15 +30,18 @@
                             <div id="theparent" style="width: 30%;">
 
                                 <img style="width:100%" id="thepicture" src='{{URL::asset('img/Fotos/default.png')}}'/>
-                            </div>
-                            <div id='controls'>
-                                <button id='rotate_left' type='button' title='Rotate left'> &lt; </button>
-                                <button id='zoom_out' type='button' title='Zoom out'> -</button>
-                                <button id='fit' type='button' title='Fit image'> [ ]</button>
-                                <button id='zoom_in' type='button' title='Zoom in'> +</button>
-                                <button id='rotate_right' type='button' title='Rotate right'> &gt; </button>
-                            </div>
-                            <input type="file" name="foto" id="inputImg">
+                            </div><br>
+                        <div id='controls'>
+                            <button id='rotate_left' type='button' class="btn btn-primary" title='Rotate left'> <i class="fa fa-rotate-left fa-lg"></i> </button>
+                            <button id='zoom_out' type='button' class="btn btn-primary" title='Zoom out'> <i class="fa fa-minus fa-lg"></i></button>
+                            <button id='fit' type='button' class="btn btn-primary" title='Fit image'><i class="fa fa-arrows fa-lg"></i></button>
+                            <button id='zoom_in' type='button' class="btn btn-primary" title='Zoom in'> <i class="fa fa-plus fa-lg"></i></button>
+                            <button id='rotate_right' type='button' class="btn btn-primary" title='Rotate right'> <i class="fa fa-rotate-right fa-lg"></i> </button>
+                        </div><br>
+
+
+                        <input class="inputfile" type="file" name="foto" id="inputImg">
+                        <label for="inputImg"><i class="fa fa-cloud-upload"></i> {{trans('messages.add_pic')}}</label>
 
                             <div id='data'>
 
@@ -48,24 +53,30 @@
                                 <input type="hidden" id='angle' name="angle"/>
                             </div>
 
-                            <label>{{trans('messages.not_title')}}</label><input onchange="valtitol(this.value)" class="form-control" class="form-control" id="ntitol" name="ntitol" type="text"/>
-                            <div class="errorval" hidden id="titol">{{trans("messages.valtitol")}}</div>
-                            <label>{{trans('messages.not_desc')}}</label>
-                            <textarea class="form-control" id="textarea" name="ndesc"></textarea>
+                            <label>{{trans('messages.not_title')}}</label><br><br><input onchange="valtitol(this.value)" class="form-control" class="form-control" id="ntitol" name="ntitol" type="text"/>
+                            <div class="errorval" hidden id="titol">{{trans("messages.valtitol")}}</div><br><br>
+                            <label>{{trans('messages.not_desc')}}</label><br><br>
+                            <textarea class="form-control" id="textarea" name="ndesc"></textarea><br><br>
                             @if(Auth::id()==1)
-                                <label>{{trans('messages.Street')}}</label>
+                                <label>{{trans('messages.Street')}}</label><br><br>
                                 <select class="form-control" name="id_carrer">
                                     <option value="0" selected>{{trans('messages.ev_select_street')}}</option>
                                     @foreach($carrers as $carrer)
                                         <option value="{{$carrer->id}}">{{$carrer->cnom}}</option>
                                     @endforeach
-                                </select>
+                                </select><br>
                             @endif
                             <br/>
-                            <label>{{trans('messages.publish_to')}} : </label><br/>
-                            <!-- Faltará ocultar los checkbox con un style="display:none" -->
-                            <label><input type="checkbox" class="form-control" name="twitter" id="Twitter" ><img width="50" height="50" src="/img/Twitter-Logo-2.png"  onclick="select(this,'Twitter');"></label>
-                           <br /><br />
+                            <div class="row">
+                                <div style="padding-top: 2%" class="col-sm-2">
+                                    <label>{{trans('messages.publish_to')}} : </label>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label><input type="checkbox" class="form-control publishtwitter" name="twitter" id="Twitter" ><img width="50" height="50" src="/img/Twitter-Logo-2.png"  onclick="select(this,'Twitter');"></label>
+                                </div>
+                                <div class="col-sm-9"></div>
+                            </div>
+                                <br /><br />
                             <button type="submit" id="afegirnoticia" class="btn btn-success">{{trans('messages.send')}}</button>
                             <button href="/administracio" class="btn btn-danger">{{trans('messages.back')}}</button>
                             {!! Form::close() !!}

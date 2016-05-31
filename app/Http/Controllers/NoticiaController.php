@@ -167,7 +167,7 @@ class NoticiaController extends Controller
             'ndesc' => 'required|max:2000|min:2'
         ]);
 
-        $msg = $request->ntitol;
+        $titol = $request->ntitol;
 
         DB::connection()->enableQueryLog();
         $foto = "";
@@ -183,7 +183,7 @@ class NoticiaController extends Controller
             $noticia->nactiu = false;
         }
 
-        $noticia->ntitol = $msg;
+        $noticia->ntitol = $titol;
         $noticia->ndesc = $request->ndesc;
 
         if ($request->id_carrer == 0) {
@@ -236,7 +236,7 @@ class NoticiaController extends Controller
                         return redirect("/redirect");
                     }
                     $Data = [
-                        'message' => $msg,
+                        'message' => $titol,
                         'link' => 'http://www.google.es',
                     ];
                     $fb->post('/feed', $Data, session('fb_user')->token);
@@ -247,7 +247,7 @@ class NoticiaController extends Controller
         if (isset($request->twitter)) {
             Log::info('Publicacio a Twitter');
             Twitter::postTweet([
-                'status' => $msg .App::make('url')->to('/'.App::getLocale().'/noticia/view/'.$noticia->id)
+                'status' => $titol .App::make('url')->to('/'.App::getLocale().'/noticia/view/'.$noticia->id)
             ]);
             Log::info('Twitter done');
 
@@ -306,8 +306,8 @@ class NoticiaController extends Controller
         foreach ($noticies as $noticia){
              $ndesc = $noticia->ndesc;
             if (strlen($ndesc) > 750) {
-                $ndesc = substr($ndesc, 0, 250);
-                $noticia->ndesc = $ndesc;
+                $ndesc = substr($ndesc, 0, 747);
+                $noticia->ndesc = $ndesc."...";
             }
         
         }
@@ -323,8 +323,8 @@ class NoticiaController extends Controller
         foreach ($noticies as $noticia) {
             $ndesc = $noticia->ndesc;
             if (strlen($ndesc) > 250) {
-                $ndesc = substr($ndesc, 0, 250);
-                $noticia->ndesc = $ndesc;
+                $ndesc = substr($ndesc, 0, 247);
+                $noticia->ndesc = $ndesc."...";
             }
         }
         return view('festa.home', [

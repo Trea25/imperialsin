@@ -13,6 +13,9 @@
 
 @endsection
 @section('content')
+    <div class="linea"></div>
+    <div class="linea"></div>
+    <div class="linea"></div>
     <div class="container">
         <div class="row">
             <div class="col-md-1"></div>
@@ -34,8 +37,8 @@
                             </div><br>
 
 
-                                <input type="file" name="foto" id="inputImg">
-
+                    <input class="inputfile" type="file" name="foto" id="inputImg">
+                    <label for="inputImg"><i class="fa fa-cloud-upload"></i> {{trans('messages.add_pic')}}</label>
 
 
                             <div id='data'>

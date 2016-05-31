@@ -12,6 +12,7 @@ return [
 
 	//Common
 	'delete_fail' => 'Hi ha hagut un error.',
+    'delete_ok' => 'S\'ha eliminat correctament',
     // Noticies
     'not_404' => 'No s\'ha trobat cap noticia amb aquest codi',
     'not_200' => 'La noticia :id s\'ha modificat correctament',

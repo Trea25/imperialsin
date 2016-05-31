@@ -132,10 +132,13 @@ class EventController extends Controller
         $event = Event::find($id);
         if (!$event) {
             $response = Response::json(['errors' => array(['code' => 404, 'message' => Lang::get('codes.ev_404')])], 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $msg = Lang::get('codes.ev_404');
         } else {
             $event->delete();
             $response = Response::json(array("status" => "ok", "data" => Lang::get('codes.ev_delete')), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
+             $msg = Lang::get('codes.ev_404');
         }
+        Session::flash('response',$msg);
     }
 
     public function edit($lang, $id)

@@ -22,7 +22,7 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav accordion" id="leftMenu">
                 <li class="sidebar-brand">
-                    <a href='#' class="menu-toggle"> <i class="fa fa-laptop" aria-hidden="true"></i>
+                    <a href='#' class="menu-toggle"> <i class="fa fa-cogs" aria-hidden="true"></i>
                         {{ trans('messages.Menu_admin') }}
                         <i class="fa fa-arrow-right" aria-hidden="true"></i>
                     </a>
@@ -35,21 +35,25 @@
                                     class="caret"></span>
                         </a>
                     </div>
+                  
                     <div id="Menu_news" class="accordion-body collapse" style="height: 0px; ">
                         <div class="accordion-inner">
                             <ul>
                                 <li><a href="/{{App::getLocale()}}/noticia/create"> <i class="fa fa-plus"
                                                                   aria-hidden="true"></i> {{ trans('messages.Add_news') }}
                                     </a></li>
+                                @if (Auth::id() == 1)
                                 <li><a href="/{{App::getLocale()}}/llistanoticies"> <i class="fa fa-list"
                                                                   aria-hidden="true"></i> {{ trans('messages.Allnews') }}
                                     </a></li>
                                 <li><a href="/{{App::getLocale()}}/llistanoticiespen"> <i
-                                                class="fa fa-question "></i> {{ trans('messages.pending_news') }}</a>
+                                                class="fa fa-check-square-o "></i> {{ trans('messages.pending_news') }}</a>
                                 </li>
+                                @endif
                             </ul>
                         </div>
                     </div>
+                    
                 </li>
                 <!-- Events -->
                 <li class="accordion-group">
@@ -65,17 +69,20 @@
                                 <li><a href="/{{App::getLocale()}}/event/create"> <i class="fa fa-calendar-plus-o"
                                                                 aria-hidden="true"></i> {{ trans('messages.Add_event') }}
                                     </a></li>
+                                @if (Auth::id() == 1)
                                 <li><a href="/{{App::getLocale()}}/llistaevents"> <i class="fa fa-list"
                                                                 aria-hidden="true"></i> {{ trans('messages.All_event') }}
                                     </a></li>
                                 <li><a href="/{{App::getLocale()}}/llistaeventspen"> <i
                                                 class="fa fa-check-square-o "></i> {{ trans('messages.pending_events') }}
                                     </a></li>
+                                @endif
                             </ul>
                         </div>
                     </div>
                 </li>
                 <!-- Tipus -->
+                 @if (Auth::id() == 1)
                 <li class="accordion-group">
                     <div class="accordion-heading">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#leftMenu" href="#Menu_types">
@@ -96,6 +103,7 @@
                         </div>
                     </div>
                 </li>
+                @endif
                 <!-- Other -->
                 <li class="accordion-group">
                     <div class="accordion-heading">
@@ -107,9 +115,11 @@
                     <div id="Menu_other" class="accordion-body collapse" style="height: 0px; ">
                         <div class="accordion-inner">
                             <ul>
+                             @if (Auth::id() == 1)
                                 <li><a href="/{{App::getLocale()}}/llistacarrers"><i class="fa fa-map"
                                                                 aria-hidden="true"></i> {{ trans('messages.edit_street') }}
                                     </a></li>
+                            @endif
                                 <li><a href="/{{App::getLocale()}}/afegirFoto"> <i class="fa fa-picture-o"
                                                               aria-hidden="true"></i> {{ trans('messages.add_pic') }}
                                     </a></li>
@@ -126,17 +136,21 @@
 <div>
 @endif
                 <div id='cssmenu'>
+               
                     <ul>
+                     <a href="/{{App::getlocale()}}/"><img class="pull-left img img-responsive" style="max-width:50px"src="{{URL::asset('/img/Logo.png')}}" /></a>
                         @if (Auth::id() != null)
-                            <li class='admin'><a href='#' class="menu-toggle">{{ trans('messages.Menu_admin') }}</a>
+                            <li class='admin'><a href='#' class="menu-toggle"><i class="fa fa-cogs" aria-hidden="true"></i>
+                                            {{ trans('messages.Menu_admin') }}</a>
                             </li>
                         @endif
-                        <li><a href='/{{App::getlocale()}}/'><span><i
-                                            class="fa fa-home fa-lg"></i> {{ trans('messages.Menu_home') }}</span></a>
+                        <li><a href='/{{App::getlocale()}}/'><span>{{trans('messages.Menu_home')}}</span></a>
                         </li>
                         <li><a href='/{{App::getlocale()}}/noticies'><span>{{ trans('messages.Menu_news') }}</span></a>
                         </li>
                         <li><a href='/{{App::getlocale()}}/search'><span>{{ trans('messages.Menu_prog') }}</span></a>
+                        </li>
+                         <li><a href='/{{App::getlocale()}}/download'><span><i class="fa fa-download" aria-hidden="true"></i>{{trans('messages.Menu_download')}}</span></a>
                         </li>
                         <li class='last'><a
                                     href='/{{App::getlocale()}}/carrerinfo'><span>{{ trans('messages.Menu_streets') }}</span></a>
@@ -145,13 +159,13 @@
 
                                 @foreach (Config::get('languages') as $lang => $language)
                                     @if ($lang != App::getLocale())
-                                        <span class="lang" style="width:40px;">
-                                        <a href="{!! str_replace('/'.App::getLocale(),'/'.$lang,URL::current()) !!}"><img  style=" max-width:40px" src="{{URL::asset('img/'.$lang.'.png')}}" />
+                                        <span class="lang" style="width:30px;">
+                                        <a href="{!! str_replace('/'.App::getLocale(),'/'.$lang,URL::current()) !!}"><img  style=" max-width:30px" src="{{URL::asset('img/'.$lang.'.png')}}" />
                                         </a></span>
                                     @endif
                                 @endforeach
                                 @if(Auth::id()!=null)
-                                    <a href="/{{App::getLocale()}}/logout"><span class="lang"><i class="fa fa-sign-out fa-3x"></i> </span></a>
+                                    <a href="/{{App::getLocale()}}/logout"><span class="lang"><i class="fa fa-sign-out fa-2x"></i> </span></a>
                                 @endif
                         </span>
                     </ul>
@@ -162,13 +176,16 @@
                     <div id="page-content-wrapper">
 
                             @endif
-
+                                
                                 @include('errors.errors')
-                                    @yield('content')
+                                @if (Session::has('response'))
+ 								<div class="alert alert-info">{{trans(Session::get('response'))}}</div>
+ 								@endif
+                                @yield('content')
 
                             @if (Auth::id() != null)
-                        </div>
-                    </div> <!-- /#page-content-wrapper -->
+                    </div>
+                   
                 @endif
 
                 @include('festa.footer')
