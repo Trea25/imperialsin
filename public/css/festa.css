@@ -369,7 +369,7 @@ body {
     color: #FFFFFF;
     padding: 2%;
     font-size: 14pt !important;
-    min-height:150px;
+
 }
 .header-noticia {
     color: #FFFFFF;
@@ -540,6 +540,11 @@ a:active {
     .container-search{
         margin-left:8%;
         margin-right:8%;
+    }
+}
+@media (max-width:1600px){
+    .noticia{
+        min-height:300px;
     }
 }
 
