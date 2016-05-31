@@ -64,7 +64,7 @@
                             <br/>
                             <label>{{trans('messages.publish_to')}} : </label><br/>
                             <!-- Faltará ocultar los checkbox con un style="display:none" -->
-                            <label><input type="checkbox" class="form-control" name="twitter" id="Twitter" ><img width="50" height="50" src="/img/Twitter-Logo-2.png"  onclick="select(this,'Twitter');"></label>
+                            <label><input type="checkbox" class="form-control" name="twitter" id="Twitter" style="display:none"><img width="50" height="50" src="/img/Twitter-Logo-2.png"  onclick="select(this,'Twitter');"></label>
                            <br /><br />
                             <button type="submit" id="afegirnoticia" class="btn btn-success">{{trans('messages.send')}}</button>
                             <button href="/administracio" class="btn btn-danger">{{trans('messages.back')}}</button>

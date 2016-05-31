@@ -47,7 +47,7 @@
                                                                   aria-hidden="true"></i> {{ trans('messages.Allnews') }}
                                     </a></li>
                                 <li><a href="/{{App::getLocale()}}/llistanoticiespen"> <i
-                                                class="fa fa-question "></i> {{ trans('messages.pending_news') }}</a>
+                                                class="fa fa-check-square-o "></i> {{ trans('messages.pending_news') }}</a>
                                 </li>
                                 @endif
                             </ul>
@@ -69,7 +69,7 @@
                                 <li><a href="/{{App::getLocale()}}/event/create"> <i class="fa fa-calendar-plus-o"
                                                                 aria-hidden="true"></i> {{ trans('messages.Add_event') }}
                                     </a></li>
-                                @if (Auth::id() != 1)
+                                @if (Auth::id() == 1)
                                 <li><a href="/{{App::getLocale()}}/llistaevents"> <i class="fa fa-list"
                                                                 aria-hidden="true"></i> {{ trans('messages.All_event') }}
                                     </a></li>
@@ -141,12 +141,13 @@
                             <li class='admin'><a href='#' class="menu-toggle">{{ trans('messages.Menu_admin') }}</a>
                             </li>
                         @endif
-                        <li><a href='/{{App::getlocale()}}/'><span><i
-                                            class="fa fa-home fa-lg"></i> {{ trans('messages.Menu_home') }}</span></a>
+                        <li><a href='/{{App::getlocale()}}/'><span>{{trans('messages.Menu_home')}}</span></a>
                         </li>
                         <li><a href='/{{App::getlocale()}}/noticies'><span>{{ trans('messages.Menu_news') }}</span></a>
                         </li>
                         <li><a href='/{{App::getlocale()}}/search'><span>{{ trans('messages.Menu_prog') }}</span></a>
+                        </li>
+                         <li><a href='/{{App::getlocale()}}/download'><span><i class="fa fa-download" aria-hidden="true"></i>{{trans('messages.Menu_download')}}</span></a>
                         </li>
                         <li class='last'><a
                                     href='/{{App::getlocale()}}/carrerinfo'><span>{{ trans('messages.Menu_streets') }}</span></a>
@@ -156,7 +157,7 @@
                                 @foreach (Config::get('languages') as $lang => $language)
                                     @if ($lang != App::getLocale())
                                         <span class="lang" style="width:40px;">
-                                        <a href="{!! str_replace('/'.App::getLocale(),'/'.$lang,URL::current()) !!}"><img  style=" max-width:40px" src="{{URL::asset('img/'.$lang.'.png')}}" />
+                                        <a href="{!! str_replace('/'.App::getLocale(),'/'.$lang,URL::current()) !!}"><img style=" max-width:40px ;height: auto" src="{{URL::asset('img/'.$lang.'.png')}}" />
                                         </a></span>
                                     @endif
                                 @endforeach
@@ -172,9 +173,12 @@
                     <div id="page-content-wrapper">
 
                             @endif
-
+                                
                                 @include('errors.errors')
-                                    @yield('content')
+                                @if (Session::has('response'))
+ 								<div class="alert alert-info">{{trans(Session::get('response'))}}</div>
+ 								@endif
+                                @yield('content')
 
                             @if (Auth::id() != null)
                     </div>

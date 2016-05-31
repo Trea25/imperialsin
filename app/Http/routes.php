@@ -14,9 +14,7 @@
 
 
 //====ROUTES SENSE IDIOMA => REDIRECT
-    Route::get('/administracio', function () {
-     return redirect('/'.App::getLocale().'/administracio');
-    });
+
     Route::get('/', function () {
         return redirect('/'.App::getLocale());
     });
@@ -105,10 +103,11 @@ Route::group([
         Route::get('/home', function () {
         return view('festa.home');
     });
-        Route::get('/administracio', function () {
-        return view('festa.admin');
-    });
 
+    Route::get('/download',function(){
+        return response()->download('program-'.App::getLocale().'.pdf');
+
+    });
     Route::get('/carrerinfo', function () {
         return view('festa.carrerinfo');
     });

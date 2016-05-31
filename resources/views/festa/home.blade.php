@@ -11,7 +11,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12 nopadding nomargin">
-                <img class="img img-responsive" src="{{URL::asset('img/tmp/descarga.jpg')}}"/>
+                <a href="/{{App::getLocale()}}/search"><img class="img img-responsive" src="{{URL::asset('img/banner.jpg')}}"/></a>
             </div>
         </div>
         <div class="linea"></div>
@@ -21,7 +21,7 @@
                     <div class="row noticia">
                         <div class="col-sm-5">
                             @if ($noticia->foto_id != null)
-                                <a href="/noticia/view/{{$noticia->id}}"><img class="img img-responsive"
+                                <a href="/{{App::getLocale()}}/noticia/view/{{$noticia->id}}"><img class="img img-responsive"
                                                                               src="/foto/{{$noticia->foto_id}}"/></a>
                             @endif
                         </div>
@@ -33,7 +33,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <span class="leer-mas pull-right"><a href="/noticia/view/{{$noticia->id}}">{{trans('messages.moar')}}</a></span>
+                                    <span class="leer-mas pull-right"><a href="/{{App::getLocale()}}/noticia/view/{{$noticia->id}}">{{trans('messages.moar')}}</a></span>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                    data-widget-id="732986056497324033"
                    href="https://twitter.com/FMSants"
                    data-screen-name="FMSants"
-                   data-chrome="nofooter noborders transparent noborder ">
+                   data-chrome="nofooter noborders  noborder ">
                     Tweets por el @FMSants<br/><center>
                     <img src="/img/loader.gif" width="50" /></center>
                 </a>
@@ -69,37 +69,7 @@
         </div>
     </div>
     <script>
-    window.setTimeout(function(){
-        //Titulo "Tweets"
-    $(".twitter-timeline").contents().find(".timeline-Header-title").css("color","#fff");
-     //Titulo "by"
-    $(".twitter-timeline").contents().find(".timeline-Header-byline").css("color","black");
-     //Titulo @FMSants - link
-    $(".twitter-timeline").contents().find(".customisable-highlight").css("color","red");
-     //Icono Twitter
-    //$(".twitter-timeline").contents().find(".timeline-Tweet-retweetCredit").append('<img src="/img/loader.gif" />');
-    //$(".twitter-timeline").contents().find(".Icon--twitter").removeClass("Icon--twitter");
-    
-     // FMSants retweeted
-    $(".twitter-timeline").contents().find(".timeline-Tweet-retweetCredit").css("color","white");
-    // Autor
-    $(".twitter-timeline").contents().find(".TweetAuthor").css("color","blue !important");
-        //Autor : screenName @Comercial000
-    $(".twitter-timeline").contents().find(".TweetAuthor-screenName").css("color","pink");
-        //Texto Tweet
-    $(".twitter-timeline").contents().find(".timeline-Tweet-text").css("color","blue");
-        //Links
-    $(".twitter-timeline").contents().find(".PrettyLink").css("color","green");
-        //Hastags
-    $(".twitter-timeline").contents().find(".hashtag").css("color","black");
-        //Fecha
-    $(".twitter-timeline").contents().find(".timeline-Tweet-timestamp").css("color","white");
-        //Icon--share
-    $(".twitter-timeline").contents().find(".Icon--share").css("color","pink");
-         //TweetAction--<3
-    $(".twitter-timeline").contents().find(".TweetAction--heart").css("color","pink");   
-    
-  }, 1000);
+   
   </script>
 @endsection
 
