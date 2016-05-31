@@ -19,14 +19,14 @@ class EventController extends Controller
     public function llistapen()
     {
         return view('events.events_pendents', [
-            'events' => DB::table('events')->where('eactiu', '=', false)->get()
+            'events' => DB::table('events')->join('carrers','carrers.id','=','events.carrer_id')->select('events.*','carrers.cnom as cnom')->where('eactiu', '=', false)->orderBy('edata_inici', 'desc')->get()
         ]);
     }
 
     public function llista()
     {
         return view('events.llista_events', [
-            'events' => DB::table('events')->orderBy('created_at', 'desc')->paginate(10)
+            'events' => DB::table('events')->join('carrers','carrers.id','=','events.carrer_id')->select('events.*','carrers.cnom as cnom')->orderBy('edata_inici', 'desc')->paginate(10)
         ]);
     }
 

@@ -46,7 +46,7 @@ class NoticiaController extends Controller
     public function llistapen()
     {
         return view('noticies.noticies_pendents', [
-            'noticies' => DB::table('noticies')->where('nactiu', '=', false)->get()
+            'noticies' => DB::table('noticies')->join('carrers','carrers.id','=','noticies.carrer_id')->select('noticies.*','carrers.cnom as cnom')->where('nactiu', '=', false)->orderBy('created_at', 'desc')->get()
         ]);
     }
 
@@ -57,7 +57,7 @@ class NoticiaController extends Controller
     public function llista()
     {
         return view('noticies.llista_noticies', [
-            'noticies' => DB::table('noticies')->orderBy('created_at', 'desc')->paginate(10)
+            'noticies' => DB::table('noticies')->join('carrers','carrers.id','=','noticies.carrer_id')->select('noticies.*','carrers.cnom as cnom')->orderBy('created_at', 'desc')->paginate(10)
         ]);
     }
 

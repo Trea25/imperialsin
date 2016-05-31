@@ -10,7 +10,7 @@
             <div class="col-md-1"></div>
             <div class="col-md-10">
         <fieldset class="scheduler-border">
-            <legend class="scheduler-border">Afegir Tipus</legend>
+            <legend class="scheduler-border">{{trans('messages.edit_type')}}</legend>
             <form method="POST" action="/tipusevent/{{ $tipus_event->id }}">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
@@ -18,7 +18,7 @@
                 <label>{{trans('messages.type')}}</label><br><br>
                 <input onchange="valtipus(this.value)" class="form-control" type="text" name="tipus"
                        value="{{$tipus_event->tipus}}"/><br>
-                <div hidden id="tipus"></div>
+                <div hidden class="errorval" id="tipus">{{trans("messages.valnom")}}</div><br>
                 <div class="form-group">
                     <button class="botoform btn btn-success pull-left">{{trans('messages.save')}}</button>
             </form>
