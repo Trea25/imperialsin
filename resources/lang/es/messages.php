@@ -15,10 +15,11 @@ return [
 
     // MENU
     'Menu_admin' => 'Administración',
-    'Menu_home' => 'Página Principal',
+    'Menu_home' => 'Inicio',
     'Menu_news' => 'Noticias',
-    'Menu_prog' => 'Actividades i Programa',
+    'Menu_prog' => 'Actividades',
     'Menu_streets' => 'Calles',
+    'Menu_download' => 'Programa',
     'events' => 'Eventos',
     'other' => 'Otros',
     'calendarlang'=>'es',

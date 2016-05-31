@@ -82,6 +82,8 @@ class TipusEventController extends Controller
         $event = TipusEvent::find($id);
         $event->actiu = false;
         $event->save();
+        $msg = Lang::get('codes.ev_delete');
+        Session::flash('response',$msg);
         return redirect("/".session('lang')."/llistatipus");
     }
 

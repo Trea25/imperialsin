@@ -14,10 +14,11 @@ return [
     */
 
     'Menu_admin' => 'Administració',
-    'Menu_home' => 'Pàgina Principal',
+    'Menu_home' => 'Inici',
     'Menu_news' => 'Noticies',
-    'Menu_prog' => 'Activitats i programa',
+    'Menu_prog' => 'Activitats',
     'Menu_streets' => 'Carrers',
+    'Menu_download' => 'Programa',
     'events' => 'Events',
     'other' => 'Altres',
     'calendarlang'=>'ca',
