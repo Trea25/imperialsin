@@ -136,9 +136,9 @@
 <div>
 @endif
                 <div id='cssmenu'>
-                
+               
                     <ul>
-                    <img src="#" />
+                     <a href="/{{App::getlocale()}}/"><img class="pull-left img img-responsive" style="max-width:50px"src="{{URL::asset('/img/Logo.png')}}" /></a>
                         @if (Auth::id() != null)
                             <li class='admin'><a href='#' class="menu-toggle"><i class="fa fa-cogs" aria-hidden="true"></i>
                                             {{ trans('messages.Menu_admin') }}</a>
