@@ -18,6 +18,8 @@ use League\Flysystem\Util;
 use Log;
 use Socialite;
 use Twitter;
+use Lang;
+use Session;
 
 class NoticiaController extends Controller
 {
@@ -69,7 +71,7 @@ class NoticiaController extends Controller
     {
         $noticies = Noticia::All();
         if (!$noticies) {
-            $response = Response::json(array("errors" => array(['code' => 404, 'message' => "No se ha encontrado ninguna noticia"])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $response = Response::json(array("errors" => array(['code' => 404, 'message' => Lang::get('codes.not_404')])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
         } else {
             $response = Response::json(array("status" => "ok", "data" => $noticies), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }
@@ -87,10 +89,10 @@ class NoticiaController extends Controller
 
         $noticia = Noticia::find($id);
         if (!$noticia) {
-            $response = Response::json(array("errors" => array(['code' => 404, 'message' => "No se ha encontrado ninguna notícia con ese código"])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
-        } else {
+            $response = Response::json(array("errors" => array(['code' => 404, 'message' => Lang::get('codes.not_404')])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
+		} else {
             $response = Response::json(array("status" => "ok", "data" => $noticia), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
-        }
+	   }
         return $response;
     }
 
@@ -117,8 +119,9 @@ class NoticiaController extends Controller
             $nactiu = true;
         };
         if (!$noticia) {
-            $response = Response::json(array("errors" => array(['code' => 404, 'message' => "No se ha encontrado ninguna notícia con ese código"])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
-        } else {
+            $response = Response::json(array("errors" => array(['code' => 404, 'message' => Lang::get('codes.not_404')])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
+			$msg = 'codes.not_404';
+		} else {
             $noticia->nactiu = $nactiu;
             $noticia->ntitol = $request->ntitol;
             $noticia->ndesc = $request->ndesc;
@@ -141,9 +144,11 @@ class NoticiaController extends Controller
             }
             $noticia->save();
             DB::Commit();
-            $response = Response::json(array("status" => "ok", "data" => "La noticia con id: " . $request->id . " se ha modificado correctamente"), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
+			$msg = 'codes.not_update';
+            $response = Response::json(array("status" => "ok", "data" => Lang::get('codes.not_200',['id' => $noticia->id])), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }
-        return redirect("/".session('lang')."/administracio");
+		Session::flash('response',$msg);
+        return redirect("/".session('lang')."/llistanoticies");
     }
 
     /**
@@ -210,14 +215,15 @@ class NoticiaController extends Controller
             }
             $noticia->save();
             DB::commit();
-            $response = Response::json(array("status" => "ok", "data" => "Noticia almacenada correctamente"), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
-            Log::info("Noticia afegida correctament");
+            $response = Response::json(array("status" => "ok", "data" => Lang::get('codes.not_ok')), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $msg = 'codes.not_ok';
+			Log::info("Noticia afegida correctament");
         } catch (PDOException $ex) {
             //en cas d'error fem rollback i preparem la resposta amb l'error
             Log::error("Hi ha hagut un error al intentar afegir la noticia");
-
-            $response = Response::json(array("errors" => array(['code' => 404, 'message' => "Ha ocurrido un error al intentar almacenar la noticia"])), 400, Utils::$headers, JSON_UNESCAPED_UNICODE);
-            DB::rollBack();
+            $response = Response::json(array("errors" => array(['code' => 404, 'message' => Lang::get('codes.not_error')])), 400, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $msg = 'codes.not_error';
+			DB::rollBack();
         }
         /*
                 if (isset($request->facebook)) {
@@ -251,7 +257,7 @@ class NoticiaController extends Controller
         /*retornar vista amb  el resultat millor -> $response() a la vista fer un if(isset($response)) i avisar si ha anat be, si ha anat malament es podria redirigir al formulari
         avisant de que hi ha hagut un error i a on*/
         Log::info('noticia afegida correctament');
-
+		Session::flash('response',$msg);
         return redirect("/".session('lang')."/");
     }
 
@@ -266,13 +272,15 @@ class NoticiaController extends Controller
         $this->authorize('admin');
         $noticia = Noticia::find($id);
         if (!$noticia) {
-            $response = Response::json(array("errors" => array(['code' => 404, 'message' => "No se ha encontrado ninguna notícia con ese código"])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
+			$msg = 'codes.not_404';
+            $response = Response::json(array("errors" => array(['code' => 404, 'message' => Lang::get('codes.not_404')])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
         } else {
             $noticia->delete();
-            $response = Response::json(array("status" => "ok", "data" => "La notícia se ha eliminado correctamente", 200, Utils::$headers, JSON_UNESCAPED_UNICODE));
+			$msg = 'codes.not_delete';
+            $response = Response::json(array("status" => "ok", "data" => Lang::get('codes.not_delete'), 200, Utils::$headers, JSON_UNESCAPED_UNICODE));
         }
-
-        return redirect("/" . App::getLocale() . "/administracio");
+		Session::flash('response',$msg);
+        return redirect("/" . App::getLocale() . "/");
     }
 
     public function edit($lang, $id)

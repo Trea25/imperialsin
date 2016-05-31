@@ -7,7 +7,7 @@
 
     <form action="/tipusevent" method="POST">
         {{ csrf_field() }}
-        <label>{{trans('messages.ev_name')}}</label><br>
+        <label>{{trans('messages.ev_type')}}</label><br>
         <input onchange="valtipus(this.value)" class="form-control" name="tipus" type="text"/><br>
         <div hidden id="tipus"></div>
         <button class="btn btn-success" type="submit">{{trans('messages.send')}}</button>

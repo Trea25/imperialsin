@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+@section('head')
+<script src="{{URL::asset('js/jquery-2.1.4.min.js')}}" type="text/javascript"></script>
 @section('content')
 
     <table>

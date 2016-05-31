@@ -12,6 +12,7 @@ use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Log;
+use Session;
 
 class EventController extends Controller
 {
@@ -35,7 +36,7 @@ class EventController extends Controller
         $events = Event::All();
 
         if (!$events) {
-            $response = Response::json(['errors' => array(['code' => 404, 'message' => 'No hay eventos disponibles'])], 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $response = Response::json(['errors' => array(['code' => 404, 'message' => Lang::get('codes.ev_404')])], 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
         } else {
             $response = Response::json(array('status' => 'ok', 'data' => $events), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }
@@ -56,7 +57,7 @@ class EventController extends Controller
     {
         $event = Event::find($id);
         if (!$event) {
-            $response = Response::json(['errors' => array(['code' => 404, 'message' => 'No se ha encontrado ningun evento con ese código.'])], 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $response = Response::json(['errors' => array(['code' => 404, 'message' => Lang::get('codes.ev_404')])], 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
         } else {
             $response = Response::json(array("satus" => "ok", "data" => $event), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }
@@ -85,8 +86,9 @@ class EventController extends Controller
         $event->etitol = $request->etitol;
         $event->tipus_id = $request->tipus_id;
         $event->save();
-
-        return redirect("/" . session('lang') . "/administracio");
+		$msg = 'codes.ev_update';
+		Session::flash('response',$msg);
+        return redirect("/" . session('lang') . "/llistaevents");
     }
 
     public function store(Request $request)
@@ -119,7 +121,9 @@ class EventController extends Controller
         $event->edata_inici = Utils::date_formater($request->data, $request->hora);
 
         $event->save();
-        return redirect("/" . session('lang') . "/administracio");
+		$msg = 'codes.ev_200';
+		Session::flash('response',$msg);
+        return redirect("/" . session('lang') . "/llistaevents");
     }
 
     public function destroy($id)
@@ -127,10 +131,10 @@ class EventController extends Controller
         $this->authorize('admin');
         $event = Event::find($id);
         if (!$event) {
-            $response = Response::json(['errors' => array(['code' => 404, 'message' => 'No se ha encontrado ningun evento con ese c�digo.'])], 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $response = Response::json(['errors' => array(['code' => 404, 'message' => Lang::get('codes.ev_404')])], 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
         } else {
             $event->delete();
-            $response = Response::json(array("status" => "ok", "data" => 'Evento eliminado con exito'), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $response = Response::json(array("status" => "ok", "data" => Lang::get('codes.ev_delete')), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }
     }
 
@@ -214,7 +218,7 @@ class EventController extends Controller
         Log::info('recompte de resultats: ' . sizeof($resultat));
         Log::info(DB::getQueryLog());
         if (!$resultat) {
-            $response = Response::json(['errors' => array(['code' => 404, 'message' => 'No se ha encontrado ningun resultado para dicha b�squeda.'])], 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
+            $response = Response::json(['errors' => array(['code' => 404, 'message' => Lang::get('codes.ev_404')])], 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
         } else {
             $response = Response::json(array("status" => "ok", "data" => $resultat), 200, Utils::$headers, JSON_UNESCAPED_UNICODE);
         }
