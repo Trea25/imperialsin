@@ -21,7 +21,7 @@
 
 
             <br><br>
-            <desc>{{ $noticia->ndesc }}<desc>
+            <desc>{!!   $noticia->ndesc !!}<desc>
 
                 <br><br /><br />
                 <div>

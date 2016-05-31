@@ -1,6 +1,10 @@
 body{
     font-size:14pt !important;
     font-family: 'Roboto', sans-serif !important;
+    color:#4e1803;
+}
+legend{
+    color:#4e1803;
 }
 hr{
     color:brown!important;
@@ -522,6 +526,14 @@ desc {
     color: #FFA500;
 }
 
+.social-icon-b {
+    padding: 7px;
+    color: white;
+}
+.social-icon-b:hover {
+    cursor: pointer;
+    color: #a03100;
+}
 a:link {
     color: #FFFFFF !important;
 }
@@ -538,7 +550,7 @@ a:visited {
 
 /* mouse over link */
 a:hover {
-    color: orange !important;
+    color: #A93D00 !important;
     text-decoration: none!important;
 }
 
