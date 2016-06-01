@@ -102,6 +102,8 @@ return [
     'valany'=>'The year must be 4 characters',
     'valface'=>'Facebook must have less than 255 characters',
     'valtwitter'=>'Twitter must have less than 255 characters',
-    'valins'=>'Instagram must have less than 255 characters'
+    'valins'=>'Instagram must have less than 255 characters',
+
+	'infomapa'=>'If you wan\'t see all events just don\'t pick anything'
     
 ];
