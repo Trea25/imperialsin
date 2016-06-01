@@ -22,5 +22,6 @@
     </div>
     </div>
 
-    {{$events->render()}}
+    <div class="row"><div class="text-center">{{$events->render()}}</div></div>
+
 @endsection

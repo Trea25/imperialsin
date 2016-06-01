@@ -18,6 +18,6 @@ return [
     'reset' => '¡Tu contraseña ha sido reseteada!',
     'sent' => '¡Se le ha enviado u e-mail para recuperar su contraseña!',
     'token' => 'Token de recuperación de contraseña inválido',
-    'user' => "No se puede encontrar ningún usuario con ese e-mail.",
+    'user' => "No es pot trobar cap usuari amb aquest correu.",
 
 ];

@@ -302,7 +302,7 @@ class NoticiaController extends Controller
     public function noticies()
     {
 
-        $noticies = DB::table('noticies')->orderBy('created_at', 'desc')->paginate(10);
+        $noticies = DB::table('noticies')->where('nactiu', '=', true)->orderBy('created_at', 'desc')->paginate(10);
         foreach ($noticies as $noticia){
              $ndesc = $noticia->ndesc;
             if (strlen($ndesc) > 750) {
