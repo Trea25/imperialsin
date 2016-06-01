@@ -23,9 +23,12 @@
                     <legend class="scheduler-border">{{trans('messages.add_pic')}}</legend>
                     {!! Form::open(array('url' => 'fotoCarrer', 'files' => true)) !!}
                     {{Form::token()}}
-                    <div id="theparent" style="width: 30%;">
+                    <div class="row">
+                    <div id="theparent" class="col-lg-7">
 
                         <img style="width:100%" id="thepicture" src='{{URL::asset('img/Fotos/default.png')}}'/>
+                    </div>
+                        <br/>
                     </div><br>
                     <div id='controls'>
                         <button id='rotate_left' type='button' class="btn btn-primary" title='Rotate left'> <i class="fa fa-rotate-left fa-lg"></i> </button>
@@ -49,6 +52,8 @@
                     </div>
                     @if(Auth::id() == 1)
                         <label>{{trans('messages.Street')}}</label>
+                    <br />
+                    <br />
                         <select class="form-control" name="id_carrer">
                             <option value="0" selected>Selecciona el carrer</option>
                             @foreach($carrers as $carrer)
@@ -56,6 +61,7 @@
                             @endforeach
                         </select>
                     @endif
+                    <br />
                     <button type="submit" id="afegirnoticia" class="btn btn-success">{{trans('messages.send')}}</button>
                     <button href="/administracio" class="btn btn-danger">{{trans('messages.back')}}</button>
                     {!! Form::close() !!}
