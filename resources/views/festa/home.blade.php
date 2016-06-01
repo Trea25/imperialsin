@@ -46,7 +46,7 @@
         </div>
         
         <div class="col-md-3">
-            <div class="row twitter-container">
+            <div class="row twitter-container" style="background:#e5a947;">
                 <a class="twitter-timeline"
                    data-widget-id="732986056497324033"
                    href="https://twitter.com/FMSants"
@@ -68,38 +68,44 @@
                 </div>
         </div>
     </div>
+    <style>
+        .test{
+            color: #550900;
+        }
+
+    </style>
       <script>
     window.setTimeout(function(){
         //Titulo "Tweets"
-    $(".twitter-timeline").contents().find(".timeline-Header-title").css("color","#fff");
+    $(".twitter-timeline").contents().find(".timeline-Header-title").css("color","#550900");
      //Titulo "by"
-    $(".twitter-timeline").contents().find(".timeline-Header-byline").css("color","black");
+    $(".twitter-timeline").contents().find(".timeline-Header-byline").css("color","#550900");
      //Titulo @FMSants - link
-    $(".twitter-timeline").contents().find(".customisable-highlight").css("color","#4e1803");
+    $(".twitter-timeline").contents().find(".customisable-highlight").css("color","#00436f");
      //Icono Twitter
     //$(".twitter-timeline").contents().find(".timeline-Tweet-retweetCredit").append('<img src="/img/loader.gif" />');
     //$(".twitter-timeline").contents().find(".Icon--twitter").removeClass("Icon--twitter");
     
      // FMSants retweeted
-    $(".twitter-timeline").contents().find(".timeline-Tweet-retweetCredit").css("color","white");
+    $(".twitter-timeline").contents().find(".timeline-Tweet-retweetCredit").css("color","#550900");
     // Autor
-    $(".twitter-timeline").contents().find(".TweetAuthor").css("color","blue !important");
+    $(".twitter-timeline").contents().find(".TweetAuthor").css("color","black !important");
         //Autor : screenName @Comercial000
-    $(".twitter-timeline").contents().find(".TweetAuthor-screenName").css("color","#5D8896");
+    $(".twitter-timeline").contents().find(".TweetAuthor-screenName").css("color","black");
         //Texto Tweet
     $(".twitter-timeline").contents().find(".timeline-Tweet-text").css("color","#4e1803");
         //Links
-    $(".twitter-timeline").contents().find(".PrettyLink").css("color","green");
+    $(".twitter-timeline").contents().find(".PrettyLink").css("color","");
         //Hastags
-    $(".twitter-timeline").contents().find(".hashtag").css("color","#FFA500");
+    $(".twitter-timeline").contents().find(".hashtag").css("color","#00436f");
         //Fecha
     $(".twitter-timeline").contents().find(".timeline-Tweet-timestamp").css("color","white");
         //Icon--share
     $(".twitter-timeline").contents().find(".Icon--share").css("color","pink");
          //TweetAction--<3
-    $(".twitter-timeline").contents().find(".TweetAction--heart").css("color","pink");   
+    $(".twitter-timeline").contents().find(".TweetAction--heart").css("color","pink");
     
-  }, 1000);
+  }, 1300);
    
    </script>
 @endsection

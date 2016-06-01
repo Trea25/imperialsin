@@ -150,7 +150,7 @@
                         </li>
                         <li><a href='/{{App::getlocale()}}/search'><span>{{ trans('messages.Menu_prog') }}</span></a>
                         </li>
-                         <li><a href='/{{App::getlocale()}}/download'><span><i class="fa fa-download" aria-hidden="true"></i>{{trans('messages.Menu_download')}}</span></a>
+                         <li><a href='/{{App::getlocale()}}/download'><span>&nbsp;<i class="fa fa-download" style="margin-right:3px" aria-hidden="true"></i>{{trans('messages.Menu_download')}}</span></a>
                         </li>
                         <li class='last'><a
                                     href='/{{App::getlocale()}}/carrerinfo'><span>{{ trans('messages.Menu_streets') }}</span></a>
