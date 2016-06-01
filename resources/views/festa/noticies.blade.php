@@ -22,12 +22,9 @@
                 </div>
                 <div class="col-sm-8 body-noticia text-left -align-justify text-marro">
                     {!! $noticia->ndesc !!}
-                </div>
-                <div class="row">
-                        <span class="leer-mas-b pull-right"><a
-                                    href="/noticia/view/{{$noticia->id}}">{{trans('messages.moar')}}</a></span>
-
-                    <div class="col-xs-2 col-sm-1"> <span style="height:25px" class="fb-share-button"
+                    <br /><br /><br />
+                    <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-2"> <span style="height:25px" class="fb-share-button"
                                                  data-href="{{App::make('url')->to('/'.App::getLocale().'/noticia/view/'.$noticia->id)}}?p[title]=$noticia->ntitol"
                                                  data-layout="button" data-mobile-iframe="true">
 
@@ -40,6 +37,15 @@
                                      class="twitter-share-button"></a>
                         </span>
                     </div>
+                    <span class="leer-mas-b pull-right"><a
+                                    href="/noticia/view/{{$noticia->id}}">{{trans('messages.moar')}}</a></span>
+
+                </div>
+                </div>
+                
+                <div class="row">
+                        
+                    
                 </div>
             </div>
 
