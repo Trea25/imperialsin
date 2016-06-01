@@ -13,7 +13,9 @@
 
             <div class="row noticia" style="text-align:center">
                 <div class="col-sm-4">
+				<a href="/noticia/view/{{$noticia->id}}">
                     <img class="img img-responsive" src="/foto/{{$noticia->foto_id}}">
+				</a>
                 </div>
                 <div class="col-sm-8 text-left">
                     <titol class="text-marro">{{$noticia->ntitol}}</titol>

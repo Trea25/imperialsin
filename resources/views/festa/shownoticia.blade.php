@@ -24,9 +24,9 @@
                 </div>
                 <div class="col-sm-8 body-noticia text-left -align-justify text-marro">
                     {!! $noticia->ndesc !!}
-                </div>
-                <div class="row">
-                    <div class="col-xs-2 col-sm-1"> <span style="height:25px" class="fb-share-button"
+					<br /><br />
+					<div class="row pull-right">
+                    <div class="col-xs-12 col-sm-5 col-md-5"> <span style="height:25px" class="fb-share-button"
                                                           data-href="{{App::make('url')->to('/'.App::getLocale().'/noticia/view/'.$noticia->id)}}?p[title]=$noticia->ntitol"
                                                           data-layout="button" data-mobile-iframe="true">
 
@@ -40,6 +40,8 @@
                         </span>
                     </div>
                 </div>
+                </div>
+                
             </div>
         </div>
     </div>
