@@ -26,6 +26,7 @@ return [
 	'password'=>'Contraseña',
 	'resetpassword'=>'Reset Password',
 	'confirmpassword'=>'Repeat Password',
+	'confirmdel'=>'',
     
     'Add_news' => 'Add News',
     'Allnews' => 'All News',

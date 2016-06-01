@@ -26,6 +26,7 @@ return [
 	'password'=>'Password',
 	'resetpassword'=>'Reiniciar Contraseña',
 	'confirmpassword'=>'Confirmar Contraseña',
+	'confirmdel'=>'Seguro que quieres eliminar?',
     
     'Add_news' => 'Añadir Noticia',
     'Allnews' => 'Todas las Noticias',

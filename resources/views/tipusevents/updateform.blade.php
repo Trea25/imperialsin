@@ -26,7 +26,7 @@
             <form method="POST" action="/tipusevent/{{ $tipus_event->id }}">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
-                <button class="btn btn-danger pull-left">{{trans('messages.delete')}}</button>
+                <button onclick="return confirm('{{trans('messages.confirmdel')}}')" class="btn btn-danger pull-left">{{trans('messages.delete')}}</button>
 
             </form>
     </fieldset>
