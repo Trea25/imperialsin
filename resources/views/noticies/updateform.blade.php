@@ -4,11 +4,12 @@
     <title>{{trans('messages.news_edit')}}</title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, target-densitydpi=device-dpi'>
     <script src='http://code.jquery.com/jquery-1.11.0.min.js'></script>
-    <script src='{{URL::asset('js/guillotine/jquery.guillotine.js')}}'></script>
-    <script src='{{URL::asset('js/guillotine/jquery.mousewheel.min.js')}}'></script>
-    <link href='{{URL::asset('css/guillotine/jquery.guillotine.css')}}' media='all' rel='stylesheet'>
-    <script src='{{URL::asset('js/guillotine/jquery.guillotine_startup.js')}}'></script>
-    <script src="{{URL::asset('js/validacioform.js')}}" type="text/javascript"></script>
+    <script src='{{URL::asset("js/guillotine/jquery.guillotine.js")}}'></script>
+    <script src='{{URL::asset("js/guillotine/jquery.mousewheel.min.js")}}'></script>
+    <link href='{{URL::asset("css/guillotine/jquery.guillotine.css")}}' media='all' rel='stylesheet'>
+    <script src='{{URL::asset("js/guillotine/jquery.guillotine_startup.js")}}'></script>
+    <script src='{{URL::asset("js/validacioform.js")}}' type="text/javascript"></script>
+    <script src='{{URL::asset("ckeditor/ckeditor.js")}}'></script>
 
 
 @endsection
@@ -56,7 +57,7 @@
                             <div class="errorval" hidden id="titol">{{trans("messages.valtitol")}}</div><br>
 
                             <label>{{trans('messages.desc')}}</label><br><br>
-                            <textarea id="textarea" class="form-control" name="ndesc" cols="80" rows="8">{{$noticia->ndesc}}</textarea><br><br>
+                            <textarea id="editor" class="form-control" name="ndesc" cols="80" rows="8">{{$noticia->ndesc}}</textarea><br><br>
 
 
                             <label>{{trans('messages.Street')}}</label><br><br>
@@ -87,12 +88,8 @@
     </div>
 
     <script>
-        $(window).resize( function() {
-            reLoadEditor();
-        } );
-        function reLoadEditor() {
-            editor.removeInstance('textarea');
-            editor = new nicEditor({buttonList: ['fontSize', 'bold', 'italic', 'underline', 'left', 'center', 'right', 'justify', 'ol', 'ul', 'subscript', 'superscript', 'strikethrough', 'indent', 'outdent', 'hr', 'forecolor', 'bgcolor', 'link', 'unlink', 'fontSize', 'fontFamily', 'fontFormat']}).panelInstance('textarea');
-        };
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'editor' );
     </script>
 @endsection
