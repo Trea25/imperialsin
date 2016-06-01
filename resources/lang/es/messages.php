@@ -107,6 +107,6 @@ return [
     'valtwitter'=>'El twitter tiene que tener menos 255 caracteres',
     'valins'=>'El instagram tiene que tener menos 255 caracteres',
 
-	'infomapa'=>'No marcar ninguna calle para buscar todas. No marcar ningún dia para ver la semana próxima'
+	'infomapa'=>'No marcar ninguna calle para buscar todas. No marcar ningún dia para ver la próxima semana'
 
 ];
