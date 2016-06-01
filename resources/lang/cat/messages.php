@@ -110,6 +110,6 @@ return [
     'valtwitter'=>'El twitter ha de tenir menys de 255 caràcters',
     'valins'=>'El instagram ha de tenir menys de 255 caràcters',
 
-	'infomapa'=>'Per a veure tots els events no s\'ha de sel·leccionar res'
+	'infomapa'=>'No marcar cap carrer per buscar-los tots. No marcar cap dia per veure la semana pròxima'
     
 ];
