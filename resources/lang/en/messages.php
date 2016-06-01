@@ -26,6 +26,7 @@ return [
 	'password'=>'Contraseña',
 	'resetpassword'=>'Reset Password',
 	'confirmpassword'=>'Repeat Password',
+	'confirmdel'=>'',
     
     'Add_news' => 'Add News',
     'Allnews' => 'All News',
@@ -104,6 +105,6 @@ return [
     'valtwitter'=>'Twitter must have less than 255 characters',
     'valins'=>'Instagram must have less than 255 characters',
 
-	'infomapa'=>'If you wan\'t see all events just don\'t pick anything'
+	'infomapa'=>'Do not mark any street to find them all. Do not mark any day to see next week'
     
 ];
