@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('head')
-    <title>Noticies</title>
+    <title>{{ trans('messages.Menu_news')}}</title>
 
     <script src="{{URL::asset('js/jquery-2.1.4.min.js')}}" type="text/javascript"></script>
 @endsection

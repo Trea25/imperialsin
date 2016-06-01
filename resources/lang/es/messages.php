@@ -14,6 +14,7 @@ return [
     */
 
     // MENU
+	'Title' => 'Fiesta Mayor de Sants',
     'Menu_admin' => 'Administración',
     'Menu_home' => 'Inicio',
     'Menu_news' => 'Noticias',
@@ -27,6 +28,7 @@ return [
 	'resetpassword'=>'Reiniciar Contraseña',
 	'confirmpassword'=>'Confirmar Contraseña',
 	'confirmdel'=>'Seguro que quieres eliminar?',
+	'404_return' => 'Volver al inicio',
     
     'Add_news' => 'Añadir Noticia',
     'Allnews' => 'Todas las Noticias',
@@ -52,6 +54,7 @@ return [
     'edit' => 'Editar',
     'save' => 'Guardar',
     'delete' => 'Eliminar',
+	
     'title' => 'Título',
     'desc' => 'Descripcion',
     'name' => 'Nom',
@@ -75,6 +78,7 @@ return [
 	'not_notfound' => 'No se ha encontrado esa noticia',
     
     //Form Event
+	
     'ev_title' => 'Titulo del Evento',
     'ev_name' => 'Nombre del Evento',
     'ev_type' => 'Tipo de Evento',

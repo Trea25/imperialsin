@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('head')
-    <title>Carrers</title>
+    <title>{{trans('messages.Menu_streets')}}</title>
     <script src="{{URL::asset('js/jquery-2.1.4.min.js')}}" type="text/javascript"></script>
     <link href="{{URL::asset('css/maparea.css')}}" rel="stylesheet">
     <script src="{{URL::asset('js/galeria/jquery.bxslider.min.js')}}" type="text/javascript"></script>
