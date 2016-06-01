@@ -22,6 +22,9 @@ return [
     'events' => 'Events',
     'other' => 'Altres',
     'calendarlang'=>'ca',
+	'password'=>'Contrasenya',
+	'resetpassword'=>'Reiniciar Contrasenya',
+	'confirmpassword'=>'Confirmar Contrasenya',
       
     'Add_news' => 'Afegir Noticia',
     'Allnews' => 'Totes les Noticies',

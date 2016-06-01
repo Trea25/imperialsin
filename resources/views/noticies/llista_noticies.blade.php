@@ -27,6 +27,6 @@
 
         </div>
     </div>
+    <div class="row"><div class="text-center">{{$noticies->render()}}</div></div>
 
-    {{$noticies->render()}}
 @endsection

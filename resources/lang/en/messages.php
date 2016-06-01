@@ -23,6 +23,9 @@ return [
     'events' => 'Events',
     'other' => 'Other',
     'calendarlang'=>'en',
+	'password'=>'Contraseña',
+	'resetpassword'=>'Reset Password',
+	'confirmpassword'=>'Repeat Password',
     
     'Add_news' => 'Add News',
     'Allnews' => 'All News',
