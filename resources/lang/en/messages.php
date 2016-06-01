@@ -23,6 +23,9 @@ return [
     'events' => 'Events',
     'other' => 'Other',
     'calendarlang'=>'en',
+	'password'=>'Contraseña',
+	'resetpassword'=>'Reset Password',
+	'confirmpassword'=>'Repeat Password',
     
     'Add_news' => 'Add News',
     'Allnews' => 'All News',
@@ -99,6 +102,8 @@ return [
     'valany'=>'The year must be 4 characters',
     'valface'=>'Facebook must have less than 255 characters',
     'valtwitter'=>'Twitter must have less than 255 characters',
-    'valins'=>'Instagram must have less than 255 characters'
+    'valins'=>'Instagram must have less than 255 characters',
+
+	'infomapa'=>'If you wan\'t see all events just don\'t pick anything'
     
 ];

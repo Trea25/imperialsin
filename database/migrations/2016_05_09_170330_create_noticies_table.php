@@ -23,7 +23,7 @@ class CreateNoticiesTable extends Migration
             $table->foreign('carrer_id')->references('id')->on('carrers');
             $table->integer('descripcio')->unsigned()->nullable();
             $table->foreign('descripcio')->references('id')->on('descripcions');
-            $table->integer('foto_id')->unsigned()->nullable();
+            $table->integer('foto_id')->unsigned();
             $table->foreign('foto_id')->references('id')->on('fotos');
             $table->timestamps();
         });

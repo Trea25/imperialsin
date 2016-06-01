@@ -390,21 +390,14 @@ body {
     color: #FFFFFF;
     padding: 2%;
     font-size: 14pt !important;
-    min-height:150px;
+
 }
 
 @media (min-width: 1700px) {
     .noticia {
-        min-height: 220px !important;
+
     }
 }
-
-@media (max-width: 1700px) and (min-width: 800px) {
-    .noticia {
-        min-height: 320px !important;
-    }
-}
-
 .leer-mas {
     padding: 3%;
 
@@ -574,11 +567,6 @@ a:active {
         margin-right:8%;
     }
 }
-@media (max-width:1600px){
-    .noticia{
-        min-height:300px;
-    }
-}
 
 @media (max-width:760px){
     .mapa{
@@ -707,4 +695,9 @@ legend.scheduler-border:after {
 }
 .publishtwitter{
     display:none;
+}
+.nicEdit-main, #cid_10 > div:nth-child(2) {
+
+    background-color: white;
+
 }

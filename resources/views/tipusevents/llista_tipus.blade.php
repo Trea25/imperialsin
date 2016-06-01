@@ -24,5 +24,6 @@
    </div>
   </div>
 
- {{$tipus_events->render()}}
+ <div class="row"><div class="text-center">{{$tipus_events->render()}}</div></div>
+
 @endsection

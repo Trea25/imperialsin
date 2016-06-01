@@ -23,6 +23,9 @@ return [
     'events' => 'Eventos',
     'other' => 'Otros',
     'calendarlang'=>'es',
+	'password'=>'Password',
+	'resetpassword'=>'Reiniciar Contraseña',
+	'confirmpassword'=>'Confirmar Contraseña',
     
     'Add_news' => 'Añadir Noticia',
     'Allnews' => 'Todas las Noticias',
@@ -101,6 +104,8 @@ return [
     'valany'=>'El año tiene que tener 4 carácteres',
     'valface'=>'El facebook tiene que tener menos 255 caracteres',
     'valtwitter'=>'El twitter tiene que tener menos 255 caracteres',
-    'valins'=>'El instagram tiene que tener menos 255 caracteres'
+    'valins'=>'El instagram tiene que tener menos 255 caracteres',
+
+	'infomapa'=>'Para ver todos los eventos no se debe seleccionar nada'
 
 ];

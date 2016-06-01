@@ -22,6 +22,9 @@ return [
     'events' => 'Events',
     'other' => 'Altres',
     'calendarlang'=>'ca',
+	'password'=>'Contrasenya',
+	'resetpassword'=>'Reiniciar Contrasenya',
+	'confirmpassword'=>'Confirmar Contrasenya',
       
     'Add_news' => 'Afegir Noticia',
     'Allnews' => 'Totes les Noticies',
@@ -104,6 +107,8 @@ return [
     'valany'=>'L\'any ha de tenir 4 caràcters',
     'valface'=>'El facebook ha de tenir menys de 255 caràcters',
     'valtwitter'=>'El twitter ha de tenir menys de 255 caràcters',
-    'valins'=>'El instagram ha de tenir menys de 255 caràcters'
+    'valins'=>'El instagram ha de tenir menys de 255 caràcters',
+
+	'infomapa'=>'Per a veure tots els events no s\'ha de sel·leccionar res'
     
 ];
