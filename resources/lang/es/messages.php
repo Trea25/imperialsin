@@ -26,6 +26,7 @@ return [
 	'password'=>'Password',
 	'resetpassword'=>'Reiniciar Contraseña',
 	'confirmpassword'=>'Confirmar Contraseña',
+	'confirmdel'=>'Seguro que quieres eliminar?',
     
     'Add_news' => 'Añadir Noticia',
     'Allnews' => 'Todas las Noticias',
@@ -106,6 +107,6 @@ return [
     'valtwitter'=>'El twitter tiene que tener menos 255 caracteres',
     'valins'=>'El instagram tiene que tener menos 255 caracteres',
 
-	'infomapa'=>'Para ver todos los eventos no se debe seleccionar nada'
+	'infomapa'=>'No marcar ninguna calle para buscar todas. No marcar ningún dia para ver la semana próxima'
 
 ];

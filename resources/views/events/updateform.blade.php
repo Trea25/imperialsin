@@ -58,7 +58,7 @@
                         <form method="POST" action="/event/{{ $event->id }}">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                            <button class="pull-left btn btn-danger">{{trans('messages.delete')}}</button>
+                            <button onclick="return confirm('{{trans('messages.confirmdel')}}')" class="pull-left btn btn-danger">{{trans('messages.delete')}}</button>
                         </form>
                 </fieldset>
             </div>
