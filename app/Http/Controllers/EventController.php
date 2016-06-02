@@ -66,7 +66,7 @@ class EventController extends Controller
         $this->middleware('auth');
         return view('events.formevent', [
             'carrers' => Carrer::All(),
-            'events' => TipusEvent::All(),
+            'events' => DB::table('tipus_events')->where('actiu', '=', true)->get(),
             'id_user' => $request->user()->id
         ]);
     }
@@ -196,7 +196,7 @@ class EventController extends Controller
 
         return view('events.updateform', [
             'event' => $event,
-            'tipusevents' => TipusEvent::All(),
+            'tipusevents' => DB::table('tipus_events')->where('actiu','=',true)->get(),
             'carrers' => Carrer::All(),
             'hora' => $time,
             'data' => $date
@@ -269,7 +269,7 @@ class EventController extends Controller
         if ($event != null && $event != '' && $event != '0') {
             $query->where('events.tipus_id', '=', $event);
         }
-        $query->where('carrers.cnom', '!=', 'federacio');
+        $query->where('carrers.cnom', '!=', 'federacio')->where('events.eactiu', '=',true);
         $resultat = $query->orderBy('carrers.cnom', 'ASC')->orderBy('events.edata_inici', 'ASC')->get();
         Log::info('recompte de resultats: ' . sizeof($resultat));
         Log::info(DB::getQueryLog());
