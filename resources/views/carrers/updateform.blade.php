@@ -3,6 +3,7 @@
     <title>{{trans('messages.edit_street')}}</title>
     <script src="{{URL::asset('js/jquery-2.1.4.min.js')}}" type="text/javascript"></script>
     <script src="{{URL::asset('js/validacioform.js')}}" type="text/javascript"></script>
+    <script src='{{URL::asset("ckeditor/ckeditor.js")}}'></script>
 @endsection
 @section('content')
     <div class="container">
@@ -37,14 +38,10 @@
         </div>
     </div>
 
-    <script>
-        $(window).resize( function() {
-            reLoadEditor();
-        } );
-        function reLoadEditor() {
-            editor.removeInstance('textarea');
-            editor = new nicEditor({buttonList: ['fontSize', 'bold', 'italic', 'underline', 'left', 'center', 'right', 'justify', 'ol', 'ul', 'subscript', 'superscript', 'strikethrough', 'indent', 'outdent', 'hr', 'forecolor', 'bgcolor', 'link', 'unlink', 'fontSize', 'fontFamily', 'fontFormat']}).panelInstance('textarea');
-        };
+ <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'textarea' );
     </script>
 
 @endsection
