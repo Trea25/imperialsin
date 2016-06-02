@@ -701,3 +701,12 @@ legend.scheduler-border:after {
     background-color: white;
 
 }
+
+.patrocinadors{
+    margin-top:10px;
+    border:3px solid #C54700;
+    border-radius:6px;
+    background:#F3982F;
+    padding:15px;
+
+}

@@ -17,6 +17,11 @@ use Session;
 
 class CarrerController extends Controller
 {
+
+    /**
+     * Mètode que retorna una vista amb el llistat de tots els carrers
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function llista()
     {
         return view('carrers.llistat', [
@@ -24,6 +29,10 @@ class CarrerController extends Controller
         ]);
     }
 
+    /**
+     * Mètode que ens retorna un llistat de tots els carrers en format json
+     * @return mixed
+     */
     public function index()
     {
         $carrers = Carrer::All();
@@ -35,6 +44,12 @@ class CarrerController extends Controller
         return $response;
     }
 
+    /**
+     * Mètode que ens retorna l'informacio d'un carrer determinat en format jsopn
+     * @param $lang // no te cap funcionalitat, simplement es per les rutes multiidioma
+     * @param $id identificador del carrer del qual volem obtindre l'informació
+     * @return mixed
+     */
     public function show($lang,$id)
     {
         $carrer = Carrer::find($id);
@@ -46,6 +61,13 @@ class CarrerController extends Controller
         return $response;
     }
 
+    /**
+     *
+     * Mètode que ens retorna una vista amb el formulari per a editar l'informació d'un carrer predeterminat
+     * @param $lang // no te cap funcionalitat, simplement es per les rutes multiidioma
+     * @param $id identificador del carrer el qual volem modificar
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit($lang,$id)
     {
         $this->middleware('auth');
@@ -55,6 +77,12 @@ class CarrerController extends Controller
         ]);
     }
 
+    /**
+     * Mètode que a partir d'un id actualitza les dades d'un carrer
+     * @param $id identificador del carrer que s'actualitzarà
+     * @param Request $request request HTTP que ve de la vista amb els valors del formulari
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function update($id, Request $request)
     {
         $this->authorize('admin');
@@ -66,7 +94,9 @@ class CarrerController extends Controller
             'ctwitter' => 'max:100|min:2',
             'cinstagram' => 'max:100|min:2',
         ]);
-
+        /*
+         * Recuperem el carrer que volem modificar de la base de dades
+         * */
         $carrer = Carrer::find($id);
         $foto = "";
         if (!$carrer) {

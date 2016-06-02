@@ -54,6 +54,7 @@
             @endforeach
         </div>
 
+
         <div class="col-md-3">
             <div class="row twitter-container" style="background:#e5a947;">
                 <a class="twitter-timeline"
@@ -76,6 +77,39 @@
                         }
                     }(document, "script", "twitter-wjs");</script>
             </div>
+        </div>
+
+        <div class="col-md-3 patrocinadors">
+
+            <fieldset>
+                <legend>
+                    {{trans('messages.colaboradors')}}
+                </legend>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <img class="img img-responsive" src="{{URL::asset('/img/sponsors/ajunt.png')}}" />
+                    </div>
+                    <div class="col-xs-6">
+                        <img class="img img-responsive" src="{{URL::asset('/img/sponsors/gen.png')}}" />
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>
+                    {{trans('messages.patrocinadors')}}
+                </legend>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <img class="img img-responsive" src="{{URL::asset('/img/sponsors/miguel.png')}}" />
+                    </div>
+                    <div class="col-xs-4">
+                        <img class="img img-responsive" src="{{URL::asset('/img/sponsors/ambu.png')}}" />
+                    </div>
+                    <div class="col-xs-4">
+                        <img class="img img-responsive" src="{{URL::asset('/img/sponsors/gremi.png')}}" />
+                    </div>
+                </div>
+            </fieldset>
         </div>
     </div>
     <style>
