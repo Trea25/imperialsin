@@ -28,18 +28,27 @@
                         <legend class="scheduler-border">{{trans('messages.Add_news')}}</legend>
                             {!! Form::open(array('url' => 'noticia', 'files' => true)) !!}
                             {{Form::token()}}
-                            <div id="theparent" style="width: 30%;">
+                        <div class="row">
+                            <div id="theparent" class="col-lg-7">
 
                                 <img style="width:100%" id="thepicture" src='{{URL::asset('img/Fotos/default.png')}}'/>
-                            </div><br>
+                            </div>
+                            <br/>
+                        </div>
+                        <br>
                         <div id='controls'>
-                            <button id='rotate_left' type='button' class="btn btn-primary" title='Rotate left'> <i class="fa fa-rotate-left fa-lg"></i> </button>
-                            <button id='zoom_out' type='button' class="btn btn-primary" title='Zoom out'> <i class="fa fa-minus fa-lg"></i></button>
-                            <button id='fit' type='button' class="btn btn-primary" title='Fit image'><i class="fa fa-arrows fa-lg"></i></button>
-                            <button id='zoom_in' type='button' class="btn btn-primary" title='Zoom in'> <i class="fa fa-plus fa-lg"></i></button>
-                            <button id='rotate_right' type='button' class="btn btn-primary" title='Rotate right'> <i class="fa fa-rotate-right fa-lg"></i> </button>
-                        </div><br>
-
+                            <button id='rotate_left' type='button' class="btn btn-primary" title='Rotate left'><i
+                                        class="fa fa-rotate-left fa-lg"></i></button>
+                            <button id='zoom_out' type='button' class="btn btn-primary" title='Zoom out'><i
+                                        class="fa fa-minus fa-lg"></i></button>
+                            <button id='fit' type='button' class="btn btn-primary" title='Fit image'><i
+                                        class="fa fa-arrows fa-lg"></i></button>
+                            <button id='zoom_in' type='button' class="btn btn-primary" title='Zoom in'><i
+                                        class="fa fa-plus fa-lg"></i></button>
+                            <button id='rotate_right' type='button' class="btn btn-primary" title='Rotate right'><i
+                                        class="fa fa-rotate-right fa-lg"></i></button>
+                        </div>
+                        <br>
 
                         <input class="inputfile" type="file" name="foto" id="inputImg">
                         <label for="inputImg"><i class="fa fa-cloud-upload"></i> {{trans('messages.add_pic')}}</label>
