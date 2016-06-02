@@ -96,6 +96,7 @@ return [
      
     //Search
     'search'=>'Search Tool',
+	'street_info' => 'Select a street to retrieve its information',
     
     //Carrers
     'edit_street' => 'Edit Street',

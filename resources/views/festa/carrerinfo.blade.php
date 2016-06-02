@@ -88,7 +88,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div id="result"></div>
+                <div id="result" class="text-marro"><br/>{{trans('messages.street_info')}}</div>
             </div>
         </div>
         <div class="separador"></div>
