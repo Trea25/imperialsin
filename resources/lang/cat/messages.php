@@ -96,6 +96,7 @@ return [
      
     //Search
     'search'=>'Buscador',
+	'street_info' => 'Seleccciona un carrer per veure\'n la informació',
     
     //Carrers
     'edit_street' => 'Modificar Carrer',
