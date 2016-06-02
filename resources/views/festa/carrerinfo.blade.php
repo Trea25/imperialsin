@@ -4,6 +4,9 @@
     <title>{{trans('messages.Menu_streets')}}</title>
     <script src="{{URL::asset('js/jquery-2.1.4.min.js')}}" type="text/javascript"></script>
     <link href="{{URL::asset('css/maparea.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('js/Remodal/remodal.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('js/Remodal/remodal-default-theme.css')}}" rel="stylesheet">
+    <script src="{{URL::asset('js/Remodal/remodal.js')}}" type="text/javascript"></script>
     <script src="{{URL::asset('js/galeria/jquery.bxslider.min.js')}}" type="text/javascript"></script>
     <link href="{{URL::asset('js/galeria/jquery.bxslider.css')}}" rel="stylesheet">
 @endsection
@@ -15,7 +18,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <!-- <canvas id='Canvas'></canvas>-->
-                <div class="mapa" id="mapcontainer">
+                <div class="mapa" id="mapcontainer" style="position:relative;">
                     <canvas id='Canvas'></canvas>
                     <img src="{{URL::asset('img/mapa/basic.jpg')}}" usemap="#imgmap" id="mapimg"
                          class="img img-responsive">
@@ -86,16 +89,35 @@
                               onclick="showcarrer(this)"/>
                     </map>
                 </div>
+                <div class="" style="position:absolute;right:3%;;bottom:1%;color:#7d000c;">
+                    <i style="" onclick="info()" class="fa fa-info-circle fa-3x"></i>
+                </div>
             </div>
             <div class="col-md-6">
-                <div id="result" class="text-marro"><br/>{{trans('messages.street_info')}}</div>
+                <div id="result" class="text-marro"> <div class="noticia" style="padding-left:7px;">{{trans('messages.street_info')}} </div> </div>
             </div>
         </div>
+
+
         <div class="separador"></div>
 
         <div id="fotos"></div>
-
-
+        <div class="remodal" data-remodal-id="info" role="dialog" aria-labelledby="modal1Title"
+             aria-describedby="modal1Desc">
+            <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+            <div>
+                <h2 id="modal1Title"></h2>
+                <p id="modal1Desc">
+                    {{trans('messages.street_info')}}
+                </p>
+            </div>
+        </div>
+        <script>
+            var inst = $('[data-remodal-id=info]').remodal({});
+            function info() {
+                inst.open();
+            }
+        </script>
         <script src="{{URL::asset('js/jquery-ui-1.11.1.js')}}" type="text/javascript"></script>
         <script src="{{URL::asset('js/prettify.js')}}" type="text/javascript"></script>
         <script src="{{URL::asset('js/lang-css.js')}}" type="text/javascript"></script>
