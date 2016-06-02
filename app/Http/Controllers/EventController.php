@@ -16,21 +16,34 @@ use Session;
 
 class EventController extends Controller
 {
-
+    /**
+     * Mètode que ens retorna una vista amb tots els events els quals es troben inactius
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function llistapen()
     {
+        $this->authorize('admin');
         return view('events.events_pendents', [
             'events' => DB::table('events')->join('carrers','carrers.id','=','events.carrer_id')->select('events.*','carrers.cnom as cnom')->where('eactiu', '=', false)->orderBy('edata_inici', 'desc')->get()
         ]);
     }
 
+    /**
+     * Métode que ens retorna una vista  tots els events
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function llista()
     {
+        $this->authorize('admin');
         return view('events.llista_events', [
             'events' => DB::table('events')->join('carrers','carrers.id','=','events.carrer_id')->select('events.*','carrers.cnom as cnom')->orderBy('edata_inici', 'desc')->paginate(10)
         ]);
     }
 
+    /**
+     * Mètode que ens retorna tots els events existents en format JSon
+     * @return mixed
+     */
     public function index()
     {
         $events = Event::All();
@@ -43,6 +56,11 @@ class EventController extends Controller
         return $response;
     }
 
+    /**
+     * Mètode que ens permet emmagatzemar un event en base de dades
+     * @param Request $request HTTP Request amb tots els camps a emmagtzemar
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create(Request $request)
     {
         $this->middleware('auth');
@@ -53,6 +71,12 @@ class EventController extends Controller
         ]);
     }
 
+    /**
+     * Mètode que ens retorna un event donat el seu identificador en format JSon
+     * @param $lang
+     * @param $id identificador de l'event que volem obtindre
+     * @return mixed
+     */
     public function show($lang, $id)
     {
         $event = Event::find($id);
@@ -64,6 +88,12 @@ class EventController extends Controller
         return $response;
     }
 
+    /**
+     * Mètode que ens permet actualitzar l'informacio d'un event donat el seu identificador
+     * @param $id identificador de l'event
+     * @param Request $request HTTP Request amb tota l'informació a actualitzar
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function update($id, Request $request)
     {
         $this->authorize('admin');
@@ -91,6 +121,11 @@ class EventController extends Controller
         return redirect("/" . session('lang') . "/llistaevents");
     }
 
+    /**
+     * Mètode que ens permet emmagatzemar un event
+     * @param Request $request HTTP Request amb tots els camps a emmagatzemar
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function store(Request $request)
     {
         $this->middleware('auth');
@@ -126,6 +161,10 @@ class EventController extends Controller
         return redirect("/" . session('lang') . "/llistaevents");
     }
 
+    /**
+     * Mètode que ens permet eliminar un event donat un identificador
+     * @param $id identificador de l'event a eliminar
+     */
     public function destroy($id)
     {
         $this->authorize('admin');
@@ -141,6 +180,12 @@ class EventController extends Controller
         Session::flash('response',$msg);
     }
 
+    /**
+     * Mètode que ens retorna una vista per a actualitzar les dades d'un event donat el seu identificador
+     * @param $lang
+     * @param $id identificador de l'event a modificar
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit($lang, $id)
     {
         $this->middleware('auth');
@@ -158,14 +203,22 @@ class EventController extends Controller
         ]);
     }
 
-    public function searchmap(Request $request)
+    /**
+     * Retorna la vista d'el buscador d'events
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function searchmap()
     {
         return view('festa.search', [
-            'tipusevents' => TipusEvent::all()
+            'tipusevents' => DB::table('tipus_events')->where('actiu','=',true)->get()
         ]);
     }
 
-
+    /**
+     * Mètode que ens retorna els event's donats els parametres de búsqueda (dies, carrers, i tipus d'event)
+     * @param Request $request HTTP Request amb els filtres de búsqueda
+     * @return mixed
+     */
     public function search(Request $request)
     {
 

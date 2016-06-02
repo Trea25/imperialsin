@@ -14,6 +14,7 @@ return [
     */
 
      // MENU
+	'Title' => 'Sants major party',
     'Menu_admin' => 'Administration',
     'Menu_home' => 'Home',
     'Menu_news' => 'News',
@@ -26,7 +27,8 @@ return [
 	'password'=>'Contraseña',
 	'resetpassword'=>'Reset Password',
 	'confirmpassword'=>'Repeat Password',
-	'confirmdel'=>'',
+	'confirmdel'=>'Are you sure you want to delete this?',
+	'404_return' => 'Get me back home',
     
     'Add_news' => 'Add News',
     'Allnews' => 'All News',
@@ -52,6 +54,7 @@ return [
     'edit' => 'Edit',
     'save' => 'Save',
     'delete' => 'Delete',
+	
     'title' => 'Title',
     'desc' => 'Description',
     'name' => 'Name',
@@ -72,7 +75,10 @@ return [
     'news_list' => 'News List',
     'news_edit' => 'Edit News',
 
+	'not_notfound' => 'We couldn\'t find that new',
+	
     //Form Event
+	
     'ev_title' => 'Event title',
     'ev_name' => 'Event Name',
     'ev_type' => 'Event type',

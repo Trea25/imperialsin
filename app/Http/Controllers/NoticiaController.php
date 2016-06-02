@@ -47,6 +47,7 @@ class NoticiaController extends Controller
      */
     public function llistapen()
     {
+        $this->authorize('admin');
         return view('noticies.noticies_pendents', [
             'noticies' => DB::table('noticies')->join('carrers','carrers.id','=','noticies.carrer_id')->select('noticies.*','carrers.cnom as cnom')->where('nactiu', '=', false)->orderBy('created_at', 'desc')->get()
         ]);
@@ -58,6 +59,7 @@ class NoticiaController extends Controller
      */
     public function llista()
     {
+        $this->authorize('admin');
         return view('noticies.llista_noticies', [
             'noticies' => DB::table('noticies')->join('carrers','carrers.id','=','noticies.carrer_id')->select('noticies.*','carrers.cnom as cnom')->orderBy('created_at', 'desc')->paginate(10)
         ]);
@@ -164,7 +166,8 @@ class NoticiaController extends Controller
         $carrer = "";
         $this->validate($request, [
             'ntitol' => 'required|max:50|min:2',
-            'ndesc' => 'required|max:2000|min:2'
+            'ndesc' => 'required|max:2000|min:2',
+            'foto'=>'required'
         ]);
 
         $titol = $request->ntitol;
@@ -254,8 +257,6 @@ class NoticiaController extends Controller
         }
         //=============================
 
-        /*retornar vista amb  el resultat millor -> $response() a la vista fer un if(isset($response)) i avisar si ha anat be, si ha anat malament es podria redirigir al formulari
-        avisant de que hi ha hagut un error i a on*/
         Log::info('noticia afegida correctament');
 		Session::flash('response',$msg);
         return redirect("/".session('lang')."/");
@@ -317,6 +318,10 @@ class NoticiaController extends Controller
 
     }
 
+    /**
+     * Mètode que ens retona la vista de la pagina principal
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function home()
     {
         $noticies = DB::table('noticies')->where('nactiu', '=', true)->orderBy('created_at', 'desc')->take(8)->get();
@@ -333,6 +338,12 @@ class NoticiaController extends Controller
         );
     }
 
+    /**
+     * Mètode que ens retorna la vista per a una noticia amb un identificador concret
+     * @param $lang
+     * @param $id identificador de la noticia a mostrar
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showNoticia($lang, $id)
     {
         return view('festa.shownoticia', [

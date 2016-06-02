@@ -24,6 +24,7 @@ class CarrerController extends Controller
      */
     public function llista()
     {
+        $this->authorize('admin');
         return view('carrers.llistat', [
             'carrers' => Carrer::All()
         ]);
@@ -71,6 +72,7 @@ class CarrerController extends Controller
     public function edit($lang,$id)
     {
         $this->middleware('auth');
+        $this->authorize('admin');
         $carrer = Carrer::find($id);
         return view('carrers.updateform', [
             'carrer' => $carrer
@@ -99,9 +101,11 @@ class CarrerController extends Controller
          * */
         $carrer = Carrer::find($id);
         $foto = "";
+        //Si no es troba el carrer retornem un Json amb el codi d'error i un missatge, en cas contrari recuperem l'informacio de la request i procedim a grabar a base de dades
         if (!$carrer) {
             $response = Response::json(array("errors" => array(['code' => 404, 'message' => Lang::get('codes.ca_404')])), 404, Utils::$headers, JSON_UNESCAPED_UNICODE);
 			$msg = 'messages.update_fail';
+
 		} else {
             $carrer->cnom = $request->cnom;
             $carrer->cdescripcio = $request->cdescripcio;
@@ -127,17 +131,11 @@ class CarrerController extends Controller
         return redirect("/".session('lang')."/llistacarrers");
     }
 
-    public function create()
-    {
-        $this->authorize('admin');
-    }
-
-    public function store(Request $request)
-    {
-        $this->authorize('admin');
-        //no funcional
-    }
-
+    /**
+     * Mètode que donat un id elimina un carrer
+     * @param $id identificador del carrer que es vol eliminar
+     * @return mixed7
+     */
     public function delete($id)
     {
         $this->authorize('admin');
@@ -154,6 +152,10 @@ class CarrerController extends Controller
         return $response;
     }
 
+    /**
+     * Mètode que ens retorna una vista amb el formulari per a poder afegir fotos per un carrer
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function afegirFotoForm()
     {
 
@@ -164,14 +166,19 @@ class CarrerController extends Controller
         ]);
     }
 
+
+    /**
+     * Métode que ens permet emmagatzemar fotos per a un carrer determinat
+     * @param Request $request HTTP Request que porta tota l'informació a emmagatzemar
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function afegirFoto(Request $request)
     {
         $this->middleware('auth');
-        //Recuperem la foto
+        $this->validate($request,['foto'=>'required', 'carrer_id'=>'required']);
+        $msg = null;
         $file = $request->file('foto');
-        //En cas de que hagin afegit una foto la preparem per a insertarla a la base de dades
         if ($file != null && $file != "") {
-          $guardarfoto = true;
             $foto = new Foto();
             $foto->fnom = $request->foto;
             $foto->fpic = Utils::editImage($request, null);
@@ -197,10 +204,19 @@ class CarrerController extends Controller
             }
 
         }
-		Session::flash('response',$msg);
+        if($msg!=null){
+            Session::flash('response',$msg);
+        }
+
         return redirect("/".session('lang')."/afegirFoto");
     }
 
+    /**
+     * Mètode que ens retorna un array amb els identificadors de les 12 fotos mes recents per a un carrer determinat
+     * @param $lang
+     * @param $id identificador del carrer el cual volem obtindre les seves fotos
+     * @return array|string
+     */
     public function carrerfoto($lang,$id)
     {
         $this->middleware('auth');

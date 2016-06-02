@@ -15,10 +15,14 @@ use Session;
 class CarrerEventController extends Controller
 {
 
-
+    /**
+     * Mètode que retorna tots els events per a un carrer determinat en format JSon
+     * @param $lang
+     * @param $idCarrer identificador del carrer del cual volem obtindre tots els seus events
+     * @return mixed
+     */
     public function index($lang,$idCarrer)
     {
-
         $carrer=Carrer::find($idCarrer);
 
         if (! $idCarrer)
@@ -29,25 +33,15 @@ class CarrerEventController extends Controller
             $response = Response::json(array("status"=>"ok", "data"=>$events),200,Utils::$headers, JSON_UNESCAPED_UNICODE);
         }
         return $response;
-
     }
 
-
-    public function create($lang,$idCarrer)
-    {
-        $this->middleware('auth');
-        // return formulari creacio event per al carrer amb id $idCarrer
-
-    }
-
-
-    public function store()
-    {
-        $this->middleware('auth');
-        //
-    }
-
-
+    /**
+     * Mètode que ens retorna un event en concret per a un carrer concret en format JSon
+     * @param $lang
+     * @param $idCarrer identificador del carrer
+     * @param $idEvent identificador de l'event
+     * @return mixed
+     */
     public function show($lang,$idCarrer,$idEvent)
     {
         $event = Event::find($idEvent);

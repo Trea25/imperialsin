@@ -13,6 +13,8 @@ return [
     |
     */
 
+	//Menu
+	'Title' => 'Festa Major de Sants',
     'Menu_admin' => 'Administració',
     'Menu_home' => 'Inici',
     'Menu_news' => 'Noticies',
@@ -26,10 +28,10 @@ return [
 	'resetpassword'=>'Reiniciar Contrasenya',
 	'confirmpassword'=>'Confirmar Contrasenya',
 	'confirmdel'=>'Segur que vols eliminar?',
+	'404_return' => 'Tornar al inici',
       
     'Add_news' => 'Afegir Noticia',
     'Allnews' => 'Totes les Noticies',
-    'Add_event' => 'Afegir Event',
     'pending_news' => 'Noticies Pendents',
     'Add_event' => 'Afegir Event',
     'All_event' => 'Tots els Events',
@@ -66,27 +68,26 @@ return [
     
     //Form Noticia
     'not_select_street' => 'Selecciona el carrer',
-
     'not_title' => 'Títol de la noticia',
     'not_desc' => 'Descripció de la noticia',
     'publish_to' => 'Publicar a',
     
     'news_list' => 'Llistat de Noticies',
     'news_edit' => 'Modificar Noticia',
+	
+	'not_notfound' => 'No s\'ha trobat aquest noticia',
 
     //Form Event
 
     'ev_title' => 'Títol de l\'event',
     'ev_name' => 'Nom de l\'event',
-	'ev_name' => 'Nom de l\'event',
     'ev_type' => 'Tipus d\'event ',
     'ev_select_type' => 'Selecciona el tipus',
     'ev_select_street' => 'Selecciona el carrer',
     'ev_edit' => 'Modificar Event',
     'ev_approve' => 'Aprovar',
 
-
-     'ev_list' => 'Llistat d\' Events',
+    'ev_list' => 'Llistat d\' Events',
     
     'edit_type' => 'Modificar tipus',
     'add_type' => 'Afegir tipus',
@@ -110,7 +111,7 @@ return [
     'valtwitter'=>'El twitter ha de tenir menys de 255 caràcters',
     'valins'=>'El instagram ha de tenir menys de 255 caràcters',
 
-	'infomapa'=>'No marcar cap carrer per buscar-los tots. No marcar cap dia per veure la semana pròxima',
+	'infomapa'=>'No marcar cap carrer per buscar-los tots. No marcar cap dia per veure la propera setmana',
 	'colaboradors'=>'Col·laboradors:',
 	'patrocinadors'=>'Patrocinadors:'
 

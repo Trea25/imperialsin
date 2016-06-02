@@ -14,6 +14,12 @@ use Lang;
 
 class FotoController extends Controller
 {
+
+    /**
+     * Mètode que ens retorna una vista amb una foto determinada donat el seu identificador
+     * @param $id identificador de la foto a obtindre
+     * @return mixed
+     */
     public function find($id){
         $foto = Foto::find($id);
         if(!$foto){

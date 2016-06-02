@@ -13,7 +13,12 @@ use Lang;
 class CarrerNoticiaController extends Controller
 {
 
-
+    /**
+     * Mètode que ens retorna totes les noticies per a un carrer determinat en format JSon
+     * @param $lang
+     * @param $idCarrer identificador del carrer del cual volem obtindre totes les seves noticies
+     * @return mixed
+     */
     public function index($lang,$idCarrer){
         $carrer = Carrer::find($idCarrer);
         if(!$carrer){
@@ -24,11 +29,14 @@ class CarrerNoticiaController extends Controller
         }
         return $response;
     }
-    public function create($lang,$idCarrer)
-    {
-        $this->middleware('auth');
-        //retornar formulari per crear una noticia per al carrer amb id = $idCarrer
-    }
+
+    /**
+     * Mètode que ens retorna una noticia en concret per a un carrer en concret en format JSon
+     * @param $lang
+     * @param $idCarrer identificador del carrer
+     * @param $idNoticia identificador de la noticia
+     * @return mixed
+     */
     public function show($lang,$idCarrer,$idNoticia)
     {
         $noticia = Noticia::find($idNoticia);

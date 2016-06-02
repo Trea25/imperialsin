@@ -9,11 +9,12 @@
 
     <meta name='viewport' content='width=device-width, initial-scale=1.0, target-densitydpi=device-dpi'>
     <script src='http://code.jquery.com/jquery-1.11.0.min.js'></script>
-    <script src='{{URL::asset('js/guillotine/jquery.guillotine.js')}}'></script>
-    <script src='{{URL::asset('js/guillotine/jquery.mousewheel.min.js')}}'></script>
+    <script src='{{URL::asset("js/guillotine/jquery.guillotine.js")}}'></script>
+    <script src='{{URL::asset("js/guillotine/jquery.mousewheel.min.js")}}'></script>
+    <script src='{{URL::asset("ckeditor/ckeditor.js")}}'></script>
 
-    <link href='{{URL::asset('css/guillotine/jquery.guillotine.css')}}' media='all' rel='stylesheet'>
-    <script src='{{URL::asset('js/guillotine/jquery.guillotine_startup.js')}}'></script>
+    <link href='{{URL::asset("css/guillotine/jquery.guillotine.css")}}' media='all' rel='stylesheet'>
+    <script src='{{URL::asset("js/guillotine/jquery.guillotine_startup.js")}}'></script>
 
     <div class="linea"></div>
     <div class="linea"></div>
@@ -56,7 +57,7 @@
                             <label>{{trans('messages.not_title')}}</label><br><br><input onchange="valtitol(this.value)" class="form-control" class="form-control" id="ntitol" name="ntitol" type="text"/>
                             <div class="errorval" hidden id="titol">{{trans("messages.valtitol")}}</div><br><br>
                             <label>{{trans('messages.not_desc')}}</label><br><br>
-                            <textarea class="form-control" id="textarea" name="ndesc"></textarea><br><br>
+                            <textarea class="form-control" id="editor" name="ndesc"></textarea><br><br>
                             @if(Auth::id()==1)
                                 <label>{{trans('messages.Street')}}</label><br><br>
                                 <select class="form-control" name="id_carrer">
@@ -85,7 +86,15 @@
                 <div class="col-md-1"></div>
             </div>
         </div>
+         <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'editor' );
+            </script>
+<!--
         <script>
+        
+
             $(window).resize( function() {
                 reLoadEditor();
             } );
@@ -93,7 +102,7 @@
                 editor.removeInstance('textarea');
                 editor = new nicEditor({buttonList: ['fontSize', 'bold', 'italic', 'underline', 'left', 'center', 'right', 'justify', 'ol', 'ul', 'subscript', 'superscript', 'strikethrough', 'indent', 'outdent', 'hr', 'forecolor', 'bgcolor', 'link', 'unlink', 'fontSize', 'fontFamily', 'fontFormat']}).panelInstance('textarea');
             };
-        </script>
+        </script> -->
     @endsection
 <script src='{{URL::asset('js/guillotine/jquery.init_guillotine.js')}}'></script>
 <script>

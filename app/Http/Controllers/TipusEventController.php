@@ -14,6 +14,11 @@ use Lang;
 
 class TipusEventController extends Controller
 {
+
+    /**
+     * Mètode que ens retorna tots els tipus d'events en format JSon
+     * @return mixed
+     */
     public function index()
     {
         $tipusevent=TipusEvent::All();
@@ -25,6 +30,12 @@ class TipusEventController extends Controller
         return $response;
     }
 
+    /**
+     * Mètode que ens retorna un típus d'event donat un identificador en format JSon
+     * @param $lang
+     * @param $id
+     * @return mixed
+     */
     public function show($lang,$id)
     {
         $tipusevent = TipusEvent::find($id);
@@ -36,6 +47,12 @@ class TipusEventController extends Controller
         return $response;
     }
 
+    /**
+     * Mètode que ens permet actualitzar l'informació d'un tipus d'event donat un identificador en concret
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update($id, Request $request)
     {
         $this->authorize('admin');
@@ -54,6 +71,11 @@ class TipusEventController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * Mètode que ens permet emmagatzemar un tipus d'event en base de dades
+     * @param Request $request HTTP Request amb els camps a emmagatzemar
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(Request $request)
     {
         $this->authorize('admin');
@@ -76,6 +98,11 @@ class TipusEventController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * Mètode que ens permet eliminar un tipus d'event donat un identificador concret
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function destroy($id)
     {
         $this->authorize('admin');
@@ -87,19 +114,36 @@ class TipusEventController extends Controller
         return redirect("/".session('lang')."/llistatipus");
     }
 
+    /**
+     * Mètode que ens retorna una vista amb un formulari per a poder crear un tipus d'event
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+
     public function create(Request $request)
     {
         $this->middleware('auth');
-
+        $this->authorize('admin');
         return view('tipusevents.formtipus');
     }
 
+    /**
+     * Mètode que ens retorna una vista amb un llistat de tots els tipus d'events
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function llista(){
+        $this->authorize('admin');
         return view ('tipusevents.llista_tipus', [
             'tipus_events' => DB::table('tipus_events')->where('actiu','=',true)->orderBy('created_at','desc')->paginate(15)
         ]);
     }
 
+    /**
+     * Mètode que ens retorna una vista amb un formulari per a modificar un tipus d'event donat el seu identificador
+     * @param $lang
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit($lang,$id)
     {
         $this->middleware('auth');
