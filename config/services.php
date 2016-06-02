@@ -38,7 +38,7 @@ return [
      'facebook' => [
         'client_id' => '240850866276544',
         'client_secret' => '513577773e9c0ecc7e309497722db46a',
-        'redirect' => 'http://localhost:8000/callback',
+        'redirect' => 'http://festesdesants-definitiu.dev:8000/callback', // canviar si cambiem de servidor
      
     ],
 

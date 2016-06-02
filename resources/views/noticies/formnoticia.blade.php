@@ -66,7 +66,7 @@
                                         <option value="{{$carrer->id}}">{{$carrer->cnom}}</option>
                                     @endforeach
                                 </select><br>
-                            @endif
+                            
                             <br/>
                             <div class="row">
                                 <div style="padding-top: 2%" class="col-sm-2">
@@ -75,11 +75,14 @@
                                 <div class="col-sm-1">
                                     <label><input type="checkbox" class="form-control publishtwitter" name="twitter" id="Twitter" ><img width="50" height="50" src="/img/Twitter-Logo-2.png"  onclick="select(this,'Twitter');"></label>
                                 </div>
+                                 <div class="col-sm-1">
+                                    <label><input type="checkbox" class="form-control publishtwitter" name="facebook" id="Facebook" ><img width="50" height="50" src="/img/Facebook-Logo-2.png"  onclick="select(this,'Facebook');"></label>
+                                </div>
                                 <div class="col-sm-9"></div>
                             </div>
+                            @endif
                                 <br /><br />
                             <button type="submit" id="afegirnoticia" class="btn btn-success">{{trans('messages.send')}}</button>
-                            <button href="/administracio" class="btn btn-danger">{{trans('messages.back')}}</button>
                             {!! Form::close() !!}
                     </fieldset>
                 </div>
@@ -91,18 +94,6 @@
                 // instance, using default configuration.
                 CKEDITOR.replace( 'editor' );
             </script>
-<!--
-        <script>
-        
-
-            $(window).resize( function() {
-                reLoadEditor();
-            } );
-            function reLoadEditor() {
-                editor.removeInstance('textarea');
-                editor = new nicEditor({buttonList: ['fontSize', 'bold', 'italic', 'underline', 'left', 'center', 'right', 'justify', 'ol', 'ul', 'subscript', 'superscript', 'strikethrough', 'indent', 'outdent', 'hr', 'forecolor', 'bgcolor', 'link', 'unlink', 'fontSize', 'fontFamily', 'fontFormat']}).panelInstance('textarea');
-            };
-        </script> -->
     @endsection
 <script src='{{URL::asset('js/guillotine/jquery.init_guillotine.js')}}'></script>
 <script>

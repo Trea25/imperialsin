@@ -27,7 +27,8 @@
                     {!! $noticia->ndesc !!}
 					<br /><br />
 					<div class="row pull-right">
-                    <div class="col-xs-12 col-sm-5 col-md-5"> <span style="height:25px" class="fb-share-button"
+                    <div class="col-xs-12 col-sm-5 col-md-5"> 
+                        <span style="height:25px" class="fb-share-button"
                                                           data-href="{{App::make('url')->to('/'.App::getLocale().'/noticia/view/'.$noticia->id)}}?p[title]=$noticia->ntitol"
                                                           data-layout="button" data-mobile-iframe="true">
 
@@ -54,6 +55,7 @@
                     js.src = p + '://platform.twitter.com/widgets.js';
                     fjs.parentNode.insertBefore(js, fjs);
                 }
-            }(document, 'script', 'twitter-wjs');</script>
+            }(document, 'script', 'twitter-wjs');
+        </script>
 
 @endsection
