@@ -191,12 +191,6 @@
                 @include('festa.footer')
             </div>     <!-- /#wrapper -->
 
-            <!-- Editor text Nicedit-->
-            <script src="{{URL::asset('js/nicEdit-latest.js')}}" type="text/javascript"></script>
-            <script type="text/javascript">bkLib.onDomLoaded(function () {
-                    editor = new nicEditor({buttonList: ['fontSize', 'bold', 'italic', 'underline', 'left', 'center', 'right', 'justify', 'ol', 'ul', 'subscript', 'superscript', 'strikethrough', 'indent', 'outdent', 'hr', 'forecolor', 'bgcolor', 'link', 'unlink', 'fontSize', 'fontFamily', 'fontFormat']}).panelInstance('textarea');
-                });
-            </script>
             @if (Auth::id() != null)
                     <!-- Menu Toggle Script -->
             <script>
