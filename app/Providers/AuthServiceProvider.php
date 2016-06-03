@@ -28,6 +28,9 @@ class AuthServiceProvider extends ServiceProvider
         $gate->define('admin', function ($user) {
             return $user->id === 1;
         });
+        $gate->define('carrer', function($user){
+            return $user->id != null;
+        });
         //
     }
 }

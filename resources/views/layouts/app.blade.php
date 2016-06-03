@@ -179,7 +179,7 @@
                                 
                                 @include('errors.errors')
                                 @if (Session::has('response'))
- 								<div class="alert alert-info">{{trans(Session::get('response'))}}</div>
+ 								<div class="alert alert-info" style="border-radius:0px;">{{trans(Session::get('response'))}}</div>
  								@endif
                                 @yield('content')
 

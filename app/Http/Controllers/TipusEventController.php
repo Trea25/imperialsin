@@ -146,7 +146,7 @@ class TipusEventController extends Controller
      */
     public function edit($lang,$id)
     {
-        $this->middleware('auth');
+        $this->authorize('admin');
         $tipusevent = TipusEvent::find($id);
 
         return view ('tipusevents.updateform', [

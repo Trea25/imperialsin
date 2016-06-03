@@ -71,8 +71,7 @@ class CarrerController extends Controller
      */
     public function edit($lang,$id)
     {
-        $this->middleware('auth');
-        $this->authorize('admin');
+        $this->authorize('carrer')||$this->authorize('admin');
         $carrer = Carrer::find($id);
         return view('carrers.updateform', [
             'carrer' => $carrer
@@ -158,7 +157,7 @@ class CarrerController extends Controller
      */
     public function afegirFotoForm()
     {
-
+       $this->authorize('carrer')||$this->authorize('admin');
         $carrers = Carrer::All();
 
         return view('carrers.afegirFoto', [
@@ -174,15 +173,15 @@ class CarrerController extends Controller
      */
     public function afegirFoto(Request $request)
     {
-        $this->middleware('auth');
-        $this->validate($request,['foto'=>'required', 'carrer_id'=>'required']);
+        $this->authorize('carrer')||$this->authorize('admin');
+        $this->validate($request,['foto'=>'required']);
         $msg = null;
         $file = $request->file('foto');
         if ($file != null && $file != "") {
             $foto = new Foto();
             $foto->fnom = $request->foto;
             $foto->fpic = Utils::editImage($request, null);
-            if ($request->id_carrer == 0) {
+            if ($request->id_carrer == 0 || $request->id_carrer == null || $request->id_carrer == ""){
                 Log::info('Cercant el identificador del usuari loguejat ' . Auth::id());
                 $carrer = DB::table('carrers')->where('user_id', '=', Auth::id())->get();
                 Log::info(DB::getQueryLog());
@@ -219,7 +218,6 @@ class CarrerController extends Controller
      */
     public function carrerfoto($lang,$id)
     {
-        $this->middleware('auth');
         //DB::connection()->enableQueryLog();
         $carrer = DB::table('fotos')->where("carrer_id", "=", $id)->orderBy('created_at', "DESC")->select("fotos.id")->take(12)->get();
         //Log::info(DB::getQueryLog());
