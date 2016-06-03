@@ -15,6 +15,7 @@
 
 //====ROUTES SENSE IDIOMA => REDIRECT
 
+
     Route::get('/', function () {
         return redirect('/'.App::getLocale());
     });
@@ -114,11 +115,12 @@ Route::group([
     Route::get('/afegirFoto', 'CarrerController@afegirFotoForm');
     
     Route::auth();
-    /*
+    
+    //Facebook //
     Route::get('/redirect','SocialAuthController@redirect');
     Route::get('/callback','SocialAuthController@callback');
     Route::get('/publicar','NoticiaController@store');
-    */
+    //========//
     Route::get('noticies', 'NoticiaController@noticies');
     Route::get('noticia/view/{id}','NoticiaController@showNoticia');
 
@@ -165,3 +167,8 @@ Route::resource('carrer.noticia', 'CarrerNoticiaController');
 Route::resource('carrer.event', 'CarrerEventController');
 Route::resource('tipusevent', 'TipusEventController',
     ['except' => ['create', 'edit']]);
+     //Facebook //
+    Route::get('/redirect','SocialAuthController@redirect');
+    Route::get('/callback','SocialAuthController@callback');
+    Route::get('/publicar','NoticiaController@store');
+    //========//

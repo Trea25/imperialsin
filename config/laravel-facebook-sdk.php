@@ -21,8 +21,7 @@ return [
         'app_id' => '240850866276544',
         'app_secret' => '513577773e9c0ecc7e309497722db46a',
         'default_graph_version' => 'v2.6',
-        //'enable_beta_mode' => true,
-        //'http_client_handler' => 'guzzle',
+        
     ],
 
     /*
@@ -44,6 +43,8 @@ return [
     /*
      * The default endpoint that Facebook will redirect to after
      * an authentication attempt.
+     * S'ha de canviar si es canvia de servidor
      */
-    'default_redirect_uri' => 'http://localhost:8000/callback',
+    'default_redirect_uri' => 'http://festesdesants-definitiu.dev:8000/callback',
+
     ];

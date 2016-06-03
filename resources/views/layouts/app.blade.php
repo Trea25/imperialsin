@@ -209,7 +209,7 @@
                     js.id = id;
                     js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.6";
                     fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));</script>
+                }(document, 'script', '240850866276544'));</script>
             <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
             <script src="{{URL::asset('js/script.js')}}"></script>
 
