@@ -32,7 +32,7 @@ class NoticiaController extends Controller
      */
     public function create(Request $request)
     {
-        $this->middleware('auth');
+        $this->authorize('carrer')||$this->authorize('admin');
 
         return view('noticies.formnoticia', [
             'carrers' => Carrer::All(),
@@ -161,7 +161,7 @@ class NoticiaController extends Controller
     public function store(Request $request)
     {
         DB::connection()->enableQueryLog();
-        $this->middleware('auth');
+        $this->authorize('carrer')||$this->authorize('admin');
         $carrer_id = "";
         $carrer = "";
         $this->validate($request, [
@@ -287,7 +287,7 @@ class NoticiaController extends Controller
 
     public function edit($lang, $id)
     {
-        $this->middleware('auth');
+       $this->authorize('admin');
         $noticia = Noticia::find($id);
 
 

@@ -63,7 +63,7 @@ class EventController extends Controller
      */
     public function create(Request $request)
     {
-        $this->middleware('auth');
+        $this->authorize('carrer')||$this->authorize('admin');
         return view('events.formevent', [
             'carrers' => Carrer::All(),
             'events' => DB::table('tipus_events')->where('actiu', '=', true)->get(),
@@ -128,7 +128,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $this->middleware('auth');
+        $this->authorize('carrer')||$this->authorize('admin');
         $this->validate($request, [
             'etitol' => 'required|max:50|min:2',
             'tipus_id' => 'required',
@@ -188,7 +188,7 @@ class EventController extends Controller
      */
     public function edit($lang, $id)
     {
-        $this->middleware('auth');
+        $this->authorize('admin');
         $event = Event::find($id);
         $date = explode(" ", Utils::separate_date($event->edata_inici));
         $time = substr($date[1], 0, -3);
