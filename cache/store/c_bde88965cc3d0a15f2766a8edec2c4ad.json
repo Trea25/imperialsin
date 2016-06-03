@@ -1,0 +1,77 @@
+{
+    "name": "App\\Http\\Middleware\\Language",
+    "line": 17,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Middleware",
+    "file": ".\/app\\Http\\Middleware\\Language.php",
+    "relative_file": null,
+    "hash": "42e46b3751512a9e691aa13284d713f2ce5de18e",
+    "parent": null,
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Closure": "Closure",
+        "Application": "Illuminate\\Foundation\\Application",
+        "Request": "Illuminate\\Http\\Request",
+        "Redirector": "Illuminate\\Routing\\Redirector",
+        "App": "Illuminate\\Support\\Facades\\App",
+        "Config": "Illuminate\\Support\\Facades\\Config",
+        "Session": "Illuminate\\Support\\Facades\\Session",
+        "Redirect": "Illuminate\\Support\\Facades\\Redirect",
+        "Route": "Route",
+        "URL": "Illuminate\\Support\\Facades\\URL"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "handle": {
+            "name": "handle",
+            "line": 19,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 19,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "next": {
+                    "name": "next",
+                    "line": 19,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Closure",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Closure",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

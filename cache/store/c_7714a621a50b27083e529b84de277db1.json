@@ -1,0 +1,174 @@
+{
+    "name": "App\\Utils",
+    "line": 7,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App",
+    "file": ".\/app\\Utils.php",
+    "relative_file": null,
+    "hash": "fe903a7e0a5d75d44cf575e04afbf429d1ad42ed",
+    "parent": null,
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Request": "Illuminate\\Http\\Request",
+        "Log": "Illuminate\\Support\\Facades\\Log",
+        "Image": "Image",
+        "Response": "Illuminate\\Support\\Facades\\Response"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "headers": {
+            "name": "headers",
+            "line": 9,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 9,
+            "default": {
+                "items": [
+                    {
+                        "key": {
+                            "value": "Content-Type"
+                        },
+                        "value": {
+                            "value": "application\/json; charset=utf-8"
+                        },
+                        "byRef": false
+                    }
+                ]
+            },
+            "errors": []
+        }
+    },
+    "methods": {
+        "date_formater": {
+            "name": "date_formater",
+            "line": 19,
+            "short_desc": "Funci\u00f3 que rep una data (dd\/mm\/yyyy) i una hora (dd:mm) i la formateja en formate date apte per la Base de Dades",
+            "long_desc": "",
+            "hint": [
+                [
+                    "string",
+                    false
+                ]
+            ],
+            "hint_desc": "Un string amb la data en format yyyy-mm-dd hh:mm:ss",
+            "tags": [],
+            "modifiers": "9",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "date": {
+                    "name": "date",
+                    "line": 19,
+                    "short_desc": "data en format dd\/mm\/yyyy",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "time": {
+                    "name": "time",
+                    "line": 19,
+                    "short_desc": "hora en format hh:mm",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "separate_date": {
+            "name": "separate_date",
+            "line": 31,
+            "short_desc": "Funci\u00f3 per separar la data de yyyy-mm-dd hh:mm:ss a una data dd\/mm\/yyyy i una hora hh:mm",
+            "long_desc": "",
+            "hint": [
+                [
+                    "string",
+                    false
+                ]
+            ],
+            "hint_desc": "Data en format dd\/mm\/yyyy hh:mm",
+            "tags": [],
+            "modifiers": "9",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "date": {
+                    "name": "date",
+                    "line": 31,
+                    "short_desc": "Data en format yyyy-mm-dd hh:mm:ss",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "editImage": {
+            "name": "editImage",
+            "line": 46,
+            "short_desc": "Metode que donat un fitxer o una imatge provinent d'el request ens l'escala, rota i retalla segons els parametres donats, els quals tambe venen del request",
+            "long_desc": "",
+            "hint": [
+                [
+                    "null",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "9",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 46,
+                    "short_desc": "HTTP Request amb l'imatge i\/o els parametres de configuracio",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Illuminate\\Http\\Request",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "file": {
+                    "name": "file",
+                    "line": 46,
+                    "short_desc": "fitxer amb l'imatge provinent de base de dades la qual tractarem amb l'informacio provinent del request",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

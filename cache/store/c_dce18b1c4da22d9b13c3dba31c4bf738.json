@@ -1,0 +1,63 @@
+{
+    "name": "App\\Http\\Controllers\\FotoController",
+    "line": 15,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers",
+    "file": ".\/app\\Http\\Controllers\\FotoController.php",
+    "relative_file": null,
+    "hash": "3a7c8d5a224d2bec0fca124481c15b86316d733f",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Request": "Illuminate\\Http\\Request",
+        "Requests": "App\\Http\\Requests",
+        "Foto": "App\\Foto",
+        "Image": "Intervention\\Image\\Facades\\Image",
+        "Response": "Illuminate\\Support\\Facades\\Response",
+        "Utils": "App\\Utils",
+        "Lang": "Lang"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "find": {
+            "name": "find",
+            "line": 23,
+            "short_desc": "M\u00e8tode que ens retorna una vista amb una foto determinada donat el seu identificador",
+            "long_desc": "",
+            "hint": [
+                [
+                    "mixed",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 23,
+                    "short_desc": "identificador de la foto a obtindre",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

@@ -1,0 +1,26 @@
+{
+    "name": "App\\Console\\Kernel",
+    "line": 8,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Console",
+    "file": ".\/app\\Console\\Kernel.php",
+    "relative_file": null,
+    "hash": "ce097bb138854368e1e3e5d7b766295c47f5d69a",
+    "parent": "Illuminate\\Foundation\\Console\\Kernel",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Schedule": "Illuminate\\Console\\Scheduling\\Schedule",
+        "ConsoleKernel": "Illuminate\\Foundation\\Console\\Kernel"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": [],
+    "constants": []
+}

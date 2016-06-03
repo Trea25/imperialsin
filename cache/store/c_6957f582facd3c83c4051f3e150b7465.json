@@ -1,0 +1,126 @@
+{
+    "name": "App\\Http\\Controllers\\CarrerNoticiaController",
+    "line": 13,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers",
+    "file": ".\/app\\Http\\Controllers\\CarrerNoticiaController.php",
+    "relative_file": null,
+    "hash": "6f12d27ff1084cc68eb710c775fd27de1e2c9438",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Request": "Illuminate\\Http\\Request",
+        "Carrer": "App\\Carrer",
+        "Response": "Illuminate\\Support\\Facades\\Response",
+        "Utils": "App\\Utils",
+        "Noticia": "App\\Noticia",
+        "Lang": "Lang"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "index": {
+            "name": "index",
+            "line": 22,
+            "short_desc": "M\u00e8tode que ens retorna totes les noticies per a un carrer determinat en format JSon",
+            "long_desc": "",
+            "hint": [
+                [
+                    "mixed",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "lang": {
+                    "name": "lang",
+                    "line": 22,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "idCarrer": {
+                    "name": "idCarrer",
+                    "line": 22,
+                    "short_desc": "identificador del carrer del cual volem obtindre totes les seves noticies",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "show": {
+            "name": "show",
+            "line": 40,
+            "short_desc": "M\u00e8tode que ens retorna una noticia en concret per a un carrer en concret en format JSon",
+            "long_desc": "",
+            "hint": [
+                [
+                    "mixed",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "lang": {
+                    "name": "lang",
+                    "line": 40,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "idCarrer": {
+                    "name": "idCarrer",
+                    "line": 40,
+                    "short_desc": "identificador del carrer",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "idNoticia": {
+                    "name": "idNoticia",
+                    "line": 40,
+                    "short_desc": "identificador de la noticia",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

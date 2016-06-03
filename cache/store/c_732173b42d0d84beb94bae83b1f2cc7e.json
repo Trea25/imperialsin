@@ -1,0 +1,358 @@
+{
+    "name": "App\\Http\\Controllers\\CarrerController",
+    "line": 18,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers",
+    "file": ".\/app\\Http\\Controllers\\CarrerController.php",
+    "relative_file": null,
+    "hash": "5ddbc5df8a130da90f9363559eee7baa05e0cc1f",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Carrer": "App\\Carrer",
+        "Foto": "App\\Foto",
+        "Requests": "App\\Http\\Requests",
+        "Utils": "App\\Utils",
+        "DB": "DB",
+        "Request": "Illuminate\\Http\\Request",
+        "Auth": "Illuminate\\Support\\Facades\\Auth",
+        "Log": "Illuminate\\Support\\Facades\\Log",
+        "Response": "Illuminate\\Support\\Facades\\Response",
+        "Image": "Image",
+        "Lang": "Lang",
+        "Session": "Session"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "llista": {
+            "name": "llista",
+            "line": 25,
+            "short_desc": "M\u00e8tode que retorna una vista amb el llistat de tots els carrers",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Contracts\\View\\Factory",
+                    false
+                ],
+                [
+                    "\\Illuminate\\View\\View",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "index": {
+            "name": "index",
+            "line": 37,
+            "short_desc": "M\u00e8tode que ens retorna un llistat de tots els carrers en format json",
+            "long_desc": "",
+            "hint": [
+                [
+                    "mixed",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "show": {
+            "name": "show",
+            "line": 54,
+            "short_desc": "M\u00e8tode que ens retorna l'informacio d'un carrer determinat en format jsopn",
+            "long_desc": "",
+            "hint": [
+                [
+                    "mixed",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "lang": {
+                    "name": "lang",
+                    "line": 54,
+                    "short_desc": "\/\/ no te cap funcionalitat, simplement es per les rutes multiidioma",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "id": {
+                    "name": "id",
+                    "line": 54,
+                    "short_desc": "identificador del carrer del qual volem obtindre l'informaci\u00f3",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "edit": {
+            "name": "edit",
+            "line": 72,
+            "short_desc": "M\u00e8tode que ens retorna una vista amb el formulari per a editar l'informaci\u00f3 d'un carrer predeterminat",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Contracts\\View\\Factory",
+                    false
+                ],
+                [
+                    "\\Illuminate\\View\\View",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "lang": {
+                    "name": "lang",
+                    "line": 72,
+                    "short_desc": "\/\/ no te cap funcionalitat, simplement es per les rutes multiidioma",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "id": {
+                    "name": "id",
+                    "line": 72,
+                    "short_desc": "identificador del carrer el qual volem modificar",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "update": {
+            "name": "update",
+            "line": 87,
+            "short_desc": "M\u00e8tode que a partir d'un id actualitza les dades d'un carrer",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Http\\RedirectResponse",
+                    false
+                ],
+                [
+                    "\\Illuminate\\Routing\\Redirector",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 87,
+                    "short_desc": "identificador del carrer que s'actualitzar\u00e0",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "request": {
+                    "name": "request",
+                    "line": 87,
+                    "short_desc": "request HTTP que ve de la vista amb els valors del formulari",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Illuminate\\Http\\Request",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "delete": {
+            "name": "delete",
+            "line": 138,
+            "short_desc": "M\u00e8tode que donat un id elimina un carrer",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\mixed7",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 138,
+                    "short_desc": "identificador del carrer que es vol eliminar",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "afegirFotoForm": {
+            "name": "afegirFotoForm",
+            "line": 158,
+            "short_desc": "M\u00e8tode que ens retorna una vista amb el formulari per a poder afegir fotos per un carrer",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Contracts\\View\\Factory",
+                    false
+                ],
+                [
+                    "\\Illuminate\\View\\View",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "afegirFoto": {
+            "name": "afegirFoto",
+            "line": 174,
+            "short_desc": "M\u00e9tode que ens permet emmagatzemar fotos per a un carrer determinat",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Http\\RedirectResponse",
+                    false
+                ],
+                [
+                    "\\Illuminate\\Routing\\Redirector",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 174,
+                    "short_desc": "HTTP Request que porta tota l'informaci\u00f3 a emmagatzemar",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Illuminate\\Http\\Request",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "carrerfoto": {
+            "name": "carrerfoto",
+            "line": 219,
+            "short_desc": "M\u00e8tode que ens retorna un array amb els identificadors de les 12 fotos mes recents per a un carrer determinat",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ],
+                [
+                    "string",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "lang": {
+                    "name": "lang",
+                    "line": 219,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "id": {
+                    "name": "id",
+                    "line": 219,
+                    "short_desc": "identificador del carrer el cual volem obtindre les seves fotos",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

@@ -1,0 +1,69 @@
+{
+    "name": "App\\Http\\Controllers\\SocialAuthController",
+    "line": 14,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers",
+    "file": ".\/app\\Http\\Controllers\\SocialAuthController.php",
+    "relative_file": null,
+    "hash": "c4191025236f8ca0759b11bd949b2c2131b65082",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Request": "Illuminate\\Http\\Request",
+        "Log": "Log",
+        "Requests": "App\\Http\\Requests",
+        "Controller": "App\\Http\\Controllers\\Controller",
+        "Socialite": "Socialite",
+        "Carrer": "App\\Carrer"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "redirect": {
+            "name": "redirect",
+            "line": 20,
+            "short_desc": "m\u00e8tode que redirigeix al driver de facebook de Socialite per demanar el token de login",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\redirect",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "callback": {
+            "name": "callback",
+            "line": 30,
+            "short_desc": "m\u00e8tode que rep el callback de facebook i recupera l'objecte User per poder publicar",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\redirect",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

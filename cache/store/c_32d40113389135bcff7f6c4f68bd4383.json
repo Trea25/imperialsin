@@ -1,0 +1,436 @@
+{
+    "name": "App\\Http\\Controllers\\NoticiaController",
+    "line": 24,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers",
+    "file": ".\/app\\Http\\Controllers\\NoticiaController.php",
+    "relative_file": null,
+    "hash": "b81bb9c9f97ca106eb274b6a628f93d3ead98e23",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "App": "App",
+        "Carrer": "App\\Carrer",
+        "Foto": "App\\Foto",
+        "Requests": "App\\Http\\Requests",
+        "Noticia": "App\\Noticia",
+        "Utils": "App\\Utils",
+        "DB": "DB",
+        "Request": "Illuminate\\Http\\Request",
+        "Auth": "Illuminate\\Support\\Facades\\Auth",
+        "Response": "Illuminate\\Support\\Facades\\Response",
+        "Image": "Image",
+        "Util": "League\\Flysystem\\Util",
+        "Log": "Log",
+        "Socialite": "Socialite",
+        "Twitter": "Twitter",
+        "Lang": "Lang",
+        "Session": "Session"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "create": {
+            "name": "create",
+            "line": 33,
+            "short_desc": "Metode que ens retorna el formulari per a la creaci\u00f3 d'una nova not\u00edcia",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Contracts\\View\\Factory",
+                    false
+                ],
+                [
+                    "\\Illuminate\\View\\View",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 33,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Illuminate\\Http\\Request",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "llistapen": {
+            "name": "llistapen",
+            "line": 48,
+            "short_desc": "Metode que retorna la llista de noticies pendents",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Contracts\\View\\Factory",
+                    false
+                ],
+                [
+                    "\\Illuminate\\View\\View",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "llista": {
+            "name": "llista",
+            "line": 60,
+            "short_desc": "Metode que retorna el llistat de totes les noticies",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Contracts\\View\\Factory",
+                    false
+                ],
+                [
+                    "\\Illuminate\\View\\View",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "index": {
+            "name": "index",
+            "line": 72,
+            "short_desc": "Metode que ens retorna totes les noticies existents a la base de dades",
+            "long_desc": "",
+            "hint": [
+                [
+                    "mixed",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "show": {
+            "name": "show",
+            "line": 89,
+            "short_desc": "Metode que ens retorna una noticia donat un identificador",
+            "long_desc": "",
+            "hint": [
+                [
+                    "mixed",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [
+                "\"2\" @param tags are expected but only \"1\" found"
+            ],
+            "parameters": {
+                "lang": {
+                    "name": "lang",
+                    "line": 89,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "id": {
+                    "name": "id",
+                    "line": 89,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "update": {
+            "name": "update",
+            "line": 106,
+            "short_desc": "Metode que ens permet actualitzar una noticia donat el seu identificador",
+            "long_desc": "",
+            "hint": [
+                [
+                    "mixed",
+                    false
+                ]
+            ],
+            "hint_desc": "retorna informacio sobre com ha anat el update en format json",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [
+                "\"2\" @param tags are expected but only \"1\" found"
+            ],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 106,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "request": {
+                    "name": "request",
+                    "line": 106,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Illuminate\\Http\\Request",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "store": {
+            "name": "store",
+            "line": 161,
+            "short_desc": "Metode que ens permet crear una nova noticia a la base de dades, i compartirla a facebook i twitter",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Http\\RedirectResponse",
+                    false
+                ],
+                [
+                    "\\Illuminate\\Routing\\Redirector",
+                    false
+                ]
+            ],
+            "hint_desc": "(provisional)",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 161,
+                    "short_desc": "request provinent del formulari d'introduccio de dades per a les noticies",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Illuminate\\Http\\Request",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "destroy": {
+            "name": "destroy",
+            "line": 272,
+            "short_desc": "Metode que ens permet eliminar una noticia donat un identificador",
+            "long_desc": "",
+            "hint": [
+                [
+                    "mixed",
+                    false
+                ]
+            ],
+            "hint_desc": "json amb informacio sobre com ha anat el delete",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 272,
+                    "short_desc": "identificador de la noticia",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "edit": {
+            "name": "edit",
+            "line": 288,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "lang": {
+                    "name": "lang",
+                    "line": 288,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "id": {
+                    "name": "id",
+                    "line": 288,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "noticies": {
+            "name": "noticies",
+            "line": 304,
+            "short_desc": "Metode per obtenir totes les noticies paginades",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\les",
+                    false
+                ]
+            ],
+            "hint_desc": "noticies paginades",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "home": {
+            "name": "home",
+            "line": 326,
+            "short_desc": "M\u00e8tode que ens retona la vista de la pagina principal",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Contracts\\View\\Factory",
+                    false
+                ],
+                [
+                    "\\Illuminate\\View\\View",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "showNoticia": {
+            "name": "showNoticia",
+            "line": 348,
+            "short_desc": "M\u00e8tode que ens retorna la vista per a una noticia amb un identificador concret",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Contracts\\View\\Factory",
+                    false
+                ],
+                [
+                    "\\Illuminate\\View\\View",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "lang": {
+                    "name": "lang",
+                    "line": 348,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "id": {
+                    "name": "id",
+                    "line": 348,
+                    "short_desc": "identificador de la noticia a mostrar",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

@@ -1,0 +1,25 @@
+{
+    "name": "App\\Http\\Middleware\\VerifyCsrfToken",
+    "line": 7,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Middleware",
+    "file": ".\/app\\Http\\Middleware\\VerifyCsrfToken.php",
+    "relative_file": null,
+    "hash": "508c74c801c1e1838e9670dc861e82dcb79b2c5d",
+    "parent": "Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "BaseVerifier": "Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": [],
+    "constants": []
+}

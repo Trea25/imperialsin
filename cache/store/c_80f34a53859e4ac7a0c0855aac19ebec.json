@@ -1,0 +1,405 @@
+{
+    "name": "App\\Http\\Controllers\\EventController",
+    "line": 17,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers",
+    "file": ".\/app\\Http\\Controllers\\EventController.php",
+    "relative_file": null,
+    "hash": "62c39a4c9671c583fd6800a163e9839aadf8eb04",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Carrer": "App\\Carrer",
+        "Event": "App\\Event",
+        "Requests": "App\\Http\\Requests",
+        "TipusEvent": "App\\TipusEvent",
+        "Utils": "App\\Utils",
+        "Carbon": "Carbon\\Carbon",
+        "DB": "DB",
+        "Request": "Illuminate\\Http\\Request",
+        "Response": "Illuminate\\Support\\Facades\\Response",
+        "Log": "Log",
+        "Session": "Session"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "llistapen": {
+            "name": "llistapen",
+            "line": 23,
+            "short_desc": "M\u00e8tode que ens retorna una vista amb tots els events els quals es troben inactius",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Contracts\\View\\Factory",
+                    false
+                ],
+                [
+                    "\\Illuminate\\View\\View",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "llista": {
+            "name": "llista",
+            "line": 35,
+            "short_desc": "M\u00e9tode que ens retorna una vista  tots els events",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Contracts\\View\\Factory",
+                    false
+                ],
+                [
+                    "\\Illuminate\\View\\View",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "index": {
+            "name": "index",
+            "line": 47,
+            "short_desc": "M\u00e8tode que ens retorna tots els events existents en format JSon",
+            "long_desc": "",
+            "hint": [
+                [
+                    "mixed",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "create": {
+            "name": "create",
+            "line": 64,
+            "short_desc": "M\u00e8tode que ens permet emmagatzemar un event en base de dades",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Contracts\\View\\Factory",
+                    false
+                ],
+                [
+                    "\\Illuminate\\View\\View",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 64,
+                    "short_desc": "HTTP Request amb tots els camps a emmagtzemar",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Illuminate\\Http\\Request",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "show": {
+            "name": "show",
+            "line": 80,
+            "short_desc": "M\u00e8tode que ens retorna un event donat el seu identificador en format JSon",
+            "long_desc": "",
+            "hint": [
+                [
+                    "mixed",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "lang": {
+                    "name": "lang",
+                    "line": 80,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "id": {
+                    "name": "id",
+                    "line": 80,
+                    "short_desc": "identificador de l'event que volem obtindre",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "update": {
+            "name": "update",
+            "line": 97,
+            "short_desc": "M\u00e8tode que ens permet actualitzar l'informacio d'un event donat el seu identificador",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Http\\RedirectResponse",
+                    false
+                ],
+                [
+                    "\\Illuminate\\Routing\\Redirector",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 97,
+                    "short_desc": "identificador de l'event",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "request": {
+                    "name": "request",
+                    "line": 97,
+                    "short_desc": "HTTP Request amb tota l'informaci\u00f3 a actualitzar",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Illuminate\\Http\\Request",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "store": {
+            "name": "store",
+            "line": 129,
+            "short_desc": "M\u00e8tode que ens permet emmagatzemar un event",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Http\\RedirectResponse",
+                    false
+                ],
+                [
+                    "\\Illuminate\\Routing\\Redirector",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 129,
+                    "short_desc": "HTTP Request amb tots els camps a emmagatzemar",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Illuminate\\Http\\Request",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "destroy": {
+            "name": "destroy",
+            "line": 168,
+            "short_desc": "M\u00e8tode que ens permet eliminar un event donat un identificador",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 168,
+                    "short_desc": "identificador de l'event a eliminar",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "edit": {
+            "name": "edit",
+            "line": 189,
+            "short_desc": "M\u00e8tode que ens retorna una vista per a actualitzar les dades d'un event donat el seu identificador",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Contracts\\View\\Factory",
+                    false
+                ],
+                [
+                    "\\Illuminate\\View\\View",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "lang": {
+                    "name": "lang",
+                    "line": 189,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "id": {
+                    "name": "id",
+                    "line": 189,
+                    "short_desc": "identificador de l'event a modificar",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "searchmap": {
+            "name": "searchmap",
+            "line": 210,
+            "short_desc": "Retorna la vista d'el buscador d'events",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Contracts\\View\\Factory",
+                    false
+                ],
+                [
+                    "\\Illuminate\\View\\View",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "search": {
+            "name": "search",
+            "line": 222,
+            "short_desc": "M\u00e8tode que ens retorna els event's donats els parametres de b\u00fasqueda (dies, carrers, i tipus d'event)",
+            "long_desc": "",
+            "hint": [
+                [
+                    "mixed",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 222,
+                    "short_desc": "HTTP Request amb els filtres de b\u00fasqueda",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Illuminate\\Http\\Request",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}
