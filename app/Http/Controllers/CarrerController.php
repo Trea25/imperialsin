@@ -175,14 +175,14 @@ class CarrerController extends Controller
     public function afegirFoto(Request $request)
     {
         $this->middleware('auth');
-        $this->validate($request,['foto'=>'required', 'carrer_id'=>'required']);
+        $this->validate($request,['foto'=>'required']);
         $msg = null;
         $file = $request->file('foto');
         if ($file != null && $file != "") {
             $foto = new Foto();
             $foto->fnom = $request->foto;
             $foto->fpic = Utils::editImage($request, null);
-            if ($request->id_carrer == 0) {
+            if ($request->id_carrer == 0 || $request->id_carrer == null || $request->id_carrer == ""){
                 Log::info('Cercant el identificador del usuari loguejat ' . Auth::id());
                 $carrer = DB::table('carrers')->where('user_id', '=', Auth::id())->get();
                 Log::info(DB::getQueryLog());
