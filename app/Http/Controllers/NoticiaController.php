@@ -154,7 +154,7 @@ class NoticiaController extends Controller
     }
 
     /**
-     * Metode que ens permet crear una nova noticia a la base de dades
+     * Metode que ens permet crear una nova noticia a la base de dades, i compartirla a facebook i twitter
      * @param Request $request request provinent del formulari d'introduccio de dades per a les noticies
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector (provisional)
      */
@@ -171,6 +171,7 @@ class NoticiaController extends Controller
         ]);
 
         $titol = $request->ntitol;
+        $body = $request->ndesc;
 
         DB::connection()->enableQueryLog();
         $foto = "";
@@ -228,24 +229,26 @@ class NoticiaController extends Controller
             $msg = 'codes.not_error';
 			DB::rollBack();
         }
-        /*
-                if (isset($request->facebook)) {
-                    //==============Facebook===========
-                    // Directly from the IoC
-                    $fb = App::make('SammyK\LaravelFacebookSdk\LaravelFacebookSdk');
-                    Log::info('Publicacio a Facebook');
-                    if (!$request->session()->has('fb_user')) { // Get FB Credentials
-                        Log::info('Redireccionant al login de FB');
-                        return redirect("/redirect");
-                    }
-                    $Data = [
-                        'message' => $titol,
-                        'link' => 'http://www.google.es',
-                    ];
-                    $fb->post('/feed', $Data, session('fb_user')->token);
-                    Log::info('Publicado en Facebook.Borrando sesion');
-                    // $request->session()->forget('fb_user');
-                }*/
+          //==============Facebook===========
+        if (isset($request->facebook)) {
+            // Directly from the IoC
+            $fb = App::make('SammyK\LaravelFacebookSdk\LaravelFacebookSdk');
+            Log::info('Publicacio a Facebook');
+            if (!$request->session()->has('fb_user')) { // Get FB Credentials
+                Log::info('Redireccionant al login de FB');
+                return redirect("/redirect");
+            }
+           
+            $Data = [
+                'message' => $titol,
+                'link' => App::make('url')->to('/'.App::getLocale().'/noticia/view/'.$noticia->id),
+               // 'picture' => App::make('url')->to('/'.App::getLocale().'/foto/'.$foto->id),
+               //'picture' => 'http://www.umnet.com/pic/diy/screensaver/b2fa3865-ee03.jpg',
+            ];
+            $fb->post('/feed', $Data, session('fb_user')->token);
+            Log::info('Publicado en Facebook.Borrando sesion');
+             $request->session()->forget('fb_user');
+        }
         //============Twitter===========
         if (isset($request->twitter)) {
             Log::info('Publicacio a Twitter');
@@ -256,12 +259,10 @@ class NoticiaController extends Controller
 
         }
         //=============================
-
         Log::info('noticia afegida correctament');
 		Session::flash('response',$msg);
         return redirect("/".session('lang')."/");
     }
-
 
     /**
      * Metode que ens permet eliminar una noticia donat un identificador
